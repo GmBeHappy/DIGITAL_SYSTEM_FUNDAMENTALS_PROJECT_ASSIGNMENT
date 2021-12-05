@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\main.ncd
+OUTFILE=C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\main.bit
+FAMILY=Spartan6
+PART=xc6slx9-3tqg144
+WORKINGDIR=C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment
+LICENSE=WebPack
+USER_INFO=__0_0_0

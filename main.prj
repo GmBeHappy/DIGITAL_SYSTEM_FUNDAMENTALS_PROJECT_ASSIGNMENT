@@ -1,0 +1,3 @@
+vhdl work "testy.vhd"
+vhdl work "inverse.vhd"
+vhdl work "main.vhd"
