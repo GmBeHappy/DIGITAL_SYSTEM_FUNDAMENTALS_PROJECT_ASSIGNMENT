@@ -29,30 +29,30 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity main is
+entity main is --Declare port to use
     port (
-        a, w: in std_logic;
-        b: out std_logic 
+        a, w: in std_logic; -- 2 input port
+        b: out std_logic -- 1 output port
     );
 end main;
 
-architecture Behavioral of main is
-    component testy
+architecture Behavioral of main is -- Declare what this sh*t do
+    component testy -- import testy module
     port (
-        i1, i2: in std_logic;
-        o: out std_logic
+        i1, i2: in std_logic; -- this module has 2 input port
+        o: out std_logic -- and 1 output port
     );
     end component;
-    component inverse
+    component inverse -- import inverse module
     port (
         i: in std_logic;
         o: out std_logic
     );
     end component;
-    signal w1: std_logic;
+    signal w1: std_logic; -- Create wire for connection
 begin
-    IC1: testy port map (i1 => a, i2 => w, o => w1);
-    IC2: inverse port map (i => w1, o => b);
+    IC1: testy port map (i1 => a, i2 => w, o => w1); -- Connect i1 of testy to a of main, i2 of testy to b of main, o of testy to w1 wire
+    IC2: inverse port map (i => w1, o => b); -- Connect i of inverse to w1 wire, o of inverse to b of main
 end Behavioral;
 
 
