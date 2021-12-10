@@ -1,8 +1,8 @@
 #-----------------------------------------------------------
 # PlanAhead v14.7
 # Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
-# Start of session at: Sun Dec 05 20:52:42 2021
-# Process ID: 26944
+# Start of session at: Fri Dec 10 21:19:06 2021
+# Process ID: 11204
 # Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.log
 # Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.jou
 #-----------------------------------------------------------
@@ -13,33 +13,82 @@ Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/r
 Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
 start_gui
 source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHdl.tcl}
-# create_project -name project_assignment -dir "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1" -part xc6slx9tqg144-3
+# create_project -name project_assignment -dir "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_2" -part xc6slx9tqg144-3
 # set_param project.pinAheadLayout yes
 # set srcset [get_property srcset [current_run -impl]]
-# set_property target_constrs_file "main.ucf" [current_fileset -constrset]
-Adding file 'C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/main.ucf' to fileset 'constrs_1'
-# set hdlfile [add_files [list {main.vhd}]]
+# set_property target_constrs_file "ps2_keyboard.ucf" [current_fileset -constrset]
+Adding file 'C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {debounce.vhd}]]
 # set_property file_type VHDL $hdlfile
 # set_property library work $hdlfile
-# set_property top main $srcset
-# add_files [list {main.ucf}] -fileset [get_property constrset [current_run]]
+# set hdlfile [add_files [list {ps2_keyboard.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ps2_keyboard_to_ascii.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set_property top ps2_keyboard_to_ascii $srcset
+# add_files [list {ps2_keyboard.ucf}] -fileset [get_property constrset [current_run]]
 # open_rtl_design -part xc6slx9tqg144-3
-CRITICAL WARNING: [Designutils 20-742] The top module "main" specified for this project can not be validated. The current project is using automatic hierarchy update mode, and hence a new suitable replacement top will be automatically selected. If this is not desired, please change the hierarchy update mode to one of the manual compile order modes first, and then set top to any desired value.
-ERROR: [Designutils 20-730] Could not find a top module in the fileset sources_1.
+Using Verific elaboration
+Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/debounce.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.vhd" into library work
+Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/tqg144/Package.xml
+Loading io standards from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P82, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:7]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P81, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:8]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P80, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:9]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P79, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:10]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P78, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:11]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P75, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:12]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P74, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:13]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc instance 'ps2_keyboard_0/ps2_code' at site P67, Unknown instance type 'RTL_wide_fdrse_8' [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf:14]
+Finished Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.ucf]
+INFO: [Designutils 20-20] Invalid constraints found, use command 'write_ucf -constraints invalid <file>' to save all the invalid constraints to a file
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
 
-    while executing
-"open_rtl_design -part xc6slx9tqg144-3"
-    (file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHdl.tcl" line 13)
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
+Phase 0 | Netlist Checksum: a5eba3d5
+open_rtl_design: Time (s): elapsed = 00:00:11 . Memory (MB): peak = 530.906 ; gain = 97.016
 update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P82 [get_ports {ascii_code[0]}]
+endgroup
+startgroup
+set_property package_pin P81 [get_ports {ascii_code[1]}]
+endgroup
+startgroup
+set_property package_pin P80 [get_ports {ascii_code[2]}]
+endgroup
+startgroup
+set_property package_pin P79 [get_ports {ascii_code[3]}]
+endgroup
+startgroup
+set_property package_pin P78 [get_ports {ascii_code[4]}]
+endgroup
+startgroup
+set_property package_pin P75 [get_ports {ascii_code[5]}]
+endgroup
+startgroup
+set_property package_pin P74 [get_ports {ascii_code[6]}]
+endgroup
+save_constraints
 exit
 ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
-HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
-HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
-HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
 HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
- (See C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment\planAhead_pid26944.debug)
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+ (See C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment\planAhead_pid11204.debug)
 ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
-INFO: [Common 17-206] Exiting PlanAhead at Sun Dec 05 20:57:31 2021...
+INFO: [Common 17-206] Exiting PlanAhead at Fri Dec 10 22:17:44 2021...
 INFO: [Common 17-83] Releasing license: PlanAhead

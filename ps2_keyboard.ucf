@@ -1,0 +1,15 @@
+
+
+NET "ps2_data" LOC = P7;
+NET "ps2_clk" LOC = P5;
+NET "clk" LOC = P123;
+
+# PlanAhead Generated physical constraints 
+
+NET "ascii_code[0]" LOC = P82;
+NET "ascii_code[1]" LOC = P81;
+NET "ascii_code[2]" LOC = P80;
+NET "ascii_code[3]" LOC = P79;
+NET "ascii_code[4]" LOC = P78;
+NET "ascii_code[5]" LOC = P75;
+NET "ascii_code[6]" LOC = P74;

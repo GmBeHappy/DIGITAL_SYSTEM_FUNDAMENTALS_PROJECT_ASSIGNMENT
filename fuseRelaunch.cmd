@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/testps2_isim_beh.exe" -prj "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/testps2_beh.prj" "work.testps2" 
