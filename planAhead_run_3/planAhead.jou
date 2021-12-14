@@ -1,90 +1,11 @@
 #-----------------------------------------------------------
 # PlanAhead v14.7
 # Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
-# Start of session at: Fri Dec 10 22:17:36 2021
-# Process ID: 13504
+# Start of session at: Tue Dec 14 15:56:41 2021
+# Process ID: 20768
 # Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_3/planAhead.log
 # Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_3/planAhead.jou
 #-----------------------------------------------------------
 start_gui
 source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHdl.tcl}
-update_compile_order -fileset sim_1
-startgroup
-set_property package_pin P121 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P120 [get_ports lcd_rw]
-endgroup
-startgroup
-set_property package_pin P112 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P112 [get_ports lcd_rs]
-endgroup
-set_property package_pin "" [get_ports [list  lcd_rs]]
-startgroup
-set_property package_pin P102 [get_ports lcd_rw]
-endgroup
-set_property package_pin "" [get_ports [list  lcd_rst]]
-set_property is_loc_fixed false [get_ports [list  lcd_rw]]
-set_property package_pin "" [get_ports [list  lcd_rw]]
-startgroup
-set_property package_pin P102 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P104 [get_ports lcd_rw]
-endgroup
-startgroup
-set_property package_pin P102 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P105 [get_ports lcd_e]
-endgroup
-set_property is_loc_fixed false [get_ports [list  lcd_e]]
-set_property is_loc_fixed true [get_ports [list  lcd_e]]
-startgroup
-set_property package_pin P111 [get_ports {lcd_data[0]}]
-endgroup
-startgroup
-set_property package_pin P112 [get_ports {lcd_data[1]}]
-endgroup
-startgroup
-set_property package_pin P114 [get_ports {lcd_data[2]}]
-endgroup
-startgroup
-set_property package_pin P115 [get_ports {lcd_data[3]}]
-endgroup
-set_property package_pin "" [get_ports [list  {lcd_data[5]}]]
-startgroup
-set_property package_pin P116 [get_ports {lcd_data[4]}]
-endgroup
-startgroup
-set_property package_pin P117 [get_ports {lcd_data[5]}]
-endgroup
-startgroup
-set_property package_pin P118 [get_ports {lcd_data[6]}]
-endgroup
-startgroup
-set_property package_pin P119 [get_ports {lcd_data[7]}]
-endgroup
-set_property is_loc_fixed false [get_ports [list  {lcd_data[7]}]]
-set_property is_loc_fixed true [get_ports [list  {lcd_data[7]}]]
-save_constraints
-startgroup
-set_property package_pin P5 [get_ports ps2_clk]
-endgroup
-startgroup
-set_property package_pin P7 [get_ports ps2_data]
-endgroup
-startgroup
-set_property package_pin P123 [get_ports clk]
-endgroup
-startgroup
-set_property package_pin P45 [get_ports lcd_rst]
-endgroup
-set_property is_loc_fixed false [get_ports [list  lcd_rst]]
-save_constraints -force
-set_property is_loc_fixed true [get_ports [list  lcd_rst]]
-save_constraints -force
-update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1

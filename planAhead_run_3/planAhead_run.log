@@ -15,7 +15,16 @@ source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHd
 # set srcset [get_property srcset [current_run -impl]]
 # set_property target_constrs_file "lcd_ex1.ucf" [current_fileset -constrset]
 Adding file 'C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {debounce.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ps2_keyboard.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
 # set hdlfile [add_files [list {divider.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ps2_keyboard_to_ascii.vhd}]]
 # set_property file_type VHDL $hdlfile
 # set_property library work $hdlfile
 # set hdlfile [add_files [list {message_rom.vhd}]]
@@ -33,9 +42,13 @@ Adding file 'C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_
 Using Verific elaboration
 Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
 Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/debounce.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/divider.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/message_rom.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_control.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.vhd" into library work
-WARNING: [HDL 9-806] Syntax error near "component". [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.vhd:63]
-WARNING: [HDL 9-806] Syntax error near ";". [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.vhd:70]
 Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
 Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
 Loading package pin functions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
@@ -48,85 +61,10 @@ Finished Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_a
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Phase 0 | Netlist Checksum: 20b97824
-open_rtl_design: Time (s): elapsed = 00:00:09 . Memory (MB): peak = 527.875 ; gain = 94.508
+Phase 0 | Netlist Checksum: 24d3be6a
+open_rtl_design: Time (s): elapsed = 00:00:10 . Memory (MB): peak = 545.461 ; gain = 111.453
 update_compile_order -fileset sim_1
-startgroup
-set_property package_pin P121 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P120 [get_ports lcd_rw]
-endgroup
-startgroup
-set_property package_pin P112 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P112 [get_ports lcd_rs]
-endgroup
-set_property package_pin "" [get_ports [list  lcd_rs]]
-startgroup
-set_property package_pin P102 [get_ports lcd_rw]
-endgroup
-set_property package_pin "" [get_ports [list  lcd_rst]]
-set_property is_loc_fixed false [get_ports [list  lcd_rw]]
-set_property package_pin "" [get_ports [list  lcd_rw]]
-startgroup
-set_property package_pin P102 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P104 [get_ports lcd_rw]
-endgroup
-startgroup
-set_property package_pin P102 [get_ports lcd_rs]
-endgroup
-startgroup
-set_property package_pin P105 [get_ports lcd_e]
-endgroup
-set_property is_loc_fixed false [get_ports [list  lcd_e]]
-set_property is_loc_fixed true [get_ports [list  lcd_e]]
-startgroup
-set_property package_pin P111 [get_ports {lcd_data[0]}]
-endgroup
-startgroup
-set_property package_pin P112 [get_ports {lcd_data[1]}]
-endgroup
-startgroup
-set_property package_pin P114 [get_ports {lcd_data[2]}]
-endgroup
-startgroup
-set_property package_pin P115 [get_ports {lcd_data[3]}]
-endgroup
-set_property package_pin "" [get_ports [list  {lcd_data[5]}]]
-startgroup
-set_property package_pin P116 [get_ports {lcd_data[4]}]
-endgroup
-startgroup
-set_property package_pin P117 [get_ports {lcd_data[5]}]
-endgroup
-startgroup
-set_property package_pin P118 [get_ports {lcd_data[6]}]
-endgroup
-startgroup
-set_property package_pin P119 [get_ports {lcd_data[7]}]
-endgroup
-set_property is_loc_fixed false [get_ports [list  {lcd_data[7]}]]
-set_property is_loc_fixed true [get_ports [list  {lcd_data[7]}]]
-save_constraints
-startgroup
-set_property package_pin P5 [get_ports ps2_clk]
-endgroup
-startgroup
-set_property package_pin P7 [get_ports ps2_data]
-endgroup
-startgroup
-set_property package_pin P123 [get_ports clk]
-endgroup
-startgroup
-set_property package_pin P45 [get_ports lcd_rst]
-endgroup
-set_property is_loc_fixed false [get_ports [list  lcd_rst]]
-save_constraints -force
-set_property is_loc_fixed true [get_ports [list  lcd_rst]]
-save_constraints -force
-update_compile_order -fileset sources_1
-update_compile_order -fileset sim_1
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Tue Dec 14 15:57:43 2021...
+INFO: [Common 17-83] Releasing license: PlanAhead

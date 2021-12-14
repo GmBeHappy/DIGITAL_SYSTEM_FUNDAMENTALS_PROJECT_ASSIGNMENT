@@ -1,7 +1,0 @@
-xst -intstyle ise -ifn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.xst" -ofn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ps2_keyboard.ucf -p xc6slx9-tqg144-3 "ps2_keyboard_to_ascii.ngc" ps2_keyboard_to_ascii.ngd  
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ps2_keyboard.ucf -p xc6slx9-tqg144-3 "ps2_keyboard_to_ascii.ngc" ps2_keyboard_to_ascii.ngd  
-map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ps2_keyboard_to_ascii_map.ncd ps2_keyboard_to_ascii.ngd ps2_keyboard_to_ascii.pcf 
-par -w -intstyle ise -ol high -mt off ps2_keyboard_to_ascii_map.ncd ps2_keyboard_to_ascii.ncd ps2_keyboard_to_ascii.pcf 
-trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ps2_keyboard_to_ascii.twx ps2_keyboard_to_ascii.ncd -o ps2_keyboard_to_ascii.twr ps2_keyboard_to_ascii.pcf -ucf ps2_keyboard.ucf 
-bitgen -intstyle ise -f ps2_keyboard_to_ascii.ut ps2_keyboard_to_ascii.ncd 

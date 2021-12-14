@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Tue Dec 14 16:17:35 2021
+# Process ID: 12424
+# Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_4/planAhead.log
+# Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_4/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHdl.tcl}
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P81 [get_ports debug]
+endgroup
+set_property is_loc_fixed false [get_ports [list  debug]]
+set_property package_pin "" [get_ports [list  debug]]
+startgroup
+set_property package_pin P82 [get_ports {debug_data[0]}]
+endgroup
+startgroup
+set_property package_pin P81 [get_ports {debug_data[1]}]
+endgroup
+startgroup
+set_property package_pin P80 [get_ports {debug_data[2]}]
+endgroup
+startgroup
+set_property package_pin P79 [get_ports {debug_data[3]}]
+endgroup
+startgroup
+set_property package_pin P78 [get_ports {debug_data[4]}]
+endgroup
+startgroup
+set_property package_pin P75 [get_ports {debug_data[5]}]
+endgroup
+startgroup
+set_property package_pin P74 [get_ports {debug_data[6]}]
+endgroup
+startgroup
+set_property package_pin P67 [get_ports {debug_data[7]}]
+endgroup
+set_property is_loc_fixed false [get_ports [list  {debug_data[7]}]]
+set_property is_loc_fixed true [get_ports [list  {debug_data[7]}]]
+save_constraints

@@ -6,11 +6,13 @@ entity lcd_control is
 port ( clk : in std_logic;   ----clock i/p
 	 lcd_rst: in std_logic; 	  ---- Reset i/p
 	 data_in : in std_logic_vector(7 downto 0);  ---data input 
+	 refresh : in std_logic;
 	 address : out integer range 0 to 31; -- address 
     lcd_rw : out std_logic;   ---read&write control
     lcd_e  : out std_logic;   ----enable control
     lcd_rs : out std_logic;   ----data or command control
-    lcd_data   : out std_logic_vector(7 downto 0)  ---data line
+    lcd_data   : out std_logic_vector(7 downto 0);  ---data line
+	debug : out std_logic
 	 );
 end lcd_control;
 
@@ -21,13 +23,12 @@ architecture Behavioral of lcd_control is
 									 X"0c",  --Display On, cursor off
 									 X"06",	--shift display right
 									 X"01"	--Clear display screen
-									 ); --command and data to display                 
-
+									 ); --command and data to display    
  	signal clk5k : std_logic := '0';
 	type state_type is(initial_lcd,set_cursor,lcd_print);
 	signal state : state_type := initial_lcd ;
 	signal e : std_logic := '0';
-	
+	signal re : std_logic := '0';
 begin
 
 DIVIDER1 : entity work.DIVIDER
@@ -38,12 +39,12 @@ DIVIDER1 : entity work.DIVIDER
          Q => clk5k 
 			);
 
-	lcd_rw <= '0'; ----lcd write	
+	lcd_rw <= '0'; ----lcd write
 	process(clk5k)
 		variable j : integer := 1;
  
 	begin
-		if clk5k'event and clk5k = '1' then
+		if clk5k'event and clk5k = '1' and refresh = '1' then
 			if lcd_rst='1' then
 				state <= initial_lcd;
 				e <= '0';
@@ -85,9 +86,13 @@ DIVIDER1 : entity work.DIVIDER
 							state <= set_cursor;
 							
 						end if;								
-				end case;		
-			end if;
+				end case;				
+				--if (refresh'event and refresh ='1' ) THEN		
+				--	state <= initial_lcd;
+				--end if;
+			end if;			
 		end if;
+
 	end process;
 	lcd_e <= e;
 end Behavioral; 

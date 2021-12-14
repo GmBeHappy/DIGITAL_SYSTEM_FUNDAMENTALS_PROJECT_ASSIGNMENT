@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.18 secs
  
 --> Reading design: lcd_ex1.prj
 
@@ -138,6 +138,7 @@ Elaborating entity <message_rom> (architecture <rom32x8_beh>) from library <work
 Elaborating entity <lcd_control> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <DIVIDER> (architecture <RTL>) with generics from library <work>.
+WARNING:HDLCompiler:92 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_control.vhd" Line 47: refresh should be on the sensitivity list of the process
 
 Elaborating entity <ps2_keyboard_to_ascii> (architecture <behavior>) with generics from library <work>.
 
@@ -151,6 +152,7 @@ Elaborating entity <debounce> (architecture <logic>) with generics from library 
 
 Synthesizing Unit <lcd_ex1>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_ex1.vhd".
+INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_ex1.vhd" line 57: Output port <debug> of the instance <lcd_control> is unconnected or connected to loadless signal.
     Found 5-bit register for signal <addr_q>.
     Summary:
 	inferred   5 D-type flip-flop(s).
@@ -158,20 +160,25 @@ Unit <lcd_ex1> synthesized.
 
 Synthesizing Unit <message_rom>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\message_rom.vhd".
+WARNING:Xst:2935 - Signal 'debug_data', unconnected in block 'message_rom', is tied to its initial value (00000000).
     Found 32-bit register for signal <pointer>.
     Found 8-bit register for signal <D>.
-    Found 32-bit adder for signal <pointer[31]_GND_5_o_add_6_OUT> created at line 32.
-    Found 32-bit subtractor for signal <pointer[31]_GND_5_o_sub_5_OUT<31:0>> created at line 29.
+    Found 32-bit adder for signal <pointer[31]_GND_5_o_add_10_OUT> created at line 40.
+    Found 32-bit subtractor for signal <pointer[31]_GND_5_o_sub_5_OUT<31:0>> created at line 33.
     Found 32x8-bit dual-port RAM <Mram_rom> for signal <rom>.
+    Found 32-bit comparator greater for signal <pointer[31]_GND_5_o_LessThan_4_o> created at line 32
+    Found 32-bit comparator greater for signal <GND_5_o_pointer[31]_LessThan_9_o> created at line 36
     Summary:
 	inferred   1 RAM(s).
-	inferred   1 Adder/Subtractor(s).
+	inferred   2 Adder/Subtractor(s).
 	inferred  40 D-type flip-flop(s).
-	inferred   1 Multiplexer(s).
+	inferred   2 Comparator(s).
+	inferred   3 Multiplexer(s).
 Unit <message_rom> synthesized.
 
 Synthesizing Unit <lcd_control>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_control.vhd".
+WARNING:Xst:653 - Signal <debug> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 1-bit register for signal <e>.
     Found 1-bit register for signal <lcd_rs>.
     Found 8-bit register for signal <lcd_data>.
@@ -181,22 +188,22 @@ Synthesizing Unit <lcd_control>.
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
-    | Transitions        | 6                                              |
-    | Inputs             | 3                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 4                                              |
     | Outputs            | 2                                              |
     | Clock              | clk5k (rising_edge)                            |
-    | Reset              | lcd_rst (positive)                             |
+    | Reset              | _n0075 (positive)                              |
     | Reset type         | synchronous                                    |
     | Reset State        | initial_lcd                                    |
     | Power Up State     | initial_lcd                                    |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 32-bit adder for signal <j[31]_GND_6_o_add_9_OUT> created at line 82.
+    Found 32-bit adder for signal <j[31]_GND_6_o_add_9_OUT> created at line 83.
     Found 8x8-bit Read Only RAM for signal <j[2]_X_6_o_wide_mux_0_OUT>
-    Found 8-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_15_OUT> created at line 51.
-    Found 32-bit comparator greater for signal <j[31]_GND_6_o_LessThan_5_o> created at line 61
-    Found 32-bit comparator greater for signal <j[31]_GND_6_o_LessThan_14_o> created at line 84
+    Found 8-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_15_OUT> created at line 52.
+    Found 32-bit comparator greater for signal <j[31]_GND_6_o_LessThan_5_o> created at line 62
+    Found 32-bit comparator greater for signal <j[31]_GND_6_o_LessThan_14_o> created at line 85
     Summary:
 	inferred   1 RAM(s).
 	inferred   1 Adder/Subtractor(s).
@@ -287,11 +294,12 @@ Macro Statistics
 # RAMs                                                 : 2
  32x8-bit dual-port RAM                                : 1
  8x8-bit single-port Read Only RAM                     : 1
-# Adders/Subtractors                                   : 6
+# Adders/Subtractors                                   : 7
  12-bit adder                                          : 1
  13-bit adder                                          : 1
  32-bit adder                                          : 1
  32-bit addsub                                         : 1
+ 32-bit subtractor                                     : 1
  9-bit adder                                           : 2
 # Registers                                            : 32
  1-bit register                                        : 15
@@ -303,12 +311,13 @@ Macro Statistics
  5-bit register                                        : 2
  8-bit register                                        : 5
  9-bit register                                        : 2
-# Comparators                                          : 3
+# Comparators                                          : 5
  13-bit comparator greater                             : 1
- 32-bit comparator greater                             : 2
-# Multiplexers                                         : 35
+ 32-bit comparator greater                             : 4
+# Multiplexers                                         : 37
  1-bit 2-to-1 multiplexer                              : 2
  32-bit 2-to-1 multiplexer                             : 3
+ 5-bit 2-to-1 multiplexer                              : 2
  8-bit 2-to-1 multiplexer                              : 29
  8-bit 3-to-1 multiplexer                              : 1
 # FSMs                                                 : 2
@@ -355,8 +364,8 @@ INFO:Xst:3231 - The small RAM <Mram_rom> will be implemented on LUTs in order to
     |     aspect ratio   | 32-word x 8-bit                     |          |
     |     clkA           | connected to signal <newAscii>      | rise     |
     |     weA            | connected to internal node          | high     |
-    |     addrA          | connected to signal <pointer>       |          |
-    |     diA            | connected to signal <_n0023>        |          |
+    |     addrA          | connected to signal <_n0045>        |          |
+    |     diA            | connected to signal <_n0043>        |          |
     -----------------------------------------------------------------------
     | Port B                                                              |
     |     aspect ratio   | 32-word x 8-bit                     |          |
@@ -376,8 +385,9 @@ Macro Statistics
 # RAMs                                                 : 2
  32x8-bit dual-port distributed RAM                    : 1
  8x8-bit single-port distributed Read Only RAM         : 1
-# Adders/Subtractors                                   : 1
+# Adders/Subtractors                                   : 2
  32-bit adder                                          : 1
+ 5-bit subtractor                                      : 1
 # Counters                                             : 5
  12-bit up counter                                     : 1
  13-bit up counter                                     : 1
@@ -385,12 +395,13 @@ Macro Statistics
  9-bit up counter                                      : 2
 # Registers                                            : 114
  Flip-Flops                                            : 114
-# Comparators                                          : 3
+# Comparators                                          : 5
  13-bit comparator greater                             : 1
- 32-bit comparator greater                             : 2
-# Multiplexers                                         : 35
+ 32-bit comparator greater                             : 4
+# Multiplexers                                         : 37
  1-bit 2-to-1 multiplexer                              : 2
  32-bit 2-to-1 multiplexer                             : 3
+ 5-bit 2-to-1 multiplexer                              : 2
  8-bit 2-to-1 multiplexer                              : 29
  8-bit 3-to-1 multiplexer                              : 1
 # FSMs                                                 : 2
@@ -422,33 +433,6 @@ Optimizing FSM <ps2_keyboard_to_ascii/FSM_1> on signal <state[1:2]> with user en
  translate | 10
  output    | 11
 -----------------------
-WARNING:Xst:2677 - Node <pointer_5> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_6> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_7> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_8> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_9> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_10> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_11> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_12> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_13> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_14> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_15> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_16> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_17> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_18> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_19> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_20> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_21> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_22> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_23> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_24> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_25> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_26> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_27> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_28> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_29> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_30> of sequential type is unconnected in block <message_rom>.
-WARNING:Xst:2677 - Node <pointer_31> of sequential type is unconnected in block <message_rom>.
 
 Optimizing unit <lcd_ex1> ...
 
@@ -488,19 +472,17 @@ WARNING:Xst:1293 - FF/Latch <lcd_control/j_28> has a constant value of 0 in bloc
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_29> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_30> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_31> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <lcd_control/address_4> (without init value) has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ps2_keyboard_to_ascii/ascii_code_7> (without init value) has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <addr_q_4> (without init value) has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block lcd_ex1, actual ratio is 6.
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_0 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_2 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_3 has been replicated 3 time(s)
+Found area constraint ratio of 100 (+ 5) on block lcd_ex1, actual ratio is 7.
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_0 has been replicated 2 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1 has been replicated 2 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_2 has been replicated 2 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_3 has been replicated 2 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_4 has been replicated 2 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_5 has been replicated 3 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_5 has been replicated 2 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_6 has been replicated 3 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7 has been replicated 2 time(s)
 
@@ -515,8 +497,8 @@ Unit <lcd_ex1> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 154
- Flip-Flops                                            : 154
+# Registers                                            : 178
+ Flip-Flops                                            : 178
 # Shift Registers                                      : 2
  2-bit shift register                                  : 2
 
@@ -541,36 +523,36 @@ Top Level Output File Name         : lcd_ex1.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 434
+# BELS                             : 551
 #      GND                         : 1
-#      INV                         : 14
-#      LUT1                        : 44
-#      LUT2                        : 19
-#      LUT3                        : 36
-#      LUT4                        : 24
-#      LUT5                        : 47
-#      LUT6                        : 119
-#      MUXCY                       : 64
-#      MUXF7                       : 11
+#      INV                         : 13
+#      LUT1                        : 45
+#      LUT2                        : 39
+#      LUT3                        : 34
+#      LUT4                        : 32
+#      LUT5                        : 67
+#      LUT6                        : 123
+#      MUXCY                       : 106
+#      MUXF7                       : 9
 #      VCC                         : 1
-#      XORCY                       : 54
-# FlipFlops/Latches                : 156
-#      FD                          : 23
+#      XORCY                       : 81
+# FlipFlops/Latches                : 180
+#      FD                          : 19
 #      FD_1                        : 11
-#      FDE                         : 76
-#      FDR                         : 16
-#      FDRE                        : 30
+#      FDE                         : 104
+#      FDR                         : 15
+#      FDRE                        : 31
 # RAMS                             : 3
 #      RAM32M                      : 1
 #      RAM32X1D                    : 2
 # Shift Registers                  : 2
 #      SRLC16E                     : 2
-# Clock Buffers                    : 2
-#      BUFG                        : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 2
 #      BUFGP                       : 1
-# IO Buffers                       : 14
+# IO Buffers                       : 22
 #      IBUF                        : 3
-#      OBUF                        : 11
+#      OBUF                        : 19
 
 Device utilization summary:
 ---------------------------
@@ -579,26 +561,26 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             156  out of  11440     1%  
- Number of Slice LUTs:                  313  out of   5720     5%  
-    Number used as Logic:               303  out of   5720     5%  
+ Number of Slice Registers:             180  out of  11440     1%  
+ Number of Slice LUTs:                  363  out of   5720     6%  
+    Number used as Logic:               353  out of   5720     6%  
     Number used as Memory:               10  out of   1440     0%  
        Number used as RAM:                8
        Number used as SRL:                2
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    375
-   Number with an unused Flip Flop:     219  out of    375    58%  
-   Number with an unused LUT:            62  out of    375    16%  
-   Number of fully used LUT-FF pairs:    94  out of    375    25%  
-   Number of unique control sets:        25
+ Number of LUT Flip Flop pairs used:    420
+   Number with an unused Flip Flop:     240  out of    420    57%  
+   Number with an unused LUT:            57  out of    420    13%  
+   Number of fully used LUT-FF pairs:   123  out of    420    29%  
+   Number of unique control sets:        26
 
 IO Utilization: 
- Number of IOs:                          15
- Number of bonded IOBs:                  15  out of    102    14%  
+ Number of IOs:                          24
+ Number of bonded IOBs:                  23  out of    102    22%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
 
 ---------------------------
 Partition Resource Summary:
@@ -621,9 +603,9 @@ Clock Information:
 ------------------------------------------------------------+-------------------------------------------------------+-------+
 Clock Signal                                                | Clock buffer(FF name)                                 | Load  |
 ------------------------------------------------------------+-------------------------------------------------------+-------+
-clk                                                         | BUFGP                                                 | 121   |
-ps2_keyboard_to_ascii/ascii_new                             | NONE(message_rom/pointer_4)                           | 8     |
-lcd_control/DIVIDER1/qs                                     | BUFG                                                  | 21    |
+clk                                                         | BUFGP                                                 | 117   |
+ps2_keyboard_to_ascii/ascii_new                             | BUFG                                                  | 35    |
+lcd_control/DIVIDER1/qs                                     | BUFG                                                  | 22    |
 ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result| NONE(ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_10)| 11    |
 ------------------------------------------------------------+-------------------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -636,8 +618,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.181ns (Maximum Frequency: 161.798MHz)
-   Minimum input arrival time before clock: 3.421ns
+   Minimum period: 6.545ns (Maximum Frequency: 152.779MHz)
+   Minimum input arrival time before clock: 3.459ns
    Maximum output required time after clock: 4.210ns
    Maximum combinational path delay: No path found
 
@@ -647,64 +629,68 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ascii_new'
-  Clock period: 1.949ns (frequency: 513.202MHz)
-  Total number of paths / destination ports: 40 / 20
+  Clock period: 5.896ns (frequency: 169.593MHz)
+  Total number of paths / destination ports: 24265 / 84
 -------------------------------------------------------------------------
-Delay:               1.949ns (Levels of Logic = 6)
-  Source:            message_rom/pointer_0 (FF)
-  Destination:       message_rom/pointer_4 (FF)
+Delay:               5.896ns (Levels of Logic = 10)
+  Source:            message_rom/pointer_4 (FF)
+  Destination:       message_rom/pointer_31 (FF)
   Source Clock:      ps2_keyboard_to_ascii/ascii_new rising
   Destination Clock: ps2_keyboard_to_ascii/ascii_new rising
 
-  Data Path: message_rom/pointer_0 to message_rom/pointer_4
+  Data Path: message_rom/pointer_4 to message_rom/pointer_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               4   0.447   0.788  message_rom/pointer_0 (message_rom/pointer_0)
-     LUT2:I0->O            1   0.203   0.000  message_rom/Mcount_pointer_lut<0> (message_rom/Mcount_pointer_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  message_rom/Mcount_pointer_cy<0> (message_rom/Mcount_pointer_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  message_rom/Mcount_pointer_cy<1> (message_rom/Mcount_pointer_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  message_rom/Mcount_pointer_cy<2> (message_rom/Mcount_pointer_cy<2>)
-     MUXCY:CI->O           0   0.019   0.000  message_rom/Mcount_pointer_cy<3> (message_rom/Mcount_pointer_cy<3>)
-     XORCY:CI->O           1   0.180   0.000  message_rom/Mcount_pointer_xor<4> (message_rom/Result<4>)
-     FD:D                      0.102          message_rom/pointer_4
+     FDE:C->Q              4   0.447   1.028  message_rom/pointer_4 (message_rom/pointer_4)
+     LUT5:I0->O            1   0.203   0.000  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_lut<0> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<0> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<1> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<2> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<3> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<4> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<5> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<5>)
+     MUXCY:CI->O          20   0.213   1.093  message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<6> (message_rom/Mcompar_pointer[31]_GND_5_o_LessThan_4_o_cy<6>)
+     LUT6:I5->O            1   0.205   0.580  message_rom/GND_5_o_pointer[31]_AND_1_o_1 (message_rom/GND_5_o_pointer[31]_AND_1_o)
+     LUT2:I1->O           35   0.205   1.334  message_rom/_n0041_inv1 (message_rom/_n0041_inv)
+     FDE:CE                    0.322          message_rom/pointer_0
     ----------------------------------------
-    Total                      1.949ns (1.161ns logic, 0.788ns route)
-                                       (59.6% logic, 40.4% route)
+    Total                      5.896ns (1.862ns logic, 4.034ns route)
+                                       (31.6% logic, 68.4% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.181ns (frequency: 161.798MHz)
-  Total number of paths / destination ports: 4386 / 208
+  Clock period: 6.545ns (frequency: 152.779MHz)
+  Total number of paths / destination ports: 4531 / 203
 -------------------------------------------------------------------------
-Delay:               6.181ns (Levels of Logic = 6)
-  Source:            ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1_1 (FF)
-  Destination:       ps2_keyboard_to_ascii/ascii_2 (FF)
+Delay:               6.545ns (Levels of Logic = 6)
+  Source:            ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 (FF)
+  Destination:       ps2_keyboard_to_ascii/ascii_1 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1_1 to ps2_keyboard_to_ascii/ascii_2
+  Data Path: ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 to ps2_keyboard_to_ascii/ascii_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              3   0.447   0.879  ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1_1 (ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1_1)
-     LUT3:I0->O           17   0.205   1.028  ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>21 (ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>2)
-     LUT6:I5->O            4   0.205   0.684  ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_21_o<7>1 (ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_21_o)
-     LUT6:I5->O            3   0.205   0.651  ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<5>311 (ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<5>31)
-     LUT6:I5->O            1   0.205   0.580  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT99 (ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT98)
-     LUT6:I5->O            1   0.205   0.580  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT912_SW0 (N15)
-     LUT6:I5->O            1   0.205   0.000  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT913 (ps2_keyboard_to_ascii/state[1]_ascii[7]_wide_mux_136_OUT<2>)
-     FDE:D                     0.102          ps2_keyboard_to_ascii/ascii_2
+     FDE:C->Q              2   0.447   0.845  ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 (ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1)
+     LUT3:I0->O           16   0.205   1.005  ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>21 (ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>2)
+     LUT5:I4->O            4   0.205   0.684  ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_111_o<7>11 (ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_111_o<7>1)
+     LUT5:I4->O            1   0.205   0.580  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT151111_SW0 (N48)
+     LUT6:I5->O            3   0.205   0.651  ps2_keyboard_to_ascii/out311 (ps2_keyboard_to_ascii/out31)
+     LUT6:I5->O            7   0.205   1.002  ps2_keyboard_to_ascii/out31 (ps2_keyboard_to_ascii/n0100)
+     LUT6:I3->O            1   0.205   0.000  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT618 (ps2_keyboard_to_ascii/state[1]_ascii[7]_wide_mux_136_OUT<1>)
+     FDE:D                     0.102          ps2_keyboard_to_ascii/ascii_1
     ----------------------------------------
-    Total                      6.181ns (1.779ns logic, 4.402ns route)
-                                       (28.8% logic, 71.2% route)
+    Total                      6.545ns (1.779ns logic, 4.766ns route)
+                                       (27.2% logic, 72.8% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'lcd_control/DIVIDER1/qs'
-  Clock period: 4.454ns (frequency: 224.505MHz)
-  Total number of paths / destination ports: 170 / 25
+  Clock period: 4.803ns (frequency: 208.192MHz)
+  Total number of paths / destination ports: 185 / 27
 -------------------------------------------------------------------------
-Delay:               4.454ns (Levels of Logic = 13)
+Delay:               4.803ns (Levels of Logic = 14)
   Source:            lcd_control/j_1 (FF)
   Destination:       lcd_control/state_FSM_FFd2 (FF)
   Source Clock:      lcd_control/DIVIDER1/qs rising
@@ -717,21 +703,22 @@ Delay:               4.454ns (Levels of Logic = 13)
      FDE:C->Q              9   0.447   0.830  lcd_control/j_1 (lcd_control/j_1)
      LUT1:I0->O            1   0.205   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1>_rt (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1>_rt)
      MUXCY:S->O            1   0.172   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1> (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1>)
-     XORCY:CI->O           2   0.180   0.721  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_xor<2> (lcd_control/j[31]_GND_6_o_add_9_OUT<2>)
-     LUT3:I1->O            2   0.203   0.845  lcd_control/Mmux_j[31]_j[31]_mux_12_OUT231 (lcd_control/j[31]_j[31]_mux_12_OUT<2>)
-     LUT5:I2->O            1   0.205   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_lut<0> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<0> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<1> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<2> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<3> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<4> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<5> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<5>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<6> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<6>)
-     MUXCY:CI->O           1   0.258   0.000  lcd_control/state_FSM_FFd2-In1_cy (lcd_control/state_FSM_FFd2-In)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<2> (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<3> (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<3>)
+     XORCY:CI->O           3   0.180   0.898  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_xor<4> (lcd_control/j[31]_GND_6_o_add_9_OUT<4>)
+     LUT4:I0->O            1   0.203   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_lut<0>1 (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<0> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<1> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<2> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<3> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<4> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<4>)
+     MUXCY:CI->O           2   0.019   0.845  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<5> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<5>)
+     LUT4:I1->O            1   0.205   0.000  lcd_control/state_FSM_FFd2-In1_cy1_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_lut (lcd_control/state_FSM_FFd2-In1_cy1_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_lut)
+     MUXCY:S->O            1   0.411   0.000  lcd_control/state_FSM_FFd2-In1_cy1_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy (lcd_control/state_FSM_FFd2-In)
      FDR:D                     0.102          lcd_control/state_FSM_FFd2
     ----------------------------------------
-    Total                      4.454ns (2.058ns logic, 2.396ns route)
-                                       (46.2% logic, 53.8% route)
+    Total                      4.803ns (2.230ns logic, 2.573ns route)
+                                       (46.4% logic, 53.6% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result'
@@ -756,9 +743,9 @@ Delay:               1.293ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'lcd_control/DIVIDER1/qs'
-  Total number of paths / destination ports: 21 / 21
+  Total number of paths / destination ports: 22 / 22
 -------------------------------------------------------------------------
-Offset:              3.421ns (Levels of Logic = 2)
+Offset:              3.459ns (Levels of Logic = 2)
   Source:            lcd_rst (PAD)
   Destination:       lcd_control/lcd_data_7 (FF)
   Destination Clock: lcd_control/DIVIDER1/qs rising
@@ -767,12 +754,12 @@ Offset:              3.421ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             5   1.222   0.714  lcd_rst_IBUF (lcd_rst_IBUF)
-     INV:I->O             14   0.206   0.957  lcd_control/lcd_rst_inv1_INV_0 (lcd_control/lcd_rst_inv)
+     IBUF:I->O             3   1.222   0.755  lcd_rst_IBUF (lcd_rst_IBUF)
+     LUT2:I0->O           14   0.203   0.957  lcd_control/_n0099_inv1 (lcd_control/_n0099_inv)
      FDE:CE                    0.322          lcd_control/j_0
     ----------------------------------------
-    Total                      3.421ns (1.750ns logic, 1.671ns route)
-                                       (51.2% logic, 48.8% route)
+    Total                      3.459ns (1.747ns logic, 1.712ns route)
+                                       (50.5% logic, 49.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -806,7 +793,7 @@ Offset:              4.210ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             25   0.447   1.192  lcd_control/e (lcd_control/e)
+     FDRE:C->Q            25   0.447   1.192  lcd_control/e (lcd_control/e)
      OBUF:I->O                 2.571          lcd_e_OBUF (lcd_e)
     ----------------------------------------
     Total                      4.210ns (3.018ns logic, 1.192ns route)
@@ -822,10 +809,10 @@ Clock to Setup on destination clock clk
                                                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------------------------------+---------+---------+---------+---------+
-clk                                                         |    6.181|         |         |         |
+clk                                                         |    6.545|         |         |         |
 lcd_control/DIVIDER1/qs                                     |    1.128|         |         |         |
 ps2_keyboard_to_ascii/ascii_new                             |    1.601|         |         |         |
-ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |    5.240|         |         |
+ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |    5.169|         |         |
 ------------------------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock lcd_control/DIVIDER1/qs
@@ -833,8 +820,8 @@ Clock to Setup on destination clock lcd_control/DIVIDER1/qs
                        | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------+---------+---------+---------+---------+
-clk                    |    2.364|         |         |         |
-lcd_control/DIVIDER1/qs|    4.454|         |         |         |
+clk                    |    2.707|         |         |         |
+lcd_control/DIVIDER1/qs|    4.803|         |         |         |
 -----------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ps2_keyboard_to_ascii/ascii_new
@@ -842,8 +829,8 @@ Clock to Setup on destination clock ps2_keyboard_to_ascii/ascii_new
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-clk                            |    3.773|         |         |         |
-ps2_keyboard_to_ascii/ascii_new|    1.949|         |         |         |
+clk                            |    5.292|         |         |         |
+ps2_keyboard_to_ascii/ascii_new|    5.896|         |         |         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result
@@ -858,14 +845,14 @@ ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |         
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 10.23 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 13.07 secs
  
 --> 
 
 Total memory usage is 4502496 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   57 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of warnings :   31 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 
