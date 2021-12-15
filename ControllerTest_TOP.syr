@@ -1,0 +1,500 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.18 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.18 secs
+ 
+--> Reading design: ControllerTest_TOP.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ControllerTest_TOP.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ControllerTest_TOP"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : ControllerTest_TOP
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_controller.vhd" into library work
+Parsing entity <lcd_controller>.
+Parsing architecture <controller> of entity <lcd_controller>.
+Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" into library work
+Parsing entity <ControllerTest_TOP>.
+Parsing architecture <Behavioral> of entity <controllertest_top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <ControllerTest_TOP> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:871 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" Line 57: Using initial value "01001101011000010111100101110101011100100010011101110011001000000100011001010000010001110100000100100000001000000010000000100000" for top_line since it is never assigned
+WARNING:HDLCompiler:871 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" Line 58: Using initial value "01010100010001010101001101010100001000000110011001101111011100100010000001001100010000110100010000100000001000000010000000100000" for bottom_line since it is never assigned
+
+Elaborating entity <lcd_controller> (architecture <controller>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <ControllerTest_TOP>.
+    Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd".
+    Summary:
+	no macro.
+Unit <ControllerTest_TOP> synthesized.
+
+Synthesizing Unit <lcd_controller>.
+    Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_controller.vhd".
+    Found 3-bit register for signal <state>.
+    Found 1-bit register for signal <rs>.
+    Found 1-bit register for signal <rw>.
+    Found 8-bit register for signal <lcd_data>.
+    Found 1-bit register for signal <e>.
+    Found 5-bit register for signal <ptr>.
+    Found 1-bit register for signal <line>.
+    Found 32-bit register for signal <clk_count>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 6                                              |
+    | Transitions        | 18                                             |
+    | Inputs             | 12                                             |
+    | Outputs            | 4                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | reset_n_INV_9_o (positive)                     |
+    | Reset type         | synchronous                                    |
+    | Reset State        | power_up                                       |
+    | Power Up State     | power_up                                       |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 32-bit adder for signal <clk_count[31]_GND_4_o_add_5_OUT> created at line 84.
+    Found 8-bit adder for signal <ptr[4]_GND_4_o_add_64_OUT> created at line 162.
+    Found 5-bit subtractor for signal <GND_4_o_GND_4_o_sub_100_OUT<4:0>> created at line 195.
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_1_o> created at line 71
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_7_o> created at line 85
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_8_o> created at line 92
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_9_o> created at line 96
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_10_o> created at line 107
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_11_o> created at line 111
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_12_o> created at line 115
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_13_o> created at line 119
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_14_o> created at line 126
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_90_o> created at line 170
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_91_o> created at line 171
+    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_92_o> created at line 173
+    Found 32-bit comparator lessequal for signal <GND_4_o_clk_count[31]_LessThan_93_o> created at line 175
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  48 D-type flip-flop(s).
+	inferred  13 Comparator(s).
+	inferred  37 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <lcd_controller> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 32-bit adder                                          : 1
+ 5-bit subtractor                                      : 1
+ 8-bit adder                                           : 1
+# Registers                                            : 6
+ 1-bit register                                        : 3
+ 32-bit register                                       : 1
+ 5-bit register                                        : 1
+ 8-bit register                                        : 1
+# Comparators                                          : 13
+ 32-bit comparator greater                             : 12
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 37
+ 1-bit 2-to-1 multiplexer                              : 10
+ 32-bit 2-to-1 multiplexer                             : 16
+ 5-bit 2-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 10
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <lcd_controller>.
+The following registers are absorbed into counter <ptr>: 1 register on signal <ptr>.
+Unit <lcd_controller> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 32-bit adder                                          : 1
+ 8-bit adder                                           : 1
+# Counters                                             : 1
+ 5-bit down counter                                    : 1
+# Registers                                            : 43
+ Flip-Flops                                            : 43
+# Comparators                                          : 13
+ 32-bit comparator greater                             : 12
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 36
+ 1-bit 2-to-1 multiplexer                              : 10
+ 32-bit 2-to-1 multiplexer                             : 16
+ 8-bit 2-to-1 multiplexer                              : 10
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <LCD/FSM_0> on signal <state[1:3]> with gray encoding.
+------------------------
+ State      | Encoding
+------------------------
+ power_up   | 000
+ initialize | 001
+ resetline  | 011
+ line1      | 111
+ line2      | 110
+ send       | 010
+------------------------
+
+Optimizing unit <ControllerTest_TOP> ...
+
+Optimizing unit <lcd_controller> ...
+WARNING:Xst:1293 - FF/Latch <LCD/clk_count_31> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_30> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_29> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_28> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_27> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_26> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_25> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_24> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_23> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_22> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_21> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_20> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ControllerTest_TOP, actual ratio is 4.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 39
+ Flip-Flops                                            : 39
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : ControllerTest_TOP.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 350
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 19
+#      LUT2                        : 33
+#      LUT3                        : 30
+#      LUT4                        : 20
+#      LUT5                        : 71
+#      LUT6                        : 45
+#      MUXCY                       : 99
+#      MUXF7                       : 5
+#      VCC                         : 1
+#      XORCY                       : 21
+# FlipFlops/Latches                : 39
+#      FD                          : 28
+#      FDE                         : 8
+#      FDR                         : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 12
+#      IBUF                        : 1
+#      OBUF                        : 11
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              39  out of  11440     0%  
+ Number of Slice LUTs:                  223  out of   5720     3%  
+    Number used as Logic:               223  out of   5720     3%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    223
+   Number with an unused Flip Flop:     184  out of    223    82%  
+   Number with an unused LUT:             0  out of    223     0%  
+   Number of fully used LUT-FF pairs:    39  out of    223    17%  
+   Number of unique control sets:         7
+
+IO Utilization: 
+ Number of IOs:                          13
+ Number of bonded IOBs:                  13  out of    102    12%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 39    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 7.422ns (Maximum Frequency: 134.726MHz)
+   Minimum input arrival time before clock: 3.091ns
+   Maximum output required time after clock: 3.701ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 7.422ns (frequency: 134.726MHz)
+  Total number of paths / destination ports: 118168 / 48
+-------------------------------------------------------------------------
+Delay:               7.422ns (Levels of Logic = 20)
+  Source:            LCD/clk_count_7 (FF)
+  Destination:       LCD/clk_count_19 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: LCD/clk_count_7 to LCD/clk_count_19
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              11   0.447   0.883  LCD/clk_count_7 (LCD/clk_count_7)
+     LUT1:I0->O            1   0.205   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7>_rt (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7>_rt)
+     MUXCY:S->O            1   0.172   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<8> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<9> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<10> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<11> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<12> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<13> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<13>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<14> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<14>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<15> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<15>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<16> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<16>)
+     XORCY:CI->O          17   0.180   1.372  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_xor<17> (LCD/clk_count[31]_GND_4_o_add_5_OUT<17>)
+     LUT5:I0->O            0   0.203   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_lutdi2 (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_lutdi2)
+     MUXCY:DI->O           1   0.145   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<2> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<3> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<4> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<4>)
+     MUXCY:CI->O          17   0.019   1.372  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<5> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_7_o_cy<5>)
+     LUT6:I1->O            2   0.203   0.617  LCD/Mmux_state[2]_X_4_o_wide_mux_107_OUT1031 (LCD/Mmux_state[2]_X_4_o_wide_mux_107_OUT1031)
+     LUT6:I5->O           11   0.205   0.883  LCD/Mmux_state[2]_X_4_o_wide_mux_107_OUT1033 (LCD/Mmux_state[2]_X_4_o_wide_mux_107_OUT103)
+     LUT2:I1->O            1   0.205   0.000  LCD/Mmux_state[2]_X_4_o_wide_mux_107_OUT21 (LCD/state[2]_X_4_o_wide_mux_107_OUT<0>)
+     FD:D                      0.102          LCD/clk_count_0
+    ----------------------------------------
+    Total                      7.422ns (2.295ns logic, 5.127ns route)
+                                       (30.9% logic, 69.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              3.091ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       LCD/state_FSM_FFd2 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to LCD/state_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.616  rst_IBUF (rst_IBUF)
+     INV:I->O              2   0.206   0.616  LCD/reset_n_INV_9_o1_INV_0 (LCD/reset_n_INV_9_o)
+     FDR:R                     0.430          LCD/state_FSM_FFd3
+    ----------------------------------------
+    Total                      3.091ns (1.858ns logic, 1.233ns route)
+                                       (60.1% logic, 39.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              3.701ns (Levels of Logic = 1)
+  Source:            LCD/lcd_data_7 (FF)
+  Destination:       lcd_db<7> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: LCD/lcd_data_7 to lcd_db<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               4   0.447   0.683  LCD/lcd_data_7 (LCD/lcd_data_7)
+     OBUF:I->O                 2.571          lcd_db_7_OBUF (lcd_db<7>)
+    ----------------------------------------
+    Total                      3.701ns (3.018ns logic, 0.683ns route)
+                                       (81.6% logic, 18.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    7.422|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.43 secs
+ 
+--> 
+
+Total memory usage is 4502496 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   14 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

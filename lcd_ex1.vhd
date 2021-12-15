@@ -32,9 +32,9 @@ port ( clk : in std_logic;   	-- clock i/p
     lcd_rs : out std_logic;   -- data or command control
     lcd_data   : out std_logic_vector(7 downto 0);  ---data line
     debug : out std_logic;
-    debug_data : out std_logic_vector (7 downto 0);
-    r: out std_logic;
-    w: out std_logic);
+    debug_data : out std_logic_vector (7 downto 0) := "00000000";
+    r: out std_logic := '0';
+    w: out std_logic := '0');
 end lcd_ex1;
 
 architecture Behavioral of lcd_ex1 is
@@ -45,35 +45,60 @@ architecture Behavioral of lcd_ex1 is
   signal newChar : std_logic := '0';
   signal charCode : std_logic_vector (7 downto 0);
   signal Load: std_logic;
-  begin
-  
-  message_rom :  entity work.message_rom
-	 port map (
-		clk =>clk,
-      A  => addr_q,
-      D  => data,
-      newAscii => newChar,
-      DataIn => charCode,
-      requestToload => Load,
-      debug => debug,
-      debug_data => debug_data,
-      debug_add => debug_add,
-      Reading => r,
-      Writing => w
-	 );
 
-  lcd_control:entity work.lcd_control
-    port map (clk  => clk,  
-	  lcd_rst => lcd_rst,
-		data_in => charCode,
-		address => addr_d,
-    refresh => newChar,
-		lcd_rw  => lcd_rw,
-		lcd_e   => lcd_e,
-		lcd_rs  => lcd_rs,
-		lcd_data => lcd_data,
-    loadRequest => Load
-	);
+  COMPONENT lcd_controller IS
+	  PORT(
+		 clk        : IN    STD_LOGIC;  --system clock
+		 reset_n    : IN    STD_LOGIC;  --active low reinitializes lcd
+		 rw, rs, e  : OUT   STD_LOGIC;  --read/write, setup/data, and enable for lcd
+		 lcd_data   : OUT   STD_LOGIC_VECTOR(7 DOWNTO 0); --data signals for lcd
+		 line1_buffer : IN STD_LOGIC_VECTOR(127 downto 0); -- Data for the top line of the LCD
+		 line2_buffer : IN STD_LOGIC_VECTOR(127 downto 0)); -- Data for the bottom line of the LCD
+	END COMPONENT;
+
+  signal top_line : std_logic_vector(127 downto 0) := x"4d617975722773204650474120202020"; -- Translates to Mayur's FPGA
+	signal bottom_line : std_logic_vector(127 downto 0) := x"5445535420666f72204c434420202020";
+
+  begin
+
+    LCD: lcd_controller port map(
+      clk => clk,
+      reset_n => lcd_rst,
+      e => lcd_e,
+      rs => lcd_rs,
+      rw => lcd_rw,
+      lcd_data => lcd_data,
+      line1_buffer => top_line,
+      line2_buffer => bottom_line 
+    );
+
+  -- message_rom :  entity work.message_rom
+	--  port map (
+	-- 	clk =>clk,
+  --     A  => addr_q,
+  --     D  => data,
+  --     newAscii => newChar,
+  --     DataIn => charCode,
+  --     requestToload => Load,
+  --     debug => debug,
+  --     debug_data => debug_data,
+  --     debug_add => debug_add,
+  --     Reading => r,
+  --     Writing => w
+	--  );
+
+  -- lcd_control:entity work.lcd_control
+  --   port map (clk  => clk,  
+	--   lcd_rst => lcd_rst,
+	-- 	data_in => charCode,
+	-- 	address => addr_d,
+  --   refresh => newChar,
+	-- 	lcd_rw  => lcd_rw,
+	-- 	lcd_e   => lcd_e,
+	-- 	lcd_rs  => lcd_rs,
+	-- 	lcd_data => lcd_data,
+  --   loadRequest => Load
+	-- );
   ps2_keyboard_to_ascii:entity work.ps2_keyboard_to_ascii
     port map(
       clk => clk,

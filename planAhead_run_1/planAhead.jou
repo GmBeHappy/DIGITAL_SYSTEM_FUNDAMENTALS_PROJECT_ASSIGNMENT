@@ -1,11 +1,29 @@
 #-----------------------------------------------------------
 # PlanAhead v14.7
 # Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
-# Start of session at: Wed Dec 15 22:11:35 2021
-# Process ID: 16652
+# Start of session at: Wed Dec 15 23:39:18 2021
+# Process ID: 12092
 # Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.log
 # Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.jou
 #-----------------------------------------------------------
 start_gui
 source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHdl.tcl}
 update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P119 [get_ports {lcd_db[7]}]
+endgroup
+startgroup
+set_property package_pin P118 [get_ports {lcd_db[6]}]
+endgroup
+startgroup
+set_property package_pin P117 [get_ports {lcd_db[5]}]
+endgroup
+startgroup
+set_property package_pin P116 [get_ports {lcd_db[4]}]
+endgroup
+startgroup
+set_property package_pin P115 [get_ports {lcd_db[3]}]
+endgroup
+set_property is_loc_fixed false [get_ports [list  {lcd_db[3]}]]
+set_property is_loc_fixed true [get_ports [list  {lcd_db[3]}]]
+save_constraints

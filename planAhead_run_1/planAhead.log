@@ -1,8 +1,8 @@
 #-----------------------------------------------------------
 # PlanAhead v14.7
 # Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
-# Start of session at: Wed Dec 15 22:11:35 2021
-# Process ID: 16652
+# Start of session at: Wed Dec 15 23:39:18 2021
+# Process ID: 12092
 # Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.log
 # Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.jou
 #-----------------------------------------------------------
@@ -16,42 +16,22 @@ source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHd
 # create_project -name project_assignment -dir "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1" -part xc6slx9tqg144-3
 # set_param project.pinAheadLayout yes
 # set srcset [get_property srcset [current_run -impl]]
-# set_property target_constrs_file "lcd_ex1.ucf" [current_fileset -constrset]
-Adding file 'C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.ucf' to fileset 'constrs_1'
-# set hdlfile [add_files [list {debounce.vhd}]]
+# set_property target_constrs_file "ControllerTest_TOP.ucf" [current_fileset -constrset]
+Adding file 'C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {lcd_controller.vhd}]]
 # set_property file_type VHDL $hdlfile
 # set_property library work $hdlfile
-# set hdlfile [add_files [list {ps2_keyboard.vhd}]]
+# set hdlfile [add_files [list {ControllerTest_TOP.vhd}]]
 # set_property file_type VHDL $hdlfile
 # set_property library work $hdlfile
-# set hdlfile [add_files [list {divider.vhd}]]
-# set_property file_type VHDL $hdlfile
-# set_property library work $hdlfile
-# set hdlfile [add_files [list {ps2_keyboard_to_ascii.vhd}]]
-# set_property file_type VHDL $hdlfile
-# set_property library work $hdlfile
-# set hdlfile [add_files [list {message_rom.vhd}]]
-# set_property file_type VHDL $hdlfile
-# set_property library work $hdlfile
-# set hdlfile [add_files [list {lcd_control.vhd}]]
-# set_property file_type VHDL $hdlfile
-# set_property library work $hdlfile
-# set hdlfile [add_files [list {lcd_ex1.vhd}]]
-# set_property file_type VHDL $hdlfile
-# set_property library work $hdlfile
-# set_property top lcd_ex1 $srcset
-# add_files [list {lcd_ex1.ucf}] -fileset [get_property constrset [current_run]]
+# set_property top ControllerTest_TOP $srcset
+# add_files [list {ControllerTest_TOP.ucf}] -fileset [get_property constrset [current_run]]
 # open_rtl_design -part xc6slx9tqg144-3
 Using Verific elaboration
 Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
 Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/debounce.vhd" into library work
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.vhd" into library work
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/divider.vhd" into library work
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.vhd" into library work
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/message_rom.vhd" into library work
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_control.vhd" into library work
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_controller.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.vhd" into library work
 Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
 Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
 Loading package pin functions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
@@ -59,21 +39,41 @@ Loading package from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/
 Loading io standards from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
 Loading device configuration modes from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
 Loading list of drcs for the architecture : C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
-Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.ucf]
-Finished Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.ucf]
+Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.ucf]
+CRITICAL WARNING: [Constraints 18-5] Cannot loc terminal 'lcd_db[3]' at site P115, Terminal lcd_db[3] cannot be placed on P115 (PAD41) because the pad is already occupied by terminal lcd_db[4] [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.ucf:11]
+Finished Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.ucf]
+INFO: [Designutils 20-20] Invalid constraints found, use command 'write_ucf -constraints invalid <file>' to save all the invalid constraints to a file
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Phase 0 | Netlist Checksum: 8f402ab0
-open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 523.723 ; gain = 94.531
+Phase 0 | Netlist Checksum: f3670ef0
+open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 576.750 ; gain = 127.012
 update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P119 [get_ports {lcd_db[7]}]
+endgroup
+startgroup
+set_property package_pin P118 [get_ports {lcd_db[6]}]
+endgroup
+startgroup
+set_property package_pin P117 [get_ports {lcd_db[5]}]
+endgroup
+startgroup
+set_property package_pin P116 [get_ports {lcd_db[4]}]
+endgroup
+startgroup
+set_property package_pin P115 [get_ports {lcd_db[3]}]
+endgroup
+set_property is_loc_fixed false [get_ports [list  {lcd_db[3]}]]
+set_property is_loc_fixed true [get_ports [list  {lcd_db[3]}]]
+save_constraints
 exit
 ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
 HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
 HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
-HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
-HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
- (See C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment\planAhead_pid16652.debug)
+ (See C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment\planAhead_pid12092.debug)
 ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
-INFO: [Common 17-206] Exiting PlanAhead at Wed Dec 15 22:12:30 2021...
+INFO: [Common 17-206] Exiting PlanAhead at Wed Dec 15 23:40:46 2021...
 INFO: [Common 17-83] Releasing license: PlanAhead

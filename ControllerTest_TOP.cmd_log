@@ -1,0 +1,18 @@
+xst -intstyle ise -ifn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.xst" -ofn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ControllerTest_TOP.ucf -p xc6slx9-tqg144-3 "ControllerTest_TOP.ngc" ControllerTest_TOP.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ControllerTest_TOP_map.ncd ControllerTest_TOP.ngd ControllerTest_TOP.pcf 
+par -w -intstyle ise -ol high -mt off ControllerTest_TOP_map.ncd ControllerTest_TOP.ncd ControllerTest_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ControllerTest_TOP.twx ControllerTest_TOP.ncd -o ControllerTest_TOP.twr ControllerTest_TOP.pcf -ucf ControllerTest_TOP.ucf 
+bitgen -intstyle ise -f ControllerTest_TOP.ut ControllerTest_TOP.ncd 
+xst -intstyle ise -ifn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.xst" -ofn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ControllerTest_TOP.ucf -p xc6slx9-tqg144-3 "ControllerTest_TOP.ngc" ControllerTest_TOP.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ControllerTest_TOP_map.ncd ControllerTest_TOP.ngd ControllerTest_TOP.pcf 
+par -w -intstyle ise -ol high -mt off ControllerTest_TOP_map.ncd ControllerTest_TOP.ncd ControllerTest_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ControllerTest_TOP.twx ControllerTest_TOP.ncd -o ControllerTest_TOP.twr ControllerTest_TOP.pcf -ucf ControllerTest_TOP.ucf 
+bitgen -intstyle ise -f ControllerTest_TOP.ut ControllerTest_TOP.ncd 
+xst -intstyle ise -ifn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.xst" -ofn "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ControllerTest_TOP.ucf -p xc6slx9-tqg144-3 "ControllerTest_TOP.ngc" ControllerTest_TOP.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o ControllerTest_TOP_map.ncd ControllerTest_TOP.ngd ControllerTest_TOP.pcf 
+par -w -intstyle ise -ol high -mt off ControllerTest_TOP_map.ncd ControllerTest_TOP.ncd ControllerTest_TOP.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml ControllerTest_TOP.twx ControllerTest_TOP.ncd -o ControllerTest_TOP.twr ControllerTest_TOP.pcf -ucf ControllerTest_TOP.ucf 
+bitgen -intstyle ise -f ControllerTest_TOP.ut ControllerTest_TOP.ncd 

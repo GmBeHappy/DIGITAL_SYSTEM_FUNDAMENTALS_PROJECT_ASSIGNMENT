@@ -1,7 +1,0 @@
-vhdl work "debounce.vhd"
-vhdl work "ps2_keyboard.vhd"
-vhdl work "divider.vhd"
-vhdl work "ps2_keyboard_to_ascii.vhd"
-vhdl work "message_rom.vhd"
-vhdl work "lcd_control.vhd"
-vhdl work "lcd_ex1.vhd"
