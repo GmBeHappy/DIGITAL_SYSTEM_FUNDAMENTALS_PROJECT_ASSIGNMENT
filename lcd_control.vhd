@@ -12,7 +12,8 @@ port ( clk : in std_logic;   ----clock i/p
     lcd_e  : out std_logic;   ----enable control
     lcd_rs : out std_logic;   ----data or command control
     lcd_data   : out std_logic_vector(7 downto 0);  ---data line
-	debug : out std_logic
+	debug : out std_logic;
+	loadRequest : out std_logic
 	 );
 end lcd_control;
 
@@ -32,7 +33,7 @@ architecture Behavioral of lcd_control is
 begin
 
 DIVIDER1 : entity work.DIVIDER
-   generic map(fin => 50000000,
+   generic map(fin => 20000000,
             fout => 5000
 				)  
    port map  (CLK=>clk,
@@ -76,15 +77,17 @@ DIVIDER1 : entity work.DIVIDER
 						lcd_rs <= '1';
 						if e = '0' then
 							address <= j;
+							loadRequest <= '1';
 							lcd_data <= data_in;
 							e <= '1';
 						else
+							loadRequest <= '0';
 							e <= '0';	
 							j := j+1;
 						end if;
+
 						if j > 15 then
 							state <= set_cursor;
-							
 						end if;								
 				end case;				
 				--if (refresh'event and refresh ='1' ) THEN		

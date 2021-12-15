@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue Dec 14 16:59:37 2021
+// Written by: Map P.20131013 on Wed Dec 15 20:05:33 2021
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -14,7 +14,11 @@ COMP "lcd_data<6>" LOCATE = SITE "P118" LEVEL 1;
 COMP "lcd_data<7>" LOCATE = SITE "P119" LEVEL 1;
 COMP "ps2_clk" LOCATE = SITE "P5" LEVEL 1;
 COMP "lcd_e" LOCATE = SITE "P105" LEVEL 1;
+COMP "debug_add<0>" LOCATE = SITE "P66" LEVEL 1;
+COMP "debug_add<1>" LOCATE = SITE "P62" LEVEL 1;
+COMP "debug_add<2>" LOCATE = SITE "P61" LEVEL 1;
 COMP "lcd_rst" LOCATE = SITE "P45" LEVEL 1;
+COMP "debug_add<3>" LOCATE = SITE "P59" LEVEL 1;
 COMP "ps2_data" LOCATE = SITE "P7" LEVEL 1;
 COMP "lcd_rs" LOCATE = SITE "P102" LEVEL 1;
 COMP "lcd_rw" LOCATE = SITE "P104" LEVEL 1;

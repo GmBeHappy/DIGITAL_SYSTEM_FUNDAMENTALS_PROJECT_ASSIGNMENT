@@ -18,7 +18,6 @@ NET "lcd_rst" LOC = P45;
 
 
 
-# PlanAhead Generated physical constraints 
 
 NET "debug_data[0]" LOC = P82;
 NET "debug_data[1]" LOC = P81;
@@ -28,3 +27,10 @@ NET "debug_data[4]" LOC = P78;
 NET "debug_data[5]" LOC = P75;
 NET "debug_data[6]" LOC = P74;
 NET "debug_data[7]" LOC = P67;
+
+# PlanAhead Generated physical constraints 
+
+NET "debug_add[0]" LOC = P66;
+NET "debug_add[1]" LOC = P62;
+NET "debug_add[2]" LOC = P61;
+NET "debug_add[3]" LOC = P59;

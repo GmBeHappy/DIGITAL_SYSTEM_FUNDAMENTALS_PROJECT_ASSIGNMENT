@@ -1,11 +1,16 @@
 Release 14.7 Drc P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Tue Dec 14 17:00:05 2021
+Wed Dec 15 20:05:55 2021
 
 drc -z lcd_ex1.ncd lcd_ex1.pcf
 
-WARNING:PhysDesignRules:367 - The signal <message_rom/Mram_rom1_RAMD_D1_O> is
-   incomplete. The signal does not drive any load pins in the design.
-DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+WARNING:PhysDesignRules:372 - Gated clock. Clock net lcd_control/loadRequest is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+DRC detected 0 errors and 2 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

@@ -1,8 +1,8 @@
 #-----------------------------------------------------------
 # PlanAhead v14.7
 # Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
-# Start of session at: Tue Dec 14 14:03:31 2021
-# Process ID: 6656
+# Start of session at: Wed Dec 15 18:04:05 2021
+# Process ID: 6592
 # Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.log
 # Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.jou
 #-----------------------------------------------------------
@@ -49,7 +49,6 @@ Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignmen
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/divider.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.vhd" into library work
-Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/message_rom.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_control.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.vhd" into library work
 Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
@@ -64,16 +63,29 @@ Finished Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_a
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Phase 0 | Netlist Checksum: 77fc2716
-open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 535.465 ; gain = 97.504
+Phase 0 | Netlist Checksum: 786d0450
+open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 530.000 ; gain = 88.629
 update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P66 [get_ports {debug_add[0]}]
+endgroup
+startgroup
+set_property package_pin P62 [get_ports {debug_add[1]}]
+endgroup
+startgroup
+set_property package_pin P61 [get_ports {debug_add[2]}]
+endgroup
+startgroup
+set_property package_pin P59 [get_ports {debug_add[3]}]
+endgroup
+save_constraints
 exit
 ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
-HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
 HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
 HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
 HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
- (See C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment\planAhead_pid6656.debug)
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+ (See C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment\planAhead_pid6592.debug)
 ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
-INFO: [Common 17-206] Exiting PlanAhead at Tue Dec 14 14:04:53 2021...
+INFO: [Common 17-206] Exiting PlanAhead at Wed Dec 15 18:05:47 2021...
 INFO: [Common 17-83] Releasing license: PlanAhead

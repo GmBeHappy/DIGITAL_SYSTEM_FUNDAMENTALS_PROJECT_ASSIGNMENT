@@ -26,6 +26,7 @@ port ( clk : in std_logic;   	-- clock i/p
     ps2_clk: in std_logic;
     ps2_data: in  std_logic;
 	  lcd_rst: in std_logic; 	-- Reset i/p
+    debug_add: in std_logic_vector (3 downto 0);
     lcd_rw : out std_logic;   -- read&write control
     lcd_e  : out std_logic;   -- enable control
     lcd_rs : out std_logic;   -- data or command control
@@ -41,6 +42,7 @@ architecture Behavioral of lcd_ex1 is
   signal data : std_logic_vector (7 downto 0);
   signal newChar : std_logic := '0';
   signal charCode : std_logic_vector (7 downto 0);
+  signal Load: std_logic;
   begin
   
   message_rom :  entity work.message_rom
@@ -50,8 +52,10 @@ architecture Behavioral of lcd_ex1 is
       D  => data,
       newAscii => newChar,
       DataIn => charCode,
+      requestToload => Load,
       debug => debug,
-      debug_data => debug_data
+      debug_data => debug_data,
+      debug_add => debug_add
 	 );
 
   lcd_control:entity work.lcd_control
@@ -63,7 +67,8 @@ architecture Behavioral of lcd_ex1 is
 		lcd_rw  => lcd_rw,
 		lcd_e   => lcd_e,
 		lcd_rs  => lcd_rs,
-		lcd_data => lcd_data
+		lcd_data => lcd_data,
+    loadRequest => Load
 	);
   ps2_keyboard_to_ascii:entity work.ps2_keyboard_to_ascii
     port map(
@@ -81,6 +86,5 @@ process (clk)
 		addr_q <= addr_d;
     end if;
 end process;
-
 end Behavioral; 
 
