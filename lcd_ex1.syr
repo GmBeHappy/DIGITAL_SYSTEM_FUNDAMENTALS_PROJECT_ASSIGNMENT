@@ -4,7 +4,7 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -134,12 +134,10 @@ Parsing architecture <Behavioral> of entity <lcd_ex1>.
 Elaborating entity <lcd_ex1> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <message_rom> (architecture <rom32x8_beh>) from library <work>.
-WARNING:HDLCompiler:1127 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\message_rom.vhd" Line 32: Assignment to writing ignored, since the identifier is never used
 
 Elaborating entity <lcd_control> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <DIVIDER> (architecture <RTL>) with generics from library <work>.
-WARNING:HDLCompiler:92 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_control.vhd" Line 48: refresh should be on the sensitivity list of the process
 
 Elaborating entity <ps2_keyboard_to_ascii> (architecture <behavior>) with generics from library <work>.
 
@@ -153,7 +151,8 @@ Elaborating entity <debounce> (architecture <logic>) with generics from library 
 
 Synthesizing Unit <lcd_ex1>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_ex1.vhd".
-INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_ex1.vhd" line 61: Output port <debug> of the instance <lcd_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_ex1.vhd" line 50: Output port <D> of the instance <message_rom> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_ex1.vhd" line 65: Output port <debug> of the instance <lcd_control> is unconnected or connected to loadless signal.
     Found 4-bit register for signal <addr_q<3:0>>.
     Summary:
 	inferred   4 D-type flip-flop(s).
@@ -163,6 +162,7 @@ Synthesizing Unit <message_rom>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\message_rom.vhd".
 WARNING:Xst:647 - Input <debug_add> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2935 - Signal 'debug_data', unconnected in block 'message_rom', is tied to its initial value (00000000).
     Found 32-bit register for signal <pointer>.
     Found 8-bit register for signal <rom<0>>.
     Found 8-bit register for signal <rom<1>>.
@@ -180,17 +180,17 @@ WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and lef
     Found 8-bit register for signal <rom<13>>.
     Found 8-bit register for signal <rom<14>>.
     Found 8-bit register for signal <rom<15>>.
-    Found 8-bit register for signal <debug_Buffer>.
     Found 8-bit register for signal <romBuffer>.
-    Found 32-bit adder for signal <pointer[31]_GND_5_o_add_59_OUT> created at line 66.
-    Found 32-bit subtractor for signal <pointer[31]_GND_5_o_sub_5_OUT<31:0>> created at line 55.
-    Found 8-bit 16-to-1 multiplexer for signal <A[3]_rom[15][7]_wide_mux_0_OUT> created at line 29.
-    Found 8-bit comparator greater for signal <GND_5_o_DataIn[7]_LessThan_40_o> created at line 62
-    Found 8-bit comparator greater for signal <DataIn[7]_GND_5_o_LessThan_41_o> created at line 62
-    Found 32-bit comparator greater for signal <GND_5_o_pointer[31]_LessThan_42_o> created at line 62
+    Found 32-bit adder for signal <pointer[31]_GND_5_o_add_57_OUT> created at line 73.
+    Found 32-bit subtractor for signal <pointer[31]_GND_5_o_sub_3_OUT<31:0>> created at line 60.
+    Found 8-bit 16-to-1 multiplexer for signal <A[3]_rom[15][7]_wide_mux_109_OUT> created at line 82.
+    Found 8-bit comparator greater for signal <GND_5_o_DataIn[7]_LessThan_38_o> created at line 68
+    Found 8-bit comparator greater for signal <DataIn[7]_GND_5_o_LessThan_39_o> created at line 68
+    Found 32-bit comparator greater for signal <GND_5_o_pointer[31]_LessThan_40_o> created at line 68
+    WARNING:Xst:2404 -  FFs/Latches <Reading<0:0>> (without init value) have a constant value of 0 in block <message_rom>.
     Summary:
 	inferred   2 Adder/Subtractor(s).
-	inferred 176 D-type flip-flop(s).
+	inferred 168 D-type flip-flop(s).
 	inferred   3 Comparator(s).
 	inferred  17 Multiplexer(s).
 Unit <message_rom> synthesized.
@@ -208,28 +208,29 @@ WARNING:Xst:653 - Signal <debug> is used but never assigned. This sourceless sig
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
-    | Transitions        | 9                                              |
+    | Transitions        | 7                                              |
     | Inputs             | 4                                              |
     | Outputs            | 2                                              |
     | Clock              | clk5k (rising_edge)                            |
-    | Reset              | _n0079 (positive)                              |
+    | Reset              | lcd_rst (positive)                             |
     | Reset type         | synchronous                                    |
     | Reset State        | initial_lcd                                    |
     | Power Up State     | initial_lcd                                    |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 32-bit adder for signal <j[31]_GND_6_o_add_9_OUT> created at line 86.
+    Found 32-bit adder for signal <j[31]_GND_6_o_add_9_OUT> created at line 87.
     Found 8x8-bit Read Only RAM for signal <j[2]_X_6_o_wide_mux_0_OUT>
-    Found 8-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_15_OUT> created at line 53.
+    Found 8-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_19_OUT> created at line 53.
+    Found 32-bit 3-to-1 multiplexer for signal <state[1]_X_6_o_wide_mux_21_OUT> created at line 53.
     Found 32-bit comparator greater for signal <j[31]_GND_6_o_LessThan_5_o> created at line 63
-    Found 32-bit comparator greater for signal <j[31]_GND_6_o_LessThan_14_o> created at line 89
+    Found 32-bit comparator greater for signal <j[31]_GND_6_o_LessThan_14_o> created at line 90
     Summary:
 	inferred   1 RAM(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred  48 D-type flip-flop(s).
 	inferred   2 Comparator(s).
-	inferred   7 Multiplexer(s).
+	inferred  11 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <lcd_control> synthesized.
 
@@ -249,8 +250,8 @@ Unit <DIVIDER> synthesized.
 
 Synthesizing Unit <ps2_keyboard_to_ascii>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard_to_ascii.vhd".
-        clk_freq = 50000000
-        ps2_debounce_counter_size = 8
+        clk_freq = 20000000
+        ps2_debounce_counter_size = 7
     Found 1-bit register for signal <ascii_new>.
     Found 2-bit register for signal <state>.
     Found 1-bit register for signal <break>.
@@ -261,7 +262,7 @@ Synthesizing Unit <ps2_keyboard_to_ascii>.
     Found 1-bit register for signal <control_l>.
     Found 1-bit register for signal <shift_l>.
     Found 1-bit register for signal <shift_r>.
-    Found 8-bit register for signal <ascii_code>.
+    Found 8-bit register for signal <ascii_Buffer>.
     Found 1-bit register for signal <prev_ps2_code_new>.
     Found finite state machine <FSM_1> for signal <state>.
     -----------------------------------------------------------------------
@@ -282,29 +283,29 @@ Unit <ps2_keyboard_to_ascii> synthesized.
 
 Synthesizing Unit <ps2_keyboard>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard.vhd".
-        clk_freq = 50000000
-        debounce_counter_size = 8
+        clk_freq = 20000000
+        debounce_counter_size = 7
     Found 11-bit register for signal <ps2_word>.
-    Found 12-bit register for signal <count_idle>.
+    Found 11-bit register for signal <count_idle>.
     Found 1-bit register for signal <ps2_code_new>.
     Found 8-bit register for signal <ps2_code>.
     Found 2-bit register for signal <sync_ffs>.
-    Found 12-bit adder for signal <count_idle[11]_GND_9_o_add_3_OUT> created at line 95.
+    Found 11-bit adder for signal <count_idle[10]_GND_9_o_add_3_OUT> created at line 95.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  34 D-type flip-flop(s).
+	inferred  33 D-type flip-flop(s).
 Unit <ps2_keyboard> synthesized.
 
 Synthesizing Unit <debounce>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\debounce.vhd".
-        counter_size = 8
-    Found 9-bit register for signal <counter_out>.
+        counter_size = 7
+    Found 8-bit register for signal <counter_out>.
     Found 1-bit register for signal <result>.
     Found 2-bit register for signal <flipflops>.
-    Found 9-bit adder for signal <counter_out[8]_GND_12_o_add_0_OUT> created at line 52.
+    Found 8-bit adder for signal <counter_out[7]_GND_12_o_add_0_OUT> created at line 52.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  12 D-type flip-flop(s).
+	inferred  11 D-type flip-flop(s).
 Unit <debounce> synthesized.
 
 =========================================================================
@@ -314,31 +315,29 @@ Macro Statistics
 # RAMs                                                 : 1
  8x8-bit single-port Read Only RAM                     : 1
 # Adders/Subtractors                                   : 7
- 11-bit adder                                          : 1
- 12-bit adder                                          : 1
+ 11-bit adder                                          : 2
  32-bit adder                                          : 1
  32-bit addsub                                         : 1
  32-bit subtractor                                     : 1
- 9-bit adder                                           : 2
-# Registers                                            : 50
+ 8-bit adder                                           : 2
+# Registers                                            : 49
  1-bit register                                        : 16
- 11-bit register                                       : 2
- 12-bit register                                       : 1
+ 11-bit register                                       : 3
  2-bit register                                        : 3
  32-bit register                                       : 2
  4-bit register                                        : 1
  5-bit register                                        : 1
- 8-bit register                                        : 22
- 9-bit register                                        : 2
+ 8-bit register                                        : 23
 # Comparators                                          : 6
  11-bit comparator greater                             : 1
  32-bit comparator greater                             : 3
  8-bit comparator greater                              : 2
-# Multiplexers                                         : 51
- 1-bit 2-to-1 multiplexer                              : 2
+# Multiplexers                                         : 55
+ 1-bit 2-to-1 multiplexer                              : 4
  32-bit 2-to-1 multiplexer                             : 3
+ 32-bit 3-to-1 multiplexer                             : 1
  8-bit 16-to-1 multiplexer                             : 1
- 8-bit 2-to-1 multiplexer                              : 44
+ 8-bit 2-to-1 multiplexer                              : 45
  8-bit 3-to-1 multiplexer                              : 1
 # FSMs                                                 : 2
 # Xors                                                 : 3
@@ -351,7 +350,6 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:2677 - Node <address_4> of sequential type is unconnected in block <lcd_control>.
 
 Synthesizing (advanced) Unit <DIVIDER>.
 The following registers are absorbed into counter <COUNT>: 1 register on signal <COUNT>.
@@ -393,21 +391,21 @@ Macro Statistics
  32-bit adder                                          : 1
  4-bit subtractor                                      : 1
 # Counters                                             : 5
- 11-bit up counter                                     : 1
- 12-bit up counter                                     : 1
+ 11-bit up counter                                     : 2
  32-bit updown counter                                 : 1
- 9-bit up counter                                      : 2
-# Registers                                            : 250
- Flip-Flops                                            : 250
+ 8-bit up counter                                      : 2
+# Registers                                            : 242
+ Flip-Flops                                            : 242
 # Comparators                                          : 6
  11-bit comparator greater                             : 1
  32-bit comparator greater                             : 3
  8-bit comparator greater                              : 2
-# Multiplexers                                         : 163
+# Multiplexers                                         : 167
  1-bit 16-to-1 multiplexer                             : 8
- 1-bit 2-to-1 multiplexer                              : 122
+ 1-bit 2-to-1 multiplexer                              : 124
  32-bit 2-to-1 multiplexer                             : 3
- 8-bit 2-to-1 multiplexer                              : 29
+ 32-bit 3-to-1 multiplexer                             : 1
+ 8-bit 2-to-1 multiplexer                              : 30
  8-bit 3-to-1 multiplexer                              : 1
 # FSMs                                                 : 2
 # Xors                                                 : 3
@@ -450,7 +448,185 @@ Optimizing unit <ps2_keyboard_to_ascii> ...
 Optimizing unit <ps2_keyboard> ...
 
 Optimizing unit <debounce> ...
+WARNING:Xst:2677 - Node <addr_q_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <addr_q_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <addr_q_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <addr_q_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_31> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_30> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_29> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_28> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_27> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_26> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_25> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_24> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_23> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_22> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_21> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_20> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_19> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_18> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_17> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_16> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_15> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_14> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_13> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_12> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_11> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_10> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_9> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_8> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/pointer_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/romBuffer_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_0_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_15_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_13_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_12_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_14_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_11_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_10_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_8_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_7_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_9_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_6_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_5_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_3_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_2_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_4_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_7> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_6> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_5> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <message_rom/rom_1_0> of sequential type is unconnected in block <lcd_ex1>.
 WARNING:Xst:2677 - Node <lcd_control/address_4> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <lcd_control/address_3> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <lcd_control/address_2> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <lcd_control/address_1> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <lcd_control/address_0> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:2677 - Node <lcd_control/loadRequest> of sequential type is unconnected in block <lcd_ex1>.
+WARNING:Xst:1293 - FF/Latch <lcd_control/j_5> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_6> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_8> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
@@ -477,38 +653,19 @@ WARNING:Xst:1293 - FF/Latch <lcd_control/j_28> has a constant value of 0 in bloc
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_29> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_30> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <lcd_control/j_31> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <lcd_control/j_5> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ps2_keyboard_to_ascii/ascii_code_7> (without init value) has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <message_rom/debug_Buffer_7> (without init value) has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <message_rom/rom_0_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_15_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_14_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_12_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_11_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_13_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_10_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_9_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_7_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_6_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_8_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_5_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_4_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_2_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_1_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <message_rom/rom_3_7> has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <message_rom/romBuffer_7> (without init value) has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ps2_keyboard_to_ascii/ascii_Buffer_7> (without init value) has a constant value of 0 in block <lcd_ex1>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block lcd_ex1, actual ratio is 11.
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_0 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1 has been replicated 2 time(s)
+Found area constraint ratio of 100 (+ 5) on block lcd_ex1, actual ratio is 5.
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_0 has been replicated 4 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1 has been replicated 3 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_2 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_3 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_4 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_5 has been replicated 2 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_6 has been replicated 4 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7 has been replicated 2 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_3 has been replicated 4 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_4 has been replicated 4 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_5 has been replicated 3 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_6 has been replicated 3 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7 has been replicated 4 time(s)
 
 Final Macro Processing ...
 
@@ -521,8 +678,8 @@ Unit <lcd_ex1> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 298
- Flip-Flops                                            : 298
+# Registers                                            : 134
+ Flip-Flops                                            : 134
 # Shift Registers                                      : 2
  2-bit shift register                                  : 2
 
@@ -547,35 +704,32 @@ Top Level Output File Name         : lcd_ex1.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 717
+# BELS                             : 395
 #      GND                         : 1
-#      INV                         : 8
-#      LUT1                        : 43
-#      LUT2                        : 58
-#      LUT3                        : 137
-#      LUT4                        : 30
-#      LUT5                        : 70
-#      LUT6                        : 163
-#      MUXCY                       : 97
-#      MUXF7                       : 23
-#      MUXF8                       : 7
+#      INV                         : 13
+#      LUT1                        : 39
+#      LUT2                        : 15
+#      LUT3                        : 32
+#      LUT4                        : 22
+#      LUT5                        : 41
+#      LUT6                        : 126
+#      MUXCY                       : 55
+#      MUXF7                       : 6
 #      VCC                         : 1
-#      XORCY                       : 79
-# FlipFlops/Latches                : 300
-#      FD                          : 30
+#      XORCY                       : 44
+# FlipFlops/Latches                : 136
+#      FD                          : 6
 #      FD_1                        : 11
-#      FDE                         : 104
-#      FDR                         : 14
-#      FDRE                        : 126
-#      FDSE                        : 15
+#      FDE                         : 77
+#      FDR                         : 15
+#      FDRE                        : 27
 # Shift Registers                  : 2
 #      SRLC16E                     : 2
-# Clock Buffers                    : 3
-#      BUFG                        : 2
+# Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 22
+# IO Buffers                       : 24
 #      IBUF                        : 3
-#      OBUF                        : 19
+#      OBUF                        : 21
 
 Device utilization summary:
 ---------------------------
@@ -584,25 +738,25 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             300  out of  11440     2%  
- Number of Slice LUTs:                  511  out of   5720     8%  
-    Number used as Logic:               509  out of   5720     8%  
+ Number of Slice Registers:             136  out of  11440     1%  
+ Number of Slice LUTs:                  290  out of   5720     5%  
+    Number used as Logic:               288  out of   5720     5%  
     Number used as Memory:                2  out of   1440     0%  
        Number used as SRL:                2
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    567
-   Number with an unused Flip Flop:     267  out of    567    47%  
-   Number with an unused LUT:            56  out of    567     9%  
-   Number of fully used LUT-FF pairs:   244  out of    567    43%  
-   Number of unique control sets:        34
+ Number of LUT Flip Flop pairs used:    345
+   Number with an unused Flip Flop:     209  out of    345    60%  
+   Number with an unused LUT:            55  out of    345    15%  
+   Number of fully used LUT-FF pairs:    81  out of    345    23%  
+   Number of unique control sets:        24
 
 IO Utilization: 
- Number of IOs:                          28
- Number of bonded IOBs:                  23  out of    102    22%  
+ Number of IOs:                          30
+ Number of bonded IOBs:                  25  out of    102    24%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
 
 ---------------------------
 Partition Resource Summary:
@@ -625,10 +779,8 @@ Clock Information:
 ------------------------------------------------------------+-------------------------------------------------------+-------+
 Clock Signal                                                | Clock buffer(FF name)                                 | Load  |
 ------------------------------------------------------------+-------------------------------------------------------+-------+
-clk                                                         | BUFGP                                                 | 111   |
-ps2_keyboard_to_ascii/ascii_new                             | BUFG                                                  | 151   |
-lcd_control/loadRequest                                     | NONE(message_rom/romBuffer_6)                         | 7     |
-lcd_control/DIVIDER1/qs                                     | BUFG                                                  | 22    |
+clk                                                         | BUFGP                                                 | 110   |
+lcd_control/DIVIDER1/qs                                     | NONE(lcd_control/state_FSM_FFd1)                      | 17    |
 ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result| NONE(ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_10)| 11    |
 ------------------------------------------------------------+-------------------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -641,9 +793,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.361ns (Maximum Frequency: 157.214MHz)
-   Minimum input arrival time before clock: 3.492ns
-   Maximum output required time after clock: 4.224ns
+   Minimum period: 6.152ns (Maximum Frequency: 162.553MHz)
+   Minimum input arrival time before clock: 3.426ns
+   Maximum output required time after clock: 4.210ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -651,62 +803,38 @@ Timing Details:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ascii_new'
-  Clock period: 5.551ns (frequency: 180.142MHz)
-  Total number of paths / destination ports: 12446 / 398
--------------------------------------------------------------------------
-Delay:               5.551ns (Levels of Logic = 3)
-  Source:            message_rom/pointer_3 (FF)
-  Destination:       message_rom/pointer_31 (FF)
-  Source Clock:      ps2_keyboard_to_ascii/ascii_new rising
-  Destination Clock: ps2_keyboard_to_ascii/ascii_new rising
-
-  Data Path: message_rom/pointer_3 to message_rom/pointer_31
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q             33   0.447   1.553  message_rom/pointer_3 (message_rom/pointer_3)
-     LUT6:I2->O            1   0.203   0.580  message_rom/n0002<31>3 (message_rom/n0002<31>2)
-     LUT6:I5->O            6   0.205   0.745  message_rom/n0002<31>7 (message_rom/n0002)
-     LUT3:I2->O           32   0.205   1.291  message_rom/_n0323_inv1 (message_rom/_n0323_inv)
-     FDE:CE                    0.322          message_rom/pointer_0
-    ----------------------------------------
-    Total                      5.551ns (1.382ns logic, 4.169ns route)
-                                       (24.9% logic, 75.1% route)
-
-=========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 6.361ns (frequency: 157.214MHz)
-  Total number of paths / destination ports: 4512 / 191
+  Clock period: 6.152ns (frequency: 162.553MHz)
+  Total number of paths / destination ports: 4367 / 199
 -------------------------------------------------------------------------
-Delay:               6.361ns (Levels of Logic = 6)
+Delay:               6.152ns (Levels of Logic = 6)
   Source:            ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 (FF)
-  Destination:       ps2_keyboard_to_ascii/ascii_6 (FF)
+  Destination:       ps2_keyboard_to_ascii/ascii_2 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 to ps2_keyboard_to_ascii/ascii_6
+  Data Path: ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 to ps2_keyboard_to_ascii/ascii_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              2   0.447   0.845  ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 (ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1)
-     LUT3:I0->O           16   0.205   1.005  ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>21 (ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>2)
-     LUT6:I5->O            3   0.205   0.651  ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_21_o<7>1 (ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_21_o)
-     LUT6:I5->O            4   0.205   0.684  ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<5>311 (ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<5>31)
-     LUT6:I5->O            5   0.205   0.715  ps2_keyboard_to_ascii/_n0537<0>11 (ps2_keyboard_to_ascii/_n0537<0>1)
-     LUT6:I5->O            1   0.205   0.684  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT618_SW0 (N24)
-     LUT6:I4->O            1   0.203   0.000  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT619 (ps2_keyboard_to_ascii/state[1]_ascii[7]_wide_mux_136_OUT<1>)
-     FDE:D                     0.102          ps2_keyboard_to_ascii/ascii_1
+     FDE:C->Q              3   0.447   0.879  ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1 (ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7_1)
+     LUT3:I0->O            7   0.205   0.774  ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>21 (ps2_keyboard_to_ascii/GND_8_o_GND_8_o_select_52_OUT<4>2)
+     LUT6:I5->O            5   0.205   0.943  ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_116_o<7>1 (ps2_keyboard_to_ascii/GND_8_o_ps2_code[7]_equal_116_o)
+     LUT6:I3->O            2   0.205   0.617  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT97_SW0 (N38)
+     LUT6:I5->O            1   0.205   0.580  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT97 (ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT96)
+     LUT6:I5->O            1   0.205   0.580  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT911_SW0 (N19)
+     LUT6:I5->O            1   0.205   0.000  ps2_keyboard_to_ascii/Mmux_state[1]_ascii[7]_wide_mux_136_OUT912 (ps2_keyboard_to_ascii/state[1]_ascii[7]_wide_mux_136_OUT<2>)
+     FDE:D                     0.102          ps2_keyboard_to_ascii/ascii_2
     ----------------------------------------
-    Total                      6.361ns (1.777ns logic, 4.584ns route)
-                                       (27.9% logic, 72.1% route)
+    Total                      6.152ns (1.779ns logic, 4.373ns route)
+                                       (28.9% logic, 71.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'lcd_control/DIVIDER1/qs'
-  Clock period: 4.803ns (frequency: 208.192MHz)
-  Total number of paths / destination ports: 185 / 26
+  Clock period: 4.446ns (frequency: 224.919MHz)
+  Total number of paths / destination ports: 167 / 18
 -------------------------------------------------------------------------
-Delay:               4.803ns (Levels of Logic = 14)
+Delay:               4.446ns (Levels of Logic = 14)
   Source:            lcd_control/j_1 (FF)
   Destination:       lcd_control/state_FSM_FFd2 (FF)
   Source Clock:      lcd_control/DIVIDER1/qs rising
@@ -716,25 +844,25 @@ Delay:               4.803ns (Levels of Logic = 14)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              9   0.447   0.830  lcd_control/j_1 (lcd_control/j_1)
+     FDE:C->Q              8   0.447   0.803  lcd_control/j_1 (lcd_control/j_1)
      LUT1:I0->O            1   0.205   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1>_rt (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1>_rt)
      MUXCY:S->O            1   0.172   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1> (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<1>)
      MUXCY:CI->O           1   0.019   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<2> (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<3> (lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_cy<3>)
-     XORCY:CI->O           3   0.180   0.898  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_xor<4> (lcd_control/j[31]_GND_6_o_add_9_OUT<4>)
-     LUT4:I0->O            1   0.203   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_lut<0>1 (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<0> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<1> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<2> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<3> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<4> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<4>)
-     MUXCY:CI->O           2   0.019   0.845  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<5> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_14_o_cy<5>)
-     LUT4:I1->O            1   0.205   0.000  lcd_control/state_FSM_FFd2-In1_cy1_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_lut (lcd_control/state_FSM_FFd2-In1_cy1_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_lut)
-     MUXCY:S->O            1   0.411   0.000  lcd_control/state_FSM_FFd2-In1_cy1_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy (lcd_control/state_FSM_FFd2-In)
+     XORCY:CI->O           2   0.180   0.721  lcd_control/Madd_j[31]_GND_6_o_add_9_OUT_xor<3> (lcd_control/j[31]_GND_6_o_add_9_OUT<3>)
+     LUT3:I1->O            2   0.203   0.845  lcd_control/Mmux_j[31]_j[31]_mux_12_OUT261 (lcd_control/j[31]_j[31]_mux_12_OUT<3>)
+     LUT5:I2->O            1   0.205   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_lut<0> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<0> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<1> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<2> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<3> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<4> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<4>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<5> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<5>)
+     MUXCY:CI->O           1   0.019   0.000  lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<6> (lcd_control/Mcompar_j[31]_GND_6_o_LessThan_5_o_cy<6>)
+     MUXCY:CI->O           1   0.258   0.000  lcd_control/state_FSM_FFd2-In1_cy (lcd_control/state_FSM_FFd2-In)
      FDR:D                     0.102          lcd_control/state_FSM_FFd2
     ----------------------------------------
-    Total                      4.803ns (2.230ns logic, 2.573ns route)
-                                       (46.4% logic, 53.6% route)
+    Total                      4.446ns (2.077ns logic, 2.369ns route)
+                                       (46.7% logic, 53.3% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result'
@@ -742,26 +870,26 @@ Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ps2_
   Total number of paths / destination ports: 10 / 10
 -------------------------------------------------------------------------
 Delay:               1.322ns (Levels of Logic = 0)
-  Source:            ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_7 (FF)
-  Destination:       ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_6 (FF)
+  Source:            ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_8 (FF)
+  Destination:       ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_7 (FF)
   Source Clock:      ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result falling
   Destination Clock: ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result falling
 
-  Data Path: ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_7 to ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_6
+  Data Path: ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_8 to ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD_1:C->Q             7   0.447   0.773  ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_7 (ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_7)
-     FD_1:D                    0.102          ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_6
+     FD_1:C->Q             7   0.447   0.773  ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_8 (ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_8)
+     FD_1:D                    0.102          ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_7
     ----------------------------------------
     Total                      1.322ns (0.549ns logic, 0.773ns route)
                                        (41.5% logic, 58.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'lcd_control/DIVIDER1/qs'
-  Total number of paths / destination ports: 22 / 22
+  Total number of paths / destination ports: 18 / 18
 -------------------------------------------------------------------------
-Offset:              3.492ns (Levels of Logic = 2)
+Offset:              3.426ns (Levels of Logic = 2)
   Source:            lcd_rst (PAD)
   Destination:       lcd_control/lcd_data_7 (FF)
   Destination Clock: lcd_control/DIVIDER1/qs rising
@@ -770,12 +898,12 @@ Offset:              3.492ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.222   0.788  lcd_rst_IBUF (lcd_rst_IBUF)
-     LUT2:I0->O           14   0.203   0.957  lcd_control/_n0103_inv1 (lcd_control/_n0103_inv)
+     IBUF:I->O             6   1.222   0.744  lcd_rst_IBUF (lcd_rst_IBUF)
+     INV:I->O             13   0.206   0.932  lcd_control/lcd_rst_inv1_INV_0 (lcd_control/lcd_rst_inv)
      FDE:CE                    0.322          lcd_control/j_0
     ----------------------------------------
-    Total                      3.492ns (1.747ns logic, 1.745ns route)
-                                       (50.0% logic, 50.0% route)
+    Total                      3.426ns (1.750ns logic, 1.676ns route)
+                                       (51.1% logic, 48.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
@@ -800,7 +928,7 @@ Offset:              1.801ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'lcd_control/DIVIDER1/qs'
   Total number of paths / destination ports: 10 / 10
 -------------------------------------------------------------------------
-Offset:              4.224ns (Levels of Logic = 1)
+Offset:              4.210ns (Levels of Logic = 1)
   Source:            lcd_control/e (FF)
   Destination:       lcd_e (PAD)
   Source Clock:      lcd_control/DIVIDER1/qs rising
@@ -809,30 +937,11 @@ Offset:              4.224ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             26   0.447   1.206  lcd_control/e (lcd_control/e)
+     FDR:C->Q             25   0.447   1.192  lcd_control/e (lcd_control/e)
      OBUF:I->O                 2.571          lcd_e_OBUF (lcd_e)
     ----------------------------------------
-    Total                      4.224ns (3.018ns logic, 1.206ns route)
-                                       (71.5% logic, 28.5% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'ps2_keyboard_to_ascii/ascii_new'
-  Total number of paths / destination ports: 7 / 7
--------------------------------------------------------------------------
-Offset:              3.597ns (Levels of Logic = 1)
-  Source:            message_rom/debug_Buffer_6 (FF)
-  Destination:       debug_data<6> (PAD)
-  Source Clock:      ps2_keyboard_to_ascii/ascii_new rising
-
-  Data Path: message_rom/debug_Buffer_6 to debug_data<6>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDE:C->Q              1   0.447   0.579  message_rom/debug_Buffer_6 (message_rom/debug_Buffer_6)
-     OBUF:I->O                 2.571          debug_data_6_OBUF (debug_data<6>)
-    ----------------------------------------
-    Total                      3.597ns (3.018ns logic, 0.579ns route)
-                                       (83.9% logic, 16.1% route)
+    Total                      4.210ns (3.018ns logic, 1.192ns route)
+                                       (71.7% logic, 28.3% route)
 
 =========================================================================
 
@@ -844,9 +953,8 @@ Clock to Setup on destination clock clk
                                                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------------------------------+---------+---------+---------+---------+
-clk                                                         |    6.361|         |         |         |
-lcd_control/DIVIDER1/qs                                     |    1.128|         |         |         |
-ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |    5.240|         |         |
+clk                                                         |    6.152|         |         |         |
+ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |    5.486|         |         |
 ------------------------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock lcd_control/DIVIDER1/qs
@@ -854,49 +962,30 @@ Clock to Setup on destination clock lcd_control/DIVIDER1/qs
                        | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------+---------+---------+---------+---------+
-clk                    |    2.761|         |         |         |
-lcd_control/DIVIDER1/qs|    4.803|         |         |         |
-lcd_control/loadRequest|    2.364|         |         |         |
+clk                    |    2.837|         |         |         |
+lcd_control/DIVIDER1/qs|    4.446|         |         |         |
 -----------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock lcd_control/loadRequest
--------------------------------+---------+---------+---------+---------+
-                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
--------------------------------+---------+---------+---------+---------+
-clk                            |    2.643|         |         |         |
-ps2_keyboard_to_ascii/ascii_new|    1.908|         |         |         |
--------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock ps2_keyboard_to_ascii/ascii_new
--------------------------------+---------+---------+---------+---------+
-                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
--------------------------------+---------+---------+---------+---------+
-clk                            |    6.745|         |         |         |
-ps2_keyboard_to_ascii/ascii_new|    5.551|         |         |         |
--------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result
 ------------------------------------------------------------+---------+---------+---------+---------+
                                                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------------------------------+---------+---------+---------+---------+
-clk                                                         |         |         |    1.165|         |
+clk                                                         |         |         |    1.128|         |
 ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |         |    1.322|         |
 ------------------------------------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 12.36 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.25 secs
  
 --> 
 
 Total memory usage is 4502496 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   53 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of warnings :  211 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
 

@@ -32,7 +32,9 @@ port ( clk : in std_logic;   	-- clock i/p
     lcd_rs : out std_logic;   -- data or command control
     lcd_data   : out std_logic_vector(7 downto 0);  ---data line
     debug : out std_logic;
-    debug_data : out std_logic_vector (7 downto 0));
+    debug_data : out std_logic_vector (7 downto 0);
+    r: out std_logic;
+    w: out std_logic);
 end lcd_ex1;
 
 architecture Behavioral of lcd_ex1 is
@@ -55,13 +57,15 @@ architecture Behavioral of lcd_ex1 is
       requestToload => Load,
       debug => debug,
       debug_data => debug_data,
-      debug_add => debug_add
+      debug_add => debug_add,
+      Reading => r,
+      Writing => w
 	 );
 
   lcd_control:entity work.lcd_control
     port map (clk  => clk,  
 	  lcd_rst => lcd_rst,
-		data_in => data,
+		data_in => charCode,
 		address => addr_d,
     refresh => newChar,
 		lcd_rw  => lcd_rw,
@@ -86,5 +90,14 @@ process (clk)
 		addr_q <= addr_d;
     end if;
 end process;
+-- process (newChar)
+-- begin
+--   if newChar'event and newChar='1' then
+--     lcd_e <= '1';
+--     lcd_rs <= '1';
+--     lcd_data <= charCode;
+--   end if;
+--   lcd_e <= '0';
+--   end process;
 end Behavioral; 
 

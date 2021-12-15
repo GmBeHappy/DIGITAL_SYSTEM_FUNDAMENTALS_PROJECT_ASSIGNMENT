@@ -25,8 +25,8 @@ USE ieee.std_logic_1164.all;
 
 ENTITY ps2_keyboard_to_ascii IS
   GENERIC(
-      clk_freq                  : INTEGER := 50_000_000; --system clock frequency in Hz
-      ps2_debounce_counter_size : INTEGER := 8);         --set such that 2^size/clk_freq = 5us (size = 8 for 50MHz)
+      clk_freq                  : INTEGER := 20_000_000; --system clock frequency in Hz
+      ps2_debounce_counter_size : INTEGER := 7);         --set such that 2^size/clk_freq = 5us (size = 8 for 50MHz)
   PORT(
       clk        : IN  STD_LOGIC;                     --system clock input
       ps2_clk    : IN  STD_LOGIC;                     --clock signal from PS2 keyboard
@@ -63,8 +63,9 @@ ARCHITECTURE behavior OF ps2_keyboard_to_ascii IS
       ps2_code     : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)); --code received from PS/2
   END COMPONENT;
 
-BEGIN
+  shared variable ascii_Buffer: STD_LOGIC_VECTOR(7 DOWNTO 0);
 
+BEGIN
   --instantiate PS2 keyboard interface logic
   ps2_keyboard_0:  ps2_keyboard
     GENERIC MAP(clk_freq => clk_freq, debounce_counter_size => ps2_debounce_counter_size)
@@ -305,14 +306,14 @@ BEGIN
         WHEN output =>
           IF(ascii(7) = '0') THEN            --the PS2 code has an ASCII output
             ascii_new <= '1';                  --set flag indicating new ASCII output
-            ascii_code <= ascii(7 DOWNTO 0);   --output the ASCII value
+            ascii_Buffer := ascii(7 DOWNTO 0);   --output the ASCII value
           END IF;
           state <= ready;                    --return to ready state to await next PS2 code
 
       END CASE;
     END IF;
   END PROCESS;
-
+  ascii_code <= ascii_Buffer(7 DOWNTO 0);
 END behavior;
 
 

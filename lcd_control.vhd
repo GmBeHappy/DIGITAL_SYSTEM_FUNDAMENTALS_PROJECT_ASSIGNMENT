@@ -45,7 +45,7 @@ DIVIDER1 : entity work.DIVIDER
 		variable j : integer := 1;
  
 	begin
-		if clk5k'event and clk5k = '1' and refresh = '1' then
+		if clk5k'event and clk5k = '1' then
 			if lcd_rst='1' then
 				state <= initial_lcd;
 				e <= '0';
@@ -74,28 +74,29 @@ DIVIDER1 : entity work.DIVIDER
 							state <= lcd_print;
 						end if;						
 					when lcd_print =>
-						lcd_rs <= '1';
-						if e = '0' then
-							address <= j;
-							loadRequest <= '1';
-							lcd_data <= data_in;
-							e <= '1';
-						else
-							loadRequest <= '0';
-							e <= '0';	
-							j := j+1;
-						end if;
+						if refresh = '1' then
+							lcd_rs <= '1';
+							if e = '0' then
+								address <= j;
+								loadRequest <= '1';
+								lcd_data <= data_in;
+								e <= '1';
+							else
+								loadRequest <= '0';
+								e <= '0';	
+								j := j+1;
+							end if;
 
-						if j > 15 then
-							state <= set_cursor;
-						end if;								
+							if j > 15 then
+								state <= set_cursor;
+							end if;	
+						end if;							
 				end case;				
 				--if (refresh'event and refresh ='1' ) THEN		
 				--	state <= initial_lcd;
 				--end if;
 			end if;			
 		end if;
-
 	end process;
 	lcd_e <= e;
 end Behavioral; 

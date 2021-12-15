@@ -37,8 +37,8 @@ Setup/Hold to clock clk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-ps2_clk     |    0.779(R)|      SLOW  |    0.073(R)|      SLOW  |clk_BUFGP         |   0.000|
-ps2_data    |    0.562(R)|      SLOW  |    0.280(R)|      SLOW  |clk_BUFGP         |   0.000|
+ps2_clk     |    0.700(R)|      SLOW  |    0.152(R)|      SLOW  |clk_BUFGP         |   0.000|
+ps2_data    |    0.535(R)|      SLOW  |    0.312(R)|      SLOW  |clk_BUFGP         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -46,11 +46,11 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    6.575|         |         |         |
+clk            |    6.314|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Dec 15 20:05:49 2021 
+Analysis completed Wed Dec 15 22:16:00 2021 
 --------------------------------------------------------------------------------
 
 Trace Settings:

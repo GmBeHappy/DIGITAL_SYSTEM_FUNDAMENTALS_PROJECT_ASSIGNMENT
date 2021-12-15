@@ -46,6 +46,7 @@ Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignmen
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/divider.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/message_rom.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_control.vhd" into library work
 Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_ex1.vhd" into library work
 Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
@@ -60,23 +61,10 @@ Finished Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_a
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Phase 0 | Netlist Checksum: 786d0450
-open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 530.000 ; gain = 88.629
+Phase 0 | Netlist Checksum: 8f402ab0
+open_rtl_design: Time (s): elapsed = 00:00:08 . Memory (MB): peak = 523.723 ; gain = 94.531
 update_compile_order -fileset sim_1
-startgroup
-set_property package_pin P66 [get_ports {debug_add[0]}]
-endgroup
-startgroup
-set_property package_pin P62 [get_ports {debug_add[1]}]
-endgroup
-startgroup
-set_property package_pin P61 [get_ports {debug_add[2]}]
-endgroup
-startgroup
-set_property package_pin P59 [get_ports {debug_add[3]}]
-endgroup
-save_constraints
 exit
 ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
-INFO: [Common 17-206] Exiting PlanAhead at Wed Dec 15 18:05:47 2021...
+INFO: [Common 17-206] Exiting PlanAhead at Wed Dec 15 22:12:30 2021...
 INFO: [Common 17-83] Releasing license: PlanAhead

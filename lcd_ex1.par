@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-JB7O6AJ::  Wed Dec 15 20:05:35 2021
+DESKTOP-JB7O6AJ::  Wed Dec 15 22:15:48 2021
 
 par -w -intstyle ise -ol high -mt off lcd_ex1_map.ncd lcd_ex1.ncd lcd_ex1.pcf 
 
@@ -26,16 +26,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   300 out of  11,440    2%
-    Number used as Flip Flops:                 300
+  Number of Slice Registers:                   136 out of  11,440    1%
+    Number used as Flip Flops:                 136
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        437 out of   5,720    7%
-    Number used as logic:                      427 out of   5,720    7%
-      Number using O6 output only:             290
-      Number using O5 output only:              39
-      Number using O5 and O6:                   98
+  Number of Slice LUTs:                        288 out of   5,720    5%
+    Number used as logic:                      278 out of   5,720    4%
+      Number using O6 output only:             216
+      Number using O5 output only:              35
+      Number using O5 and O6:                   27
       Number used as ROM:                        0
     Number used as Memory:                       2 out of   1,440    1%
       Number used as Dual Port RAM:              0
@@ -50,12 +50,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   163 out of   1,430   11%
-  Number of MUXCYs used:                       116 out of   2,860    4%
-  Number of LUT Flip Flop pairs used:          497
-    Number with an unused Flip Flop:           221 out of     497   44%
-    Number with an unused LUT:                  60 out of     497   12%
-    Number of fully used LUT-FF pairs:         216 out of     497   43%
+  Number of occupied Slices:                    99 out of   1,430    6%
+  Number of MUXCYs used:                        64 out of   2,860    2%
+  Number of LUT Flip Flop pairs used:          304
+    Number with an unused Flip Flop:           172 out of     304   56%
+    Number with an unused LUT:                  16 out of     304    5%
+    Number of fully used LUT-FF pairs:         116 out of     304   38%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -66,16 +66,16 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        27 out of     102   26%
-    Number of LOCed IOBs:                       27 out of      27  100%
+  Number of bonded IOBs:                        29 out of     102   28%
+    Number of LOCed IOBs:                       29 out of      29  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
   Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
-    Number used as BUFGs:                        3
+  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
+    Number used as BUFGs:                        1
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
@@ -108,29 +108,29 @@ WARNING:Par:288 - The signal debug_add<3>_IBUF has no load.  PAR will not attemp
 Starting Router
 
 
-Phase  1  : 2428 unrouted;      REAL time: 3 secs 
+Phase  1  : 1462 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 2176 unrouted;      REAL time: 4 secs 
+Phase  2  : 1345 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 860 unrouted;      REAL time: 5 secs 
+Phase  3  : 556 unrouted;      REAL time: 4 secs 
 
-Phase  4  : 861 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  4  : 561 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
 Updating file: lcd_ex1.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 7 secs 
-Total REAL time to Router completion: 7 secs 
-Total CPU time to Router completion: 7 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+Total REAL time to Router completion: 6 secs 
+Total CPU time to Router completion: 6 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -150,17 +150,14 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net ps2 | SETUP       |         N/A|     5.316ns|     N/A|           0
-  _keyboard_to_ascii/ascii_new_BUFG         | HOLD        |     0.455ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     6.314ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     0.419ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     6.575ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     0.398ns|            |       0|           0
+  Autotimespec constraint for clock net lcd | SETUP       |         N/A|     3.982ns|     N/A|           0
+  _control/DIVIDER1/qs                      | HOLD        |     0.378ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net lcd | SETUP       |         N/A|     4.155ns|     N/A|           0
-  _control/DIVIDER1/qs_BUFG                 | HOLD        |     0.415ns|            |       0|           0
-----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net ps2 | SETUP       |         N/A|     1.440ns|     N/A|           0
-  _keyboard_to_ascii/ps2_keyboard_0/debounc | HOLD        |     0.488ns|            |       0|           0
+  Autotimespec constraint for clock net ps2 | SETUP       |         N/A|     1.380ns|     N/A|           0
+  _keyboard_to_ascii/ps2_keyboard_0/debounc | HOLD        |     0.482ns|            |       0|           0
   e_ps2_clk/result                          |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
@@ -179,10 +176,10 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 4 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 8 secs 
-Total CPU time to PAR completion: 8 secs 
+Total REAL time to PAR completion: 6 secs 
+Total CPU time to PAR completion: 6 secs 
 
-Peak Memory Usage:  4472 MB
+Peak Memory Usage:  4457 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

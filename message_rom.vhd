@@ -12,24 +12,29 @@ port (clk : in std_logic;
       debug_add: in std_logic_vector (3 downto 0);
       D : out std_logic_vector (7 downto 0);
       debug_data : out std_logic_vector (7 downto 0) := "00000000";
-      debug: out std_logic);
+      debug: out std_logic;
+      Reading: out std_logic;
+      Writing: out std_logic);
+
 end message_rom;
 architecture rom32x8_beh of message_rom is
 
 type rom_array is array(0 to 15) of std_logic_vector (7 downto 0);
-
-signal writing : std_logic;
-shared variable rom : rom_array:= ("00100000","00000000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000");
+-- signal rom_block : rom_array;
+-- signal rom_block : rom_array := ("00100000","00000000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000");
+-- shared variable rom : rom_array:= ("00100000","00000000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000");
+shared variable rom : rom_array:= ("00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000","00100000");
+-- shared variable romBuffer : std_logic_vector(7 downto 0);
 shared variable romBuffer : std_logic_vector(7 downto 0);
-shared variable debug_Buffer : std_logic_vector(7 downto 0);
+-- shared variable debug_Buffer : std_logic_vector(7 downto 0);
 begin
-  process (requestToload)
-  begin
-	  if requestToload'event and requestToload = '1' then 
-    romBuffer := rom(A);
-	  end if;
-  end process;
-  process (newAscii)
+  -- process (requestToload)
+  -- begin
+	--   if requestToload'event and requestToload = '1' then 
+  --   romBuffer := rom_block(A);
+	--   end if;
+  -- end process;
+  process (newAscii, requestToload)
   variable pointer: integer := 0;
   begin
     -- if newAscii'event and newAscii = '1' then 
@@ -49,10 +54,11 @@ begin
 
     -- end if;
     if newAscii'event and newAscii = '1' then
-      writing <= '1';
+      Writing <= '1';
       if DataIn = "00001000" then
         if pointer /= 0 then
           pointer := pointer-1;
+          -- rom_block(pointer) <= "00100000";
           rom(pointer) := "00100000";
           -- debug_data <= std_logic_vector( to_unsigned( pointer, debug_data'length));
           -- debug_data <= DataIn
@@ -61,14 +67,21 @@ begin
         end if;
       elsif DataIn > x"19" and DataIn < x"7E" and pointer < 16 then
           -- if DataIn /= "00001000" then
+          -- rom_block(pointer) <= DataIn;
           rom(pointer) := DataIn(7 downto 0);
-          debug_buffer := DataIn(7 downto 0);
+          -- debug_buffer := rom_block(pointer);
           pointer := pointer+1;
           -- debug_data <= std_logic_vector( to_unsigned( pointer, debug_data'length));
           -- end if;
       end if;
     end if;
-    writing <= '0';
+    Writing <= '0';
+
+	  if requestToload'event and requestToload = '1' then 
+      Reading <= '1';
+      romBuffer := rom(A);
+      Reading <= '0';
+	  end if;
   end process;
   -- process(clk)
   -- begin
@@ -77,7 +90,7 @@ begin
   --   end if;
   -- end process;
   D <= romBuffer;
-  debug_data <= debug_buffer;
+  -- debug_data <= debug_buffer;
 end rom32x8_beh;
 
 -- architecture rom32x8_beh of message_rom is

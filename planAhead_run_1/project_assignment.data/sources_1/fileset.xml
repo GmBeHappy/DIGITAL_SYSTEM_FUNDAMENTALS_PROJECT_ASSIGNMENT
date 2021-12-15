@@ -26,6 +26,12 @@
         <Attr Name="UsedInSimulation" Val="1"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../message_rom.vhd">
+      <FileInfo>
+        <Attr Name="UsedInSynthesis" Val="1"/>
+        <Attr Name="UsedInSimulation" Val="1"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../lcd_control.vhd">
       <FileInfo>
         <Attr Name="UsedInSynthesis" Val="1"/>
@@ -37,15 +43,6 @@
         <Attr Name="UsedInSynthesis" Val="1"/>
         <Attr Name="UsedInSimulation" Val="1"/>
       </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../message_rom.vhd">
-      <FileInfo>
-        <Attr Name="UsedInSynthesis" Val="1"/>
-        <Attr Name="UsedInSimulation" Val="1"/>
-      </FileInfo>
-    </File>
-    <File Path="$PDATADIR/sources_1/ports.xml">
-      <FileInfo SFType="PortsDb"/>
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
