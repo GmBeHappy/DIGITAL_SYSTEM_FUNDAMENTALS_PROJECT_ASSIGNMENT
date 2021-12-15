@@ -9,8 +9,8 @@ entity single_port_ram is
 		we		: in std_logic := '1';
 		clk		: in std_logic;
 		q		: out std_logic_vector(7 downto 0)
+		
 	);
-	
 end entity;
 
 architecture rtl of single_port_ram is
@@ -24,6 +24,15 @@ architecture rtl of single_port_ram is
 	
 	-- Register to hold the address
 	signal addr_reg : natural range 0 to 15;
+
+	function to_slv(slvv : char_type) return STD_LOGIC_VECTOR is
+		variable slv : STD_LOGIC_VECTOR((slvv'length * 8) - 1 downto 0);
+	  begin
+		for i in slvv'range loop
+		  slv((i * 8) + 7 downto (i * 8))      := slvv(i);
+		end loop;
+		return slv;
+	end function;
 
 begin
 
@@ -40,6 +49,6 @@ begin
 	
 	end process;
 	
-	q <= ram(addr_reg);
+	q <= to_slv(ram);
 	
 end rtl;

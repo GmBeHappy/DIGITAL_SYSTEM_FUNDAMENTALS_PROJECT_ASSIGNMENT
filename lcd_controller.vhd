@@ -49,7 +49,8 @@ ENTITY lcd_controller IS
     rw, rs, e  : OUT   STD_LOGIC;  --read/write, setup/data, and enable for lcd
     lcd_data   : OUT   STD_LOGIC_VECTOR(7 DOWNTO 0); --data signals for lcd
 	 line1_buffer : IN STD_LOGIC_VECTOR(127 downto 0); -- Data for the top line of the LCD
-	 line2_buffer : IN STD_LOGIC_VECTOR(127 downto 0)); -- Data for the bottom line of the LCD
+	 line2_buffer : IN STD_LOGIC_VECTOR(127 downto 0) -- Data for the bottom line of the LCD
+   );
 END lcd_controller;
 
 ARCHITECTURE controller OF lcd_controller IS
@@ -59,11 +60,11 @@ ARCHITECTURE controller OF lcd_controller IS
   SIGNAL 	ptr     	  : natural range 0 to 16 := 15; -- To keep track of what character we are up to
   SIGNAL 	line		  : STD_LOGIC := '1';
 BEGIN
+
   PROCESS(clk)
     VARIABLE clk_count : INTEGER := 0; --event counter for timing
   BEGIN
   IF(clk'EVENT and clk = '1') THEN
-    
       CASE state IS
         
         --wait 50 ms to ensure Vdd has risen and required LCD wait is met
@@ -94,10 +95,10 @@ BEGIN
             e <= '0';
             state <= initialize;
           ELSIF(clk_count < (70 * freq)) THEN    --display on/off control
-            --lcd_data <= "00001100";      --display on, cursor off, blink off
+            lcd_data <= "00001100";      --display on, cursor off, blink off
             --lcd_data <= "00001101";    --display on, cursor off, blink on
             --lcd_data <= "00001110";    --display on, cursor on, blink off
-            lcd_data <= "00001111";    --display on, cursor on, blink on
+            --lcd_data <= "00001111";    --display on, cursor on, blink on
             --lcd_data <= "00001000";    --display off, cursor off, blink off
             --lcd_data <= "00001001";    --display off, cursor off, blink on
             --lcd_data <= "00001010";    --display off, cursor on, blink off

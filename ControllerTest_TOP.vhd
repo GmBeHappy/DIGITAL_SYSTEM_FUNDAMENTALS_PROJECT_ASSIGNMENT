@@ -1,14 +1,14 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: Mayur Panchal
+-- Engineer: A lot of people
 -- 
--- Create Date:    14:13:20 11/06/2016 
+-- Create Date:    23:58:1234 15/12/2021
 -- Design Name: 
 -- Module Name:    ControllerTest_TOP - Behavioral 
 -- Project Name: 	 LCD Controller Test
--- Target Devices: 	XC5VLX50T
+-- Target Devices: 	
 -- Tool versions: 	ISE 14.7
--- Description: 	Handles controlling the 16x2 Character LCD screen
+-- Description: 	Handles controlling the 16x2 Character LCD screen and PS2 Keyboard
 --
 -- Dependencies: 
 --
@@ -20,17 +20,11 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity ControllerTest_TOP is
 	port (
+		ps2_clk		 : in  std_logic;
+    	ps2_data     : in  std_logic;
 		clk          : in  std_logic;
 		rst          : in  std_logic;
 		lcd_e        : out std_logic;
@@ -54,21 +48,60 @@ architecture Behavioral of ControllerTest_TOP is
 	
 	-- These lines can be configured to be input from anything. 
 	-- 8 bits per character
-	signal top_line : std_logic_vector(127 downto 0) := x"4d617975722773204650474120202020"; -- Translates to Mayur's FPGA
-	signal bottom_line : std_logic_vector(127 downto 0) := x"5445535420666f72204c434420202020";
+	signal top_line : std_logic_vector(127 downto 0) := x"20202020202020202020202020202020"; -- Translates to Mayur's FPGA
+	signal bottom_line : std_logic_vector(127 downto 0) := x"20202020202020202020202020202020";
+
+	signal newChar: std_logic;
+	signal charCode: std_logic_vector (7 downto 0);
+
+	subtype char_type is std_logic_vector(7 downto 0);
+	type ram_array is array(0 to 31) of char_type;
+	signal ram: ram_array := (x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20");
+	signal pointer: integer := 0;
+
 
 begin
 
-LCD: lcd_controller port map(
-	clk => clk,
-	reset_n => rst,
-	e => lcd_e,
-	rs => lcd_rs,
-	rw => lcd_rw,
-	lcd_data => lcd_db,
-	line1_buffer => top_line,
-	line2_buffer => bottom_line 
-);
+	LCD: lcd_controller port map(
+		clk => clk,
+		reset_n => not rst,
+		e => lcd_e,
+		rs => lcd_rs,
+		rw => lcd_rw,
+		lcd_data => lcd_db,
+		line1_buffer => top_line,
+		line2_buffer => bottom_line 
+	);
+	
+	ps2_keyboard_to_ascii:entity work.ps2_keyboard_to_ascii
+		port map(
+		clk => clk,
+		ps2_clk => ps2_clk,
+		ps2_data => ps2_data,
+		ascii_new => newChar,
+		ascii_code => charCode
+	);
+
+process (newChar)
+begin
+	if newChar'event and newChar = '0' then
+		if charCode = x"08" then
+			if pointer > 0 then
+				pointer <= pointer-1;
+				ram(pointer) <= x"20";
+			else
+				pointer <= pointer;
+				ram(0) <= x"20";
+			end if;
+		elsif charcode > x"19" and charCode < x"7F" and pointer < 32 then
+			ram(pointer) <= charCode;
+			pointer <= pointer+1;
+		end if;
+	end if;
+end process;
+
+top_line <= ram(0)&ram(1)&ram(2)&ram(3)&ram(4)&ram(5)&ram(6)&ram(7)&ram(8)&ram(9)&ram(10)&ram(11)&ram(12)&ram(13)&ram(14)&ram(15);
+bottom_line <= ram(16)&ram(17)&ram(18)&ram(19)&ram(20)&ram(21)&ram(22)&ram(23)&ram(24)&ram(25)&ram(26)&ram(27)&ram(28)&ram(29)&ram(30)&ram(31);
 
 end Behavioral;
 

@@ -1,2 +1,5 @@
+vhdl work "debounce.vhd"
+vhdl work "ps2_keyboard.vhd"
+vhdl work "ps2_keyboard_to_ascii.vhd"
 vhdl work "lcd_controller.vhd"
 vhdl work "ControllerTest_TOP.vhd"

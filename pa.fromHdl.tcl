@@ -5,6 +5,15 @@ create_project -name project_assignment -dir "C:/Users/gm/OneDrive - KMITL/1_256
 set_param project.pinAheadLayout yes
 set srcset [get_property srcset [current_run -impl]]
 set_property target_constrs_file "ControllerTest_TOP.ucf" [current_fileset -constrset]
+set hdlfile [add_files [list {debounce.vhd}]]
+set_property file_type VHDL $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {ps2_keyboard.vhd}]]
+set_property file_type VHDL $hdlfile
+set_property library work $hdlfile
+set hdlfile [add_files [list {ps2_keyboard_to_ascii.vhd}]]
+set_property file_type VHDL $hdlfile
+set_property library work $hdlfile
 set hdlfile [add_files [list {lcd_controller.vhd}]]
 set_property file_type VHDL $hdlfile
 set_property library work $hdlfile

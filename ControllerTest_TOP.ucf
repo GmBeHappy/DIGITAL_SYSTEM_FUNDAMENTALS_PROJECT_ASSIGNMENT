@@ -7,13 +7,15 @@ NET "lcd_db[5]" LOC = P117;
 NET "lcd_db[6]" LOC = P118;
 NET "lcd_db[7]" LOC = P119;
 NET "clk" LOC = P123;
-NET "lcd_db[3]" LOC = P115;
 NET "lcd_e" LOC = P105;
 NET "lcd_rs" LOC = P102;
 NET "lcd_rw" LOC = P104;
-NET "rst" LOC = P45;
+NET "rst" LOC = P47;
 NET "lcd_db[0]" LOC = P111;
 
-# PlanAhead Generated physical constraints 
 
 NET "lcd_db[3]" LOC = P115;
+
+
+NET "ps2_clk" LOC = P5;
+NET "ps2_data" LOC = P7;
