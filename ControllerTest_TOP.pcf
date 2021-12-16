@@ -1,10 +1,12 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Dec 16 02:12:58 2021
+// Written by: Map P.20131013 on Thu Dec 16 20:10:08 2021
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "P123" LEVEL 1;
 COMP "rst" LOCATE = SITE "P47" LEVEL 1;
+COMP "ps2_clk_out" LOCATE = SITE "P143" LEVEL 1;
+COMP "mode" LOCATE = SITE "P55" LEVEL 1;
 COMP "lcd_db<0>" LOCATE = SITE "P111" LEVEL 1;
 COMP "lcd_db<1>" LOCATE = SITE "P112" LEVEL 1;
 COMP "lcd_db<2>" LOCATE = SITE "P114" LEVEL 1;
@@ -13,8 +15,12 @@ COMP "lcd_db<4>" LOCATE = SITE "P116" LEVEL 1;
 COMP "lcd_db<5>" LOCATE = SITE "P117" LEVEL 1;
 COMP "lcd_db<6>" LOCATE = SITE "P118" LEVEL 1;
 COMP "lcd_db<7>" LOCATE = SITE "P119" LEVEL 1;
+COMP "ps2_data_out" LOCATE = SITE "P139" LEVEL 1;
+COMP "ps2_data2" LOCATE = SITE "P141" LEVEL 1;
 COMP "ps2_clk" LOCATE = SITE "P5" LEVEL 1;
 COMP "lcd_e" LOCATE = SITE "P105" LEVEL 1;
+COMP "modeSel" LOCATE = SITE "P67" LEVEL 1;
+COMP "ps2_clk2" LOCATE = SITE "P2" LEVEL 1;
 COMP "ps2_data" LOCATE = SITE "P7" LEVEL 1;
 COMP "lcd_rs" LOCATE = SITE "P102" LEVEL 1;
 COMP "lcd_rw" LOCATE = SITE "P104" LEVEL 1;

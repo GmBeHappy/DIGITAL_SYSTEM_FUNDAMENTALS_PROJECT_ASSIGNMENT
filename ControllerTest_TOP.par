@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-JB7O6AJ::  Thu Dec 16 02:13:01 2021
+DESKTOP-JB7O6AJ::  Thu Dec 16 20:10:11 2021
 
 par -w -intstyle ise -ol high -mt off ControllerTest_TOP_map.ncd
 ControllerTest_TOP.ncd ControllerTest_TOP.pcf 
@@ -27,36 +27,30 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   396 out of  11,440    3%
-    Number used as Flip Flops:                 396
+  Number of Slice Registers:                   399 out of  11,440    3%
+    Number used as Flip Flops:                 399
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        676 out of   5,720   11%
-    Number used as logic:                      666 out of   5,720   11%
-      Number using O6 output only:             404
+  Number of Slice LUTs:                        677 out of   5,720   11%
+    Number used as logic:                      669 out of   5,720   11%
+      Number using O6 output only:             405
       Number using O5 output only:              40
-      Number using O5 and O6:                  222
+      Number using O5 and O6:                  224
       Number used as ROM:                        0
-    Number used as Memory:                       2 out of   1,440    1%
-      Number used as Dual Port RAM:              0
-      Number used as Single Port RAM:            0
-      Number used as Shift Register:             2
-        Number using O6 output only:             2
-        Number using O5 output only:             0
-        Number using O5 and O6:                  0
+    Number used as Memory:                       0 out of   1,440    0%
     Number used exclusively as route-thrus:      8
       Number with same-slice register load:      5
       Number with same-slice carry load:         3
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   240 out of   1,430   16%
+  Number of occupied Slices:                   237 out of   1,430   16%
   Number of MUXCYs used:                       204 out of   2,860    7%
-  Number of LUT Flip Flop pairs used:          768
-    Number with an unused Flip Flop:           381 out of     768   49%
-    Number with an unused LUT:                  92 out of     768   11%
-    Number of fully used LUT-FF pairs:         295 out of     768   38%
+  Number of LUT Flip Flop pairs used:          757
+    Number with an unused Flip Flop:           367 out of     757   48%
+    Number with an unused LUT:                  80 out of     757   10%
+    Number of fully used LUT-FF pairs:         310 out of     757   40%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -67,16 +61,16 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        15 out of     102   14%
-    Number of LOCed IOBs:                       15 out of      15  100%
+  Number of bonded IOBs:                        21 out of     102   20%
+    Number of LOCed IOBs:                       21 out of      21  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
   Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
-    Number used as BUFGs:                        2
+  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
+    Number used as BUFGs:                        3
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
@@ -105,29 +99,29 @@ Finished initial Timing Analysis.  REAL time: 3 secs
 Starting Router
 
 
-Phase  1  : 3750 unrouted;      REAL time: 4 secs 
+Phase  1  : 3751 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 3344 unrouted;      REAL time: 4 secs 
+Phase  2  : 3350 unrouted;      REAL time: 3 secs 
 
-Phase  3  : 1502 unrouted;      REAL time: 6 secs 
+Phase  3  : 1559 unrouted;      REAL time: 4 secs 
 
-Phase  4  : 1510 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+Phase  4  : 1559 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
 Updating file: ControllerTest_TOP.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 9 secs 
-Total REAL time to Router completion: 9 secs 
-Total CPU time to Router completion: 10 secs 
+Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+Total REAL time to Router completion: 6 secs 
+Total CPU time to Router completion: 6 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -147,14 +141,17 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net ps2 | SETUP       |         N/A|     6.605ns|     N/A|           0
-  _keyboard_to_ascii/ascii_new_BUFG         | HOLD        |     0.454ns|            |       0|           0
+  Autotimespec constraint for clock net ps2 | SETUP       |         N/A|     6.476ns|     N/A|           0
+  _keyboard_to_ascii/ascii_new_BUFG         | HOLD        |     0.419ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     7.283ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     0.453ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     7.801ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     0.399ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net ps2 | SETUP       |         N/A|     1.384ns|     N/A|           0
-  _keyboard_to_ascii/ps2_keyboard_0/debounc | HOLD        |     0.477ns|            |       0|           0
+  Autotimespec constraint for clock net mod | SETUP       |         N/A|     0.880ns|     N/A|           0
+  e_BUFGP                                   | HOLD        |     0.443ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net ps2 | SETUP       |         N/A|     1.222ns|     N/A|           0
+  _keyboard_to_ascii/ps2_keyboard_0/debounc | HOLD        |     0.201ns|            |       0|           0
   e_ps2_clk/result                          |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
@@ -171,8 +168,8 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 10 secs 
-Total CPU time to PAR completion: 10 secs 
+Total REAL time to PAR completion: 6 secs 
+Total CPU time to PAR completion: 7 secs 
 
 Peak Memory Usage:  4474 MB
 

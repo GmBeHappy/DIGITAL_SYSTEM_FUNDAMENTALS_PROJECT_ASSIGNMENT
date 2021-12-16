@@ -1,7 +1,7 @@
 
 # PlanAhead Launch Script for Pre-Synthesis Floorplanning, created by Project Navigator
 
-create_project -name project_assignment -dir "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1" -part xc6slx9tqg144-3
+create_project -name project_assignment -dir "H:/Gm's repository/DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT/planAhead_run_4" -part xc6slx9tqg144-3
 set_param project.pinAheadLayout yes
 set srcset [get_property srcset [current_run -impl]]
 set_property target_constrs_file "ControllerTest_TOP.ucf" [current_fileset -constrset]

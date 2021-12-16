@@ -19,3 +19,16 @@ NET "lcd_db[3]" LOC = P115;
 
 NET "ps2_clk" LOC = P5;
 NET "ps2_data" LOC = P7;
+
+
+NET "ps2_clk2" LOC = P2;
+NET "ps2_clk_out" LOC = P143;
+NET "ps2_data2" LOC = P141;
+NET "ps2_data_out" LOC = P139;
+
+
+NET "mode" LOC = P55;
+
+# PlanAhead Generated physical constraints 
+
+NET "modeSel" LOC = P67;

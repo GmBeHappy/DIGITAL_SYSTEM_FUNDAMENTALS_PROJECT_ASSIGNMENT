@@ -25,12 +25,18 @@ entity ControllerTest_TOP is
 	port (
 		ps2_clk		 : in  std_logic;
     	ps2_data     : in  std_logic;
+		ps2_clk2	 : in  std_logic;
+    	ps2_data2     : in  std_logic; 
+		ps2_clk_out  : out std_logic; 
+		ps2_data_out  : out std_logic; 
 		clk          : in  std_logic;
 		rst          : in  std_logic;
 		lcd_e        : out std_logic;
 		lcd_rs       : out std_logic;
 		lcd_rw       : out std_logic;
-		lcd_db       : out std_logic_vector(7 downto 0));
+		lcd_db       : out std_logic_vector(7 downto 0);
+		mode         : in std_logic;
+		modeSel    : out std_logic);
 		
 end ControllerTest_TOP;
 
@@ -59,6 +65,11 @@ architecture Behavioral of ControllerTest_TOP is
 	signal ram: ram_array := (x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20",x"20");
 	signal pointer: integer := 0;
 
+	signal realPS2Data: std_logic:= '0';
+	signal realPS2Clk: std_logic:= '1';
+
+	signal channel: std_logic:= '0';
+
 
 begin
 
@@ -76,8 +87,8 @@ begin
 	ps2_keyboard_to_ascii:entity work.ps2_keyboard_to_ascii
 		port map(
 		clk => clk,
-		ps2_clk => ps2_clk,
-		ps2_data => ps2_data,
+		ps2_clk => realPS2Clk,
+		ps2_data => realPS2Data,
 		ascii_new => newChar,
 		ascii_code => charCode
 	);
@@ -100,8 +111,27 @@ begin
 	end if;
 end process;
 
+process (mode)
+begin
+	if mode'event and mode = '1' then
+		if channel='0' then
+			channel <= '1';
+		else
+			channel <= '0';
+		end if;
+	end if;
+end process;
+
 top_line <= ram(0)&ram(1)&ram(2)&ram(3)&ram(4)&ram(5)&ram(6)&ram(7)&ram(8)&ram(9)&ram(10)&ram(11)&ram(12)&ram(13)&ram(14)&ram(15);
 bottom_line <= ram(16)&ram(17)&ram(18)&ram(19)&ram(20)&ram(21)&ram(22)&ram(23)&ram(24)&ram(25)&ram(26)&ram(27)&ram(28)&ram(29)&ram(30)&ram(31);
+
+ps2_clk_out <= ps2_clk and not channel; 
+ps2_data_out <= ps2_data and not channel; 
+
+realPS2Clk <= (ps2_clk and not channel) or (ps2_clk2 and channel);
+realPS2Data <= (ps2_data and not channel) or (ps2_data2 and channel);
+
+modeSel <= channel;
 
 end Behavioral;
 

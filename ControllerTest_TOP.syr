@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: ControllerTest_TOP.prj
 
@@ -105,22 +105,22 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\debounce.vhd" into library work
+Parsing VHDL file "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\debounce.vhd" into library work
 Parsing entity <debounce>.
 Parsing architecture <logic> of entity <debounce>.
-Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard.vhd" into library work
+Parsing VHDL file "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\ps2_keyboard.vhd" into library work
 Parsing entity <ps2_keyboard>.
 Parsing architecture <logic> of entity <ps2_keyboard>.
-Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard_to_ascii.vhd" into library work
+Parsing VHDL file "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\ps2_keyboard_to_ascii.vhd" into library work
 Parsing entity <ps2_keyboard_to_ascii>.
 Parsing architecture <behavior> of entity <ps2_keyboard_to_ascii>.
-Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_controller.vhd" into library work
+Parsing VHDL file "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\lcd_controller.vhd" into library work
 Parsing entity <lcd_controller>.
 Parsing architecture <controller> of entity <lcd_controller>.
-Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" into library work
+Parsing VHDL file "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\ControllerTest_TOP.vhd" into library work
 Parsing entity <ControllerTest_TOP>.
 Parsing architecture <Behavioral> of entity <controllertest_top>.
-WARNING:HDLCompiler:946 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" Line 67: Actual for formal port reset_n is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\ControllerTest_TOP.vhd" Line 78: Actual for formal port reset_n is neither a static name nor a globally static expression
 
 =========================================================================
 *                            HDL Elaboration                            *
@@ -141,7 +141,7 @@ Elaborating entity <debounce> (architecture <logic>) with generics from library 
 =========================================================================
 
 Synthesizing Unit <ControllerTest_TOP>.
-    Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd".
+    Related source file is "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\ControllerTest_TOP.vhd".
     Found 8-bit register for signal <ram<0>>.
     Found 8-bit register for signal <ram<1>>.
     Found 8-bit register for signal <ram<2>>.
@@ -174,22 +174,23 @@ Synthesizing Unit <ControllerTest_TOP>.
     Found 8-bit register for signal <ram<29>>.
     Found 8-bit register for signal <ram<30>>.
     Found 8-bit register for signal <ram<31>>.
+    Found 1-bit register for signal <channel>.
     Found 32-bit register for signal <pointer>.
-    Found 32-bit adder for signal <pointer[31]_GND_3_o_add_105_OUT> created at line 98.
-    Found 32-bit subtractor for signal <pointer[31]_GND_3_o_sub_3_OUT<31:0>> created at line 90.
-    Found 32-bit comparator greater for signal <pointer[31]_GND_3_o_LessThan_2_o> created at line 89
-    Found 8-bit comparator greater for signal <GND_3_o_charCode[7]_LessThan_70_o> created at line 96
-    Found 8-bit comparator greater for signal <charCode[7]_GND_3_o_LessThan_71_o> created at line 96
-    Found 32-bit comparator greater for signal <GND_3_o_pointer[31]_LessThan_72_o> created at line 96
+    Found 32-bit adder for signal <pointer[31]_GND_3_o_add_105_OUT> created at line 109.
+    Found 32-bit subtractor for signal <pointer[31]_GND_3_o_sub_3_OUT<31:0>> created at line 101.
+    Found 32-bit comparator greater for signal <pointer[31]_GND_3_o_LessThan_2_o> created at line 100
+    Found 8-bit comparator greater for signal <GND_3_o_charCode[7]_LessThan_70_o> created at line 107
+    Found 8-bit comparator greater for signal <charCode[7]_GND_3_o_LessThan_71_o> created at line 107
+    Found 32-bit comparator greater for signal <GND_3_o_pointer[31]_LessThan_72_o> created at line 107
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred 288 D-type flip-flop(s).
+	inferred 289 D-type flip-flop(s).
 	inferred   4 Comparator(s).
 	inferred  32 Multiplexer(s).
 Unit <ControllerTest_TOP> synthesized.
 
 Synthesizing Unit <lcd_controller>.
-    Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\lcd_controller.vhd".
+    Related source file is "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\lcd_controller.vhd".
     Found 3-bit register for signal <state>.
     Found 1-bit register for signal <rs>.
     Found 1-bit register for signal <rw>.
@@ -237,7 +238,7 @@ Synthesizing Unit <lcd_controller>.
 Unit <lcd_controller> synthesized.
 
 Synthesizing Unit <ps2_keyboard_to_ascii>.
-    Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard_to_ascii.vhd".
+    Related source file is "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\ps2_keyboard_to_ascii.vhd".
         clk_freq = 20000000
         ps2_debounce_counter_size = 7
     Found 1-bit register for signal <ascii_new>.
@@ -270,7 +271,7 @@ Synthesizing Unit <ps2_keyboard_to_ascii>.
 Unit <ps2_keyboard_to_ascii> synthesized.
 
 Synthesizing Unit <ps2_keyboard>.
-    Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard.vhd".
+    Related source file is "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\ps2_keyboard.vhd".
         clk_freq = 20000000
         debounce_counter_size = 7
     Found 11-bit register for signal <ps2_word>.
@@ -285,7 +286,7 @@ Synthesizing Unit <ps2_keyboard>.
 Unit <ps2_keyboard> synthesized.
 
 Synthesizing Unit <debounce>.
-    Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\debounce.vhd".
+    Related source file is "H:\Gm's repository\DIGITAL_SYSTEM_FUNDAMENTALS_PROJECT_ASSIGNMENT\debounce.vhd".
         counter_size = 7
     Found 8-bit register for signal <counter_out>.
     Found 1-bit register for signal <result>.
@@ -306,8 +307,8 @@ Macro Statistics
  32-bit addsub                                         : 1
  5-bit subtractor                                      : 1
  8-bit adder                                           : 3
-# Registers                                            : 61
- 1-bit register                                        : 15
+# Registers                                            : 62
+ 1-bit register                                        : 16
  11-bit register                                       : 2
  2-bit register                                        : 3
  32-bit register                                       : 2
@@ -362,8 +363,8 @@ Macro Statistics
  32-bit updown counter                                 : 1
  5-bit down counter                                    : 1
  8-bit up counter                                      : 2
-# Registers                                            : 352
- Flip-Flops                                            : 352
+# Registers                                            : 353
+ Flip-Flops                                            : 353
 # Comparators                                          : 17
  32-bit comparator greater                             : 14
  32-bit comparator lessequal                           : 1
@@ -383,16 +384,6 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <ps2_keyboard_to_ascii/FSM_1> on signal <state[1:2]> with user encoding.
------------------------
- State     | Encoding
------------------------
- ready     | 00
- new_code  | 01
- translate | 10
- output    | 11
------------------------
-Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <LCD/FSM_0> on signal <state[1:3]> with gray encoding.
 ------------------------
  State      | Encoding
@@ -404,18 +395,27 @@ Optimizing FSM <LCD/FSM_0> on signal <state[1:3]> with gray encoding.
  line2      | 110
  send       | 010
 ------------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <ps2_keyboard_to_ascii/FSM_1> on signal <state[1:2]> with user encoding.
+-----------------------
+ State     | Encoding
+-----------------------
+ ready     | 00
+ new_code  | 01
+ translate | 10
+ output    | 11
+-----------------------
 
 Optimizing unit <ControllerTest_TOP> ...
+
+Optimizing unit <lcd_controller> ...
 
 Optimizing unit <ps2_keyboard_to_ascii> ...
 
 Optimizing unit <ps2_keyboard> ...
 
 Optimizing unit <debounce> ...
-
-Optimizing unit <lcd_controller> ...
-WARNING:Xst:1710 - FF/Latch <ps2_keyboard_to_ascii/ascii_Buffer_7> (without init value) has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_31> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <LCD/clk_count_31> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_30> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_29> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_28> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
@@ -427,38 +427,39 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_23> h
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_22> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_21> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_20> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ps2_keyboard_to_ascii/ascii_Buffer_7> (without init value) has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ram_0_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_31_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_30_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_29_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_28_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_27_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_26_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_28_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_25_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_24_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_23_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_22_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_21_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_19_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_18_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_20_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_18_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_17_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_19_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_16_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_15_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_14_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_13_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_12_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_10_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_9_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_11_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_9_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_8_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_10_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_7_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_6_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_5_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_4_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_3_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_1_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_2_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_1_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -474,19 +475,12 @@ FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7 has been replicated 2 t
 
 Final Macro Processing ...
 
-Processing Unit <ControllerTest_TOP> :
-	Found 2-bit shift register for signal <ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_data/flipflops_0>.
-	Found 2-bit shift register for signal <ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/flipflops_0>.
-Unit <ControllerTest_TOP> processed.
-
 =========================================================================
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 394
- Flip-Flops                                            : 394
-# Shift Registers                                      : 2
- 2-bit shift register                                  : 2
+# Registers                                            : 399
+ Flip-Flops                                            : 399
 
 =========================================================================
 
@@ -509,12 +503,12 @@ Top Level Output File Name         : ControllerTest_TOP.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1116
+# BELS                             : 1121
 #      GND                         : 1
-#      INV                         : 14
+#      INV                         : 15
 #      LUT1                        : 43
-#      LUT2                        : 56
-#      LUT3                        : 277
+#      LUT2                        : 58
+#      LUT3                        : 279
 #      LUT4                        : 39
 #      LUT5                        : 193
 #      LUT6                        : 228
@@ -522,22 +516,20 @@ Primitive and Black Box Usage:
 #      MUXF7                       : 16
 #      VCC                         : 1
 #      XORCY                       : 80
-# FlipFlops/Latches                : 396
-#      FD                          : 33
+# FlipFlops/Latches                : 399
+#      FD                          : 38
 #      FD_1                        : 11
-#      FDE                         : 98
+#      FDE                         : 96
 #      FDR                         : 3
 #      FDRE                        : 27
 #      FDRE_1                      : 192
 #      FDSE_1                      : 32
-# Shift Registers                  : 2
-#      SRLC16E                     : 2
-# Clock Buffers                    : 2
+# Clock Buffers                    : 3
 #      BUFG                        : 1
-#      BUFGP                       : 1
-# IO Buffers                       : 14
-#      IBUF                        : 3
-#      OBUF                        : 11
+#      BUFGP                       : 2
+# IO Buffers                       : 19
+#      IBUF                        : 5
+#      OBUF                        : 14
 
 Device utilization summary:
 ---------------------------
@@ -546,25 +538,23 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             396  out of  11440     3%  
- Number of Slice LUTs:                  852  out of   5720    14%  
-    Number used as Logic:               850  out of   5720    14%  
-    Number used as Memory:                2  out of   1440     0%  
-       Number used as SRL:                2
+ Number of Slice Registers:             399  out of  11440     3%  
+ Number of Slice LUTs:                  855  out of   5720    14%  
+    Number used as Logic:               855  out of   5720    14%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    902
-   Number with an unused Flip Flop:     506  out of    902    56%  
-   Number with an unused LUT:            50  out of    902     5%  
-   Number of fully used LUT-FF pairs:   346  out of    902    38%  
+ Number of LUT Flip Flop pairs used:    905
+   Number with an unused Flip Flop:     506  out of    905    55%  
+   Number with an unused LUT:            50  out of    905     5%  
+   Number of fully used LUT-FF pairs:   349  out of    905    38%  
    Number of unique control sets:        58
 
 IO Utilization: 
- Number of IOs:                          15
- Number of bonded IOBs:                  15  out of    102    14%  
+ Number of IOs:                          21
+ Number of bonded IOBs:                  21  out of    102    20%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
 
 ---------------------------
 Partition Resource Summary:
@@ -587,6 +577,7 @@ Clock Information:
 ------------------------------------------------------------+-------------------------------------------------------+-------+
 Clock Signal                                                | Clock buffer(FF name)                                 | Load  |
 ------------------------------------------------------------+-------------------------------------------------------+-------+
+mode                                                        | BUFGP                                                 | 1     |
 ps2_keyboard_to_ascii/ascii_new                             | BUFG                                                  | 256   |
 clk                                                         | BUFGP                                                 | 131   |
 ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result| NONE(ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_10)| 11    |
@@ -603,12 +594,34 @@ Speed Grade: -3
 
    Minimum period: 7.262ns (Maximum Frequency: 137.704MHz)
    Minimum input arrival time before clock: 3.087ns
-   Maximum output required time after clock: 3.668ns
-   Maximum combinational path delay: No path found
+   Maximum output required time after clock: 4.649ns
+   Maximum combinational path delay: 5.194ns
 
 Timing Details:
 ---------------
 All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'mode'
+  Clock period: 2.078ns (frequency: 481.325MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               2.078ns (Levels of Logic = 1)
+  Source:            channel (FF)
+  Destination:       channel (FF)
+  Source Clock:      mode rising
+  Destination Clock: mode rising
+
+  Data Path: channel to channel
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.447   0.744  channel (channel)
+     INV:I->O              1   0.206   0.579  channel_INV_76_o1_INV_0 (channel_INV_76_o)
+     FD:D                      0.102          channel
+    ----------------------------------------
+    Total                      2.078ns (0.755ns logic, 1.323ns route)
+                                       (36.3% logic, 63.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ascii_new'
@@ -634,7 +647,7 @@ Delay:               6.006ns (Levels of Logic = 9)
      MUXCY:CI->O           1   0.019   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<4> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<4>)
      MUXCY:CI->O           1   0.019   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<5> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<5>)
      MUXCY:CI->O          33   0.213   1.306  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<6> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<6>)
-     LUT6:I5->O           32   0.205   1.291  _n0620_inv1 (_n0620_inv)
+     LUT6:I5->O           32   0.205   1.291  _n0629_inv1 (_n0629_inv)
      FDE:CE                    0.322          pointer_0
     ----------------------------------------
     Total                      6.006ns (1.657ns logic, 4.349ns route)
@@ -702,7 +715,7 @@ Delay:               1.293ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 5 / 5
+  Total number of paths / destination ports: 7 / 5
 -------------------------------------------------------------------------
 Offset:              3.087ns (Levels of Logic = 2)
   Source:            rst (PAD)
@@ -740,6 +753,45 @@ Offset:              3.668ns (Levels of Logic = 1)
                                        (82.3% logic, 17.7% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'mode'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              4.649ns (Levels of Logic = 2)
+  Source:            channel (FF)
+  Destination:       ps2_clk_out (PAD)
+  Source Clock:      mode rising
+
+  Data Path: channel to ps2_clk_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.447   0.849  channel (channel)
+     LUT2:I0->O            1   0.203   0.579  ps2_clk_out1 (ps2_clk_out_OBUF)
+     OBUF:I->O                 2.571          ps2_clk_out_OBUF (ps2_clk_out)
+    ----------------------------------------
+    Total                      4.649ns (3.221ns logic, 1.428ns route)
+                                       (69.3% logic, 30.7% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Delay:               5.194ns (Levels of Logic = 3)
+  Source:            ps2_clk (PAD)
+  Destination:       ps2_clk_out (PAD)
+
+  Data Path: ps2_clk to ps2_clk_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   1.222   0.617  ps2_clk_IBUF (ps2_clk_IBUF)
+     LUT2:I1->O            1   0.205   0.579  ps2_clk_out1 (ps2_clk_out_OBUF)
+     OBUF:I->O                 2.571          ps2_clk_out_OBUF (ps2_clk_out)
+    ----------------------------------------
+    Total                      5.194ns (3.998ns logic, 1.196ns route)
+                                       (77.0% logic, 23.0% route)
+
+=========================================================================
 
 Cross Clock Domains Report:
 --------------------------
@@ -750,9 +802,18 @@ Clock to Setup on destination clock clk
 Source Clock                                                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------------------------------+---------+---------+---------+---------+
 clk                                                         |    7.262|         |         |         |
+mode                                                        |    1.727|         |         |         |
 ps2_keyboard_to_ascii/ascii_new                             |         |    5.591|         |         |
 ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |    5.240|         |         |
 ------------------------------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock mode
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+mode           |    2.078|         |         |         |
+---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ps2_keyboard_to_ascii/ascii_new
 -------------------------------+---------+---------+---------+---------+
@@ -775,12 +836,12 @@ ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |         
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 12.55 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.37 secs
  
 --> 
 
-Total memory usage is 4503556 kilobytes
+Total memory usage is 4502496 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   46 (   0 filtered)
