@@ -2,23 +2,24 @@
 
 library IEEE;
 use IEEE.numeric_bit.all;  
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity memory is 
 	port(
-		baud	: in bit;
-		read	: in bit;
-		write	: in bit;
-		Data_in	: in bit_vector (7 downto 0);
-		Address : in bit_vector (3 downto 0);
-		Data_out: out bit_vector(7 downto 0);
-		send	: out bit	
+		baud	: in std_logic;
+		read	: in std_logic;
+		write	: in std_logic;
+		Data_in	: in std_logic_vector (7 downto 0);
+		Address : in std_logic_vector (5 downto 0);
+		Data_out: out std_logic_vector (7 downto 0);
+		send	: out std_logic	
 		);
 end entity;
 
 architecture behave of memory is
 
 --------------------------------Declaring Memory 16X8
-type memory_type is array (0 to 15) of bit_vector ( 7 downto 0);
+type memory_type is array (0 to 31) of std_logic_vector ( 7 downto 0);
 signal main_memory : memory_type;
 
 --------------------------------Declaring States

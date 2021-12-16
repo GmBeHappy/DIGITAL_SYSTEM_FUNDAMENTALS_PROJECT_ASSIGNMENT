@@ -2,17 +2,18 @@
 
 library IEEE;
 use IEEE.numeric_bit.all;
+use IEEE.STD_LOGIC_1164.ALL;
 
 
 entity Rx_controller is
 	port(
-		baud	: in bit;
-		D_valid	: in bit;
-		Fifo_full: in bit;
-		Fifo_empty : in  bit;
-		Fifo_write: out bit;
-		Fifo_read : out bit;
-		memory_write: out bit	 --- indicates FIFO contains a command ( This connects to Fifo_Valid )
+		baud	: in std_logic;
+		D_valid	: in std_logic;
+		Fifo_full: in std_logic;
+		Fifo_empty : in std_logic;
+		Fifo_write: out std_logic;
+		Fifo_read : out std_logic;
+		memory_write: out std_logic	 --- indicates FIFO contains a command ( This connects to Fifo_Valid )
 		);
 	
 end entity;

@@ -2,14 +2,14 @@
 
 library IEEE;
 use IEEE.numeric_bit.all;
-
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity Rx_top is 
-	port( baud : in bit; 
-		  baudx16: in bit;
-		  Rx_line: in bit;
-		  Data_out_of_Rx_top: out bit_vector ( 7 downto 0);
-		  Fifo_valid : out bit
+	port( baud : in std_logic; 
+		  baudx16: in std_logic;
+		  Rx_line: in std_logic;
+		  Data_out_of_Rx_top: out std_logic_vector ( 7 downto 0);
+		  Fifo_valid : out std_logic;
 	);
 		 
 end entity;
@@ -17,10 +17,10 @@ end entity;
 architecture structure of Rx_top is 
 
 component Rx 
-	port(baudx16 :in bit;
-		 Rx_line : in bit;
-		 Data_recieved : out bit_vector(7 downto 0);
-		 D_valid	   : out bit
+	port(baudx16 :in std_logic;
+		 Rx_line : in std_logic;
+		 Data_recieved : out std_logic_vector(7 downto 0);
+		 D_valid	   : out std_logic
 	);
 	
 end component;
@@ -28,37 +28,33 @@ end component;
 
 component Rx_controller
 	port(
-		baud	: in bit;
-		D_valid	: in bit;
-		Fifo_full: in bit;
-		Fifo_empty : in  bit;
-		Fifo_write: out bit;
-		Fifo_read : out bit;
-		memory_write: out bit
+		baud	: in std_logic;
+		D_valid	: in std_logic;
+		Fifo_full: in std_logic;
+		Fifo_empty : in  std_logic;
+		Fifo_write: out std_logic;
+		Fifo_read : out std_logic;
+		memory_write: out std_logic
 			);
 end component;
 
 component fifo is
 	port(
-	write,read : in bit;
-	clk		   : in bit;
-	data_in	   : in bit_vector (7 downto 0);
-	full,empty : buffer bit;
-	data_out   : out bit_vector ( 7 downto 0)	);
+	write,read : in std_logic;
+	clk		   : in std_logic;
+	data_in	   : in std_logic_vector (7 downto 0);
+	full,empty : buffer std_logic;
+	data_out   : out std_logic_vector ( 7 downto 0)	);
 end component;
-
-
-
 
 --------------------------unused signals
 signal reset : bit;
 
 --------------------------Data lines
-signal Data_into_fifo, Data_out_fifo : bit_vector(7 downto 0);
+signal Data_into_fifo, Data_out_fifo : std_logic_vector(7 downto 0);
 
 -------------------------internal signals
-signal Dta_valid, write, Read, empty, full : bit;
-
+signal Dta_valid, write, Read, empty, full : std_logic;
 
 
 begin  

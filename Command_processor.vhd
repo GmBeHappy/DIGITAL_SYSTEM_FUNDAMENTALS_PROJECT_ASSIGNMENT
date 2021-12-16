@@ -2,73 +2,74 @@
 
 library IEEE;
 use IEEE.numeric_bit.all;
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity command_processor is
 	port(
-		Rx_line : in bit;
-		clk100mhz: in bit;
-		Tx_line : out bit
+		Rx_line : in std_logic;
+		clk100mhz: in std_logic;
+		Tx_line : out std_logic
 		);
 end entity;
 
 architecture structure of command_processor is
 
 component Rx_top
-	port( baud : in bit; 
-		  baudx16: in bit;
-		  Rx_line: in bit;
-		  Data_out_of_Rx_top: out bit_vector ( 7 downto 0);
-		  Fifo_valid : out bit
+	port( baud : in std_logic;; 
+		  baudx16: in std_logic;
+		  Rx_line: in std_logic;
+		  Data_out_of_Rx_top: out std_logic_vector ( 7 downto 0);
+		  Fifo_valid : out std_logic
 	);
 		 
 end component;
 
 component get_command
 	port(
-		baud	   : in bit;
-		Fifo_valid : in bit;
-		data_from_fifo : in bit_vector(7 downto 0);
-		mem_write  : out bit;
-		mem_read   : out bit;
-		mem_data_to_write : out bit_vector (7 downto 0);
-		mem_address: out bit_vector (3 downto 0)		
+		baud	   : in std_logic;
+		Fifo_valid : in std_logic;
+		data_from_fifo : in std_logic_vector(7 downto 0);
+		mem_write  : out std_logic;
+		mem_read   : out std_logic;
+		mem_data_to_write : out std_logic_vector (7 downto 0);
+		mem_address: out std_logic_vector (5 downto 0)		
 		);
 end component;
 
 
 component memory
 	port(
-		baud	: in bit;
-		read	: in bit;
-		write	: in bit;
-		Data_in	: in bit_vector (7 downto 0);
-		Address : in bit_vector (3 downto 0);
-		Data_out: out bit_vector(7 downto 0);
-		send	: out bit	
+		baud	: in std_logic;
+		read	: in std_logic;
+		write	: in std_logic;
+		Data_in	: in std_logic_vector (7 downto 0);
+		Address : in std_logic_vector (5 downto 0);
+		Data_out: out std_logic_vector(7 downto 0);
+		send	: out std_logic	
 		);
 end component;
 
 
 component Tx
   port (
-		clk		: in bit;				    -- frequency of baudrate
-		send	: in bit;  					-- a flag to start sending
-		DATA_IN : in bit_vector(7 downto 0);-- loaded from fifo
-		DATA_OUT: out bit					-- to the outside world
+		clk		: in std_logic;				    -- frequency of baudrate
+		send	: in std_logic;  					-- a flag to start sending
+		DATA_IN : in std_logic_vector(7 downto 0);-- loaded from fifo
+		DATA_OUT: out std_logic					-- to the outside world
 		);
 end component;
 
 component clkgen is
-  port (clk100mhz : in bit;
-        reset : in bit;
-        baudclk_16x : out bit;
-        baudclk : out bit );
+  port (clk100mhz : in std_logic;
+        reset : in std_logic;
+        baudclk_16x : out std_logic;
+        baudclk : out std_logic);
 end component;
 
 --------------------------------Signals
-signal reset,baud,baudx16,FifoValid,MemWrite,MemRead,TxSend,Tx_out : bit;
-signal Data_from_Rx_to_Get_command, MemData, TxData : bit_vector(7 downto 0);	  
-signal MemAddress : bit_vector ( 3 downto 0);
+signal reset,baud,baudx16,FifoValid,MemWrite,MemRead,TxSend,Tx_out : std_logic;
+signal Data_from_Rx_to_Get_command, MemData, TxData : std_logic_vector (7 downto 0);	  
+signal MemAddress : std_logic_vector ( 5 downto 0);
 begin
 
 

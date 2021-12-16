@@ -1,17 +1,18 @@
 library IEEE;
 use IEEE.numeric_bit.all;
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity fifo is
 	port(
-	write,read : in bit;
-	clk		   : in bit;
-	data_in	   : in bit_vector (7 downto 0);
-	full,empty : buffer bit;
-	data_out   : out bit_vector ( 7 downto 0)	);
+	write,read : in std_logic;
+	clk		   : in std_logic;
+	data_in	   : in std_logic_vector (7 downto 0);
+	full,empty : buffer std_logic;
+	data_out   : out std_logic_vector ( 7 downto 0)	);
 end entity;
 
 architecture behave of fifo is
-type fifo_buffer is array(3 downto 0) of bit_vector(7 downto 0);
+type fifo_buffer is array(3 downto 0) of std_logic_vector(7 downto 0);
 signal fifo : fifo_buffer;
 signal write_ptr,read_ptr : unsigned (2 downto 0) := "000";
 begin

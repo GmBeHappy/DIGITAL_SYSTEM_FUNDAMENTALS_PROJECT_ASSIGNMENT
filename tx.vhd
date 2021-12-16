@@ -3,13 +3,14 @@
 
 library IEEE;
 use IEEE.numeric_std.all;
+use IEEE.STD_LOGIC_1164.ALL;
 
 entity Tx is
   port (
-		clk		: in bit;				    -- frequency of baudrate
-		send	: in bit;  					-- a flag to start sending
-		DATA_IN : in bit_vector(7 downto 0);-- loaded from fifo
-		DATA_OUT: out bit					-- to the outside world
+		clk		: in std_logic;				    -- frequency of baudrate
+		send	: in std_logic;  					-- a flag to start sending
+		DATA_IN : in std_logic_vector (7 downto 0);-- loaded from fifo
+		DATA_OUT: out std_logic				-- to the outside world
 		);
 end entity;
 
@@ -22,7 +23,7 @@ architecture behave of Tx is
  signal  send_start, send_stop, sending_started : bit; 
  														
  ---------------------------Shift Register
- signal shift_register : bit_vector (7 downto 0) := "00000000";
+ signal shift_register : std_logic_vector (7 downto 0) := "00000000";
  
 begin
 

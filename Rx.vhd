@@ -2,6 +2,7 @@
 
 library IEEE;
 use IEEE.numeric_bit.all;
+use IEEE.STD_LOGIC_1164.ALL;
 
 
 entity Rx is
