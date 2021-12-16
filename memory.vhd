@@ -1,7 +1,7 @@
 ---George Saman
 
 library IEEE;
-use IEEE.numeric_bit.all;  
+USE ieee.numeric_std.ALL;  
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity memory is 

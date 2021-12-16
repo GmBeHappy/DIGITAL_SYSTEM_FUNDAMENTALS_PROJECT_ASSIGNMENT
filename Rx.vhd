@@ -25,7 +25,7 @@ signal counter7, bit_number : unsigned (2 downto 0);
 signal counter15 : unsigned (3 downto 0);
 
 ----------------------Internal Signals
-signal start_counter7, start_counter15, Data_valid, enable_Data_valid  , transmit_done  : std_logic;;	 
+signal start_counter7, start_counter15, Data_valid, enable_Data_valid  , transmit_done  : std_logic;	 
 
 ----------------------Shift Regsiter
 signal shift_register : std_logic_vector (7 downto 0);

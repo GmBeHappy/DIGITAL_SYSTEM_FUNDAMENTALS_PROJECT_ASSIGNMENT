@@ -56,7 +56,7 @@ begin
 							
 							when SDatatoWrite =>
 										data_register <= data_from_fifo;											-- Store Data
-										nstate <= Szero;
+										nstate <= SMemWrite;
 							
 							when SMemRead => 
 										mem_read <= '1';
@@ -65,7 +65,7 @@ begin
 										
 							when SMemWrite => 
 										mem_write <= '1';
-										mem_address <= address_register (3 downto 0);
+										mem_address <= address_register (5 downto 0);
 										mem_data_to_write <= data_register;
 										nstate <= Szero;
 										

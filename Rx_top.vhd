@@ -9,7 +9,7 @@ entity Rx_top is
 		  baudx16: in std_logic;
 		  Rx_line: in std_logic;
 		  Data_out_of_Rx_top: out std_logic_vector ( 7 downto 0);
-		  Fifo_valid : out std_logic;
+		  Fifo_valid : out std_logic
 	);
 		 
 end entity;

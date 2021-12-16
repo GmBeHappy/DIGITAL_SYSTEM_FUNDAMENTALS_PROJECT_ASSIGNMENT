@@ -1,19 +1,20 @@
 -- Clock generator
 -- 100 Mhz input, 
+LIBRARY ieee;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity clkgen is
-  port (clk100mhz : in std_logic);
+  port (clk100mhz : in std_logic;
         reset : in std_logic;
         baudclk_16x : out std_logic;
-        baudclk : out std_logic; );
+        baudclk : out std_logic );
 end entity;
 
 
 architecture behave of clkgen is
 
   signal count : integer range 0 to 54;
-  signal bclk_16x, bclk_8x, bclk_4x, bclk_2x, bclk : std_logic;; 
+  signal bclk_16x, bclk_8x, bclk_4x, bclk_2x, bclk : std_logic; 
 
 begin
 

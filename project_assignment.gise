@@ -103,17 +103,14 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1639595560" xil_pn:in_ck="-1425299450518368192" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="3760784467230961248" xil_pn:start_ts="1639595545">
-      <status xil_pn:value="SuccessfullyRun"/>
+    <transform xil_pn:end_ts="1639655434" xil_pn:in_ck="7731701240591043054" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="3760784467230961248" xil_pn:start_ts="1639655428">
+      <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ControllerTest_TOP.lso"/>
       <outfile xil_pn:name="ControllerTest_TOP.ngc"/>
       <outfile xil_pn:name="ControllerTest_TOP.ngr"/>
       <outfile xil_pn:name="ControllerTest_TOP.prj"/>
-      <outfile xil_pn:name="ControllerTest_TOP.stx"/>
       <outfile xil_pn:name="ControllerTest_TOP.syr"/>
       <outfile xil_pn:name="ControllerTest_TOP.xst"/>
       <outfile xil_pn:name="ControllerTest_TOP_xst.xrpt"/>
@@ -128,6 +125,9 @@
     <transform xil_pn:end_ts="1639595566" xil_pn:in_ck="-3872911331824904337" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="547393042783175538" xil_pn:start_ts="1639595560">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="ControllerTest_TOP.bld"/>
       <outfile xil_pn:name="ControllerTest_TOP.ngd"/>
       <outfile xil_pn:name="ControllerTest_TOP_ngdbuild.xrpt"/>
@@ -137,6 +137,7 @@
     <transform xil_pn:end_ts="1639595580" xil_pn:in_ck="-6990692697930278864" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="6093601622908603872" xil_pn:start_ts="1639595566">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="ControllerTest_TOP.pcf"/>
       <outfile xil_pn:name="ControllerTest_TOP_map.map"/>
       <outfile xil_pn:name="ControllerTest_TOP_map.mrp"/>
@@ -150,6 +151,7 @@
     <transform xil_pn:end_ts="1639595599" xil_pn:in_ck="3936851540316473993" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1639595580">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="ControllerTest_TOP.ncd"/>
       <outfile xil_pn:name="ControllerTest_TOP.pad"/>
       <outfile xil_pn:name="ControllerTest_TOP.par"/>
@@ -164,6 +166,9 @@
     <transform xil_pn:end_ts="1639595610" xil_pn:in_ck="-3300562492656934215" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1639595599">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ControllerTest_TOP.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="controllertest_top.bgn"/>
@@ -176,6 +181,7 @@
     <transform xil_pn:end_ts="1639595599" xil_pn:in_ck="-1271921993630976852" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1639595593">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="ControllerTest_TOP.twr"/>
       <outfile xil_pn:name="ControllerTest_TOP.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
