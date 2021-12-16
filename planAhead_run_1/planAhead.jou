@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Thu Dec 16 12:27:48 2021
+# Process ID: 23224
+# Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.log
+# Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHdl.tcl}
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P143 [get_ports r_RX_SERIAL]
+endgroup
+set_property package_pin "" [get_ports [list  w_TX_SERIAL]]
+startgroup
+set_property package_pin P1 [get_ports w_TX_SERIAL]
+endgroup
+set_property is_loc_fixed false [get_ports [list  w_TX_SERIAL]]
+startgroup
+set_property package_pin P2 [get_ports w_TX_SERIAL]
+endgroup
+set_property is_loc_fixed false [get_ports [list  w_TX_SERIAL]]
+set_property is_loc_fixed true [get_ports [list  w_TX_SERIAL]]
+save_constraints

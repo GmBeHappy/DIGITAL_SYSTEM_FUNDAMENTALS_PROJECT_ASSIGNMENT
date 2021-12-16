@@ -37,9 +37,9 @@ Setup/Hold to clock clk
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-ps2_clk     |    1.634(R)|      SLOW  |   -0.701(R)|      FAST  |clk_BUFGP         |   0.000|
-ps2_data    |    1.423(R)|      SLOW  |   -0.534(R)|      SLOW  |clk_BUFGP         |   0.000|
-rst         |    4.268(R)|      SLOW  |   -1.528(R)|      FAST  |clk_BUFGP         |   0.000|
+ps2_clk     |    0.732(R)|      SLOW  |    0.121(R)|      SLOW  |clk_BUFGP         |   0.000|
+ps2_data    |    0.779(R)|      SLOW  |    0.081(R)|      SLOW  |clk_BUFGP         |   0.000|
+rst         |    3.995(R)|      SLOW  |   -1.668(R)|      FAST  |clk_BUFGP         |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -47,35 +47,78 @@ Clock clk to Pad
             |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
-lcd_db<0>   |         7.994(R)|      SLOW  |         4.200(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_db<1>   |         8.012(R)|      SLOW  |         4.206(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_db<2>   |         8.044(R)|      SLOW  |         4.216(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_db<3>   |         8.150(R)|      SLOW  |         4.314(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_db<4>   |         8.303(R)|      SLOW  |         4.398(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_db<5>   |         8.485(R)|      SLOW  |         4.491(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_db<6>   |         8.286(R)|      SLOW  |         4.353(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_db<7>   |         8.465(R)|      SLOW  |         4.500(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_e       |         8.396(R)|      SLOW  |         4.397(R)|      FAST  |clk_BUFGP         |   0.000|
-lcd_rs      |         7.846(R)|      SLOW  |         4.078(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<0>   |         7.678(R)|      SLOW  |         4.018(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<1>   |         7.849(R)|      SLOW  |         4.107(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<2>   |         7.565(R)|      SLOW  |         3.925(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<3>   |         7.671(R)|      SLOW  |         4.023(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<4>   |         7.549(R)|      SLOW  |         3.931(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<5>   |         7.843(R)|      SLOW  |         4.091(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<6>   |         7.537(R)|      SLOW  |         3.874(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_db<7>   |         7.897(R)|      SLOW  |         4.110(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_e       |         8.120(R)|      SLOW  |         4.223(R)|      FAST  |clk_BUFGP         |   0.000|
+lcd_rs      |         7.254(R)|      SLOW  |         3.711(R)|      FAST  |clk_BUFGP         |   0.000|
 ------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock comm_rc to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+comm_tx     |        10.117(R)|      SLOW  |         5.461(R)|      FAST  |comm_rc_IBUF_BUFG |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock comm_rm to Pad
+------------+-----------------+------------+-----------------+------------+-------------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                         | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)        | Phase  |
+------------+-----------------+------------+-----------------+------------+-------------------------+--------+
+comm_tx     |        11.658(F)|      SLOW  |         6.983(F)|      FAST  |comm_rm_GND_4_o_AND_687_o|   0.000|
+------------+-----------------+------------+-----------------+------------+-------------------------+--------+
 
 Clock to Setup on destination clock clk
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    7.283|         |         |         |
+clk            |    7.728|         |         |         |
 ---------------+---------+---------+---------+---------+
 
+Clock to Setup on destination clock comm_rc
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+comm_rc        |    6.381|    5.075|    2.837|         |
+comm_rm        |    2.270|    2.270|         |         |
+---------------+---------+---------+---------+---------+
 
-Analysis completed Thu Dec 16 02:13:18 2021 
+Clock to Setup on destination clock comm_rm
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+comm_rc        |         |         |    4.704|         |
+comm_rm        |         |         |   -0.027|   -0.027|
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+comm_rc        |comm_tc        |    8.502|
+comm_rc        |debugtx        |   10.938|
+comm_rx        |debugrx        |   10.096|
+---------------+---------------+---------+
+
+
+Analysis completed Thu Dec 16 17:16:50 2021 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 4573 MB
+Peak Memory Usage: 4589 MB
 
 
 

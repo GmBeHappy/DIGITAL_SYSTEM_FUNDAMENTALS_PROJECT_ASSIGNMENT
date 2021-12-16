@@ -1,0 +1,66 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Thu Dec 16 16:42:35 2021
+# Process ID: 21368
+# Log file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_3/planAhead.log
+# Journal file: C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source {C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/pa.fromHdl.tcl}
+# create_project -name project_assignment -dir "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/planAhead_run_3" -part xc6slx9tqg144-3
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "ControllerTest_TOP.ucf" [current_fileset -constrset]
+Adding file 'C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {debounce.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ps2_keyboard.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {uart.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ps2_keyboard_to_ascii.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {lcd_controller.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ControllerTest_TOP.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set_property top ControllerTest_TOP $srcset
+# add_files [list {ControllerTest_TOP.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc6slx9tqg144-3
+Using Verific elaboration
+Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/debounce.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/uart.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ps2_keyboard_to_ascii.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/lcd_controller.vhd" into library work
+Parsing VHDL file "C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.vhd" into library work
+WARNING: [HDL 9-946] Actual for formal port reset_n is neither a static name nor a globally static expression [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.vhd:89]
+Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/tqg144/Package.xml
+Loading io standards from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.ucf]
+Finished Parsing UCF File [C:/Users/gm/OneDrive - KMITL/1_2564/digital/project_assignment/ControllerTest_TOP.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 25709a94
+open_rtl_design: Time (s): elapsed = 00:00:07 . Memory (MB): peak = 573.535 ; gain = 120.938
+update_compile_order -fileset sim_1

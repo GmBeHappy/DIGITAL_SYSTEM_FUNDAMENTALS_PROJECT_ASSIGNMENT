@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Reading design: ControllerTest_TOP.prj
 
@@ -111,6 +111,9 @@ Parsing architecture <logic> of entity <debounce>.
 Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard.vhd" into library work
 Parsing entity <ps2_keyboard>.
 Parsing architecture <logic> of entity <ps2_keyboard>.
+Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\uart.vhd" into library work
+Parsing entity <uart>.
+Parsing architecture <rtl> of entity <uart>.
 Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ps2_keyboard_to_ascii.vhd" into library work
 Parsing entity <ps2_keyboard_to_ascii>.
 Parsing architecture <behavior> of entity <ps2_keyboard_to_ascii>.
@@ -120,13 +123,14 @@ Parsing architecture <controller> of entity <lcd_controller>.
 Parsing VHDL file "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" into library work
 Parsing entity <ControllerTest_TOP>.
 Parsing architecture <Behavioral> of entity <controllertest_top>.
-WARNING:HDLCompiler:946 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" Line 67: Actual for formal port reset_n is neither a static name nor a globally static expression
+WARNING:HDLCompiler:946 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" Line 89: Actual for formal port reset_n is neither a static name nor a globally static expression
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
 
 Elaborating entity <ControllerTest_TOP> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:871 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" Line 73: Using initial value '0' for uartsendpackageconfirrm since it is never assigned
 
 Elaborating entity <lcd_controller> (architecture <controller>) from library <work>.
 
@@ -136,12 +140,24 @@ Elaborating entity <ps2_keyboard> (architecture <logic>) with generics from libr
 
 Elaborating entity <debounce> (architecture <logic>) with generics from library <work>.
 
+Elaborating entity <uart> (architecture <rtl>) with generics from library <work>.
+INFO:HDLCompiler:679 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\uart.vhd" Line 232. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\uart.vhd" Line 306. Case statement is complete. others clause is never selected
+WARNING:HDLCompiler:634 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" Line 72: Net <uartRecieveBuffer[7]> does not have a driver.
+WARNING:Xst:2972 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" line 107. All outputs of instance <uartController> of block <uart> are unconnected in block <ControllerTest_TOP>. Underlying logic will be removed.
+
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <ControllerTest_TOP>.
     Related source file is "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd".
+INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" line 107: Output port <data_stream_out> of the instance <uartController> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" line 107: Output port <data_stream_in_ack> of the instance <uartController> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" line 107: Output port <data_stream_out_stb> of the instance <uartController> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\gm\OneDrive - KMITL\1_2564\digital\project_assignment\ControllerTest_TOP.vhd" line 107: Output port <tx> of the instance <uartController> is unconnected or connected to loadless signal.
+WARNING:Xst:653 - Signal <uartRecieveBuffer> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 1-bit register for signal <comm_tm>.
     Found 8-bit register for signal <ram<0>>.
     Found 8-bit register for signal <ram<1>>.
     Found 8-bit register for signal <ram<2>>.
@@ -174,18 +190,26 @@ Synthesizing Unit <ControllerTest_TOP>.
     Found 8-bit register for signal <ram<29>>.
     Found 8-bit register for signal <ram<30>>.
     Found 8-bit register for signal <ram<31>>.
+    Found 32-bit register for signal <n0530>.
+    Found 32-bit register for signal <pt>.
     Found 32-bit register for signal <pointer>.
-    Found 32-bit adder for signal <pointer[31]_GND_3_o_add_105_OUT> created at line 98.
-    Found 32-bit subtractor for signal <pointer[31]_GND_3_o_sub_3_OUT<31:0>> created at line 90.
-    Found 32-bit comparator greater for signal <pointer[31]_GND_3_o_LessThan_2_o> created at line 89
-    Found 8-bit comparator greater for signal <GND_3_o_charCode[7]_LessThan_70_o> created at line 96
-    Found 8-bit comparator greater for signal <charCode[7]_GND_3_o_LessThan_71_o> created at line 96
-    Found 32-bit comparator greater for signal <GND_3_o_pointer[31]_LessThan_72_o> created at line 96
+    Found 1-bit register for signal <tcBuffer>.
+    Found 1-bit register for signal <comm_tx>.
+    Found 33-bit subtractor for signal <n0313> created at line 126.
+    Found 32-bit adder for signal <pointer[31]_GND_4_o_add_107_OUT> created at line 136.
+    Found 32-bit adder for signal <pt[31]_GND_4_o_add_277_OUT> created at line 146.
+    Found 32-bit adder for signal <GND_4_o_GND_4_o_add_317_OUT> created at line 160.
+    Found 1-bit 256-to-1 multiplexer for signal <pt[7]_comm_txBuffer[255]_Mux_276_o> created at line 144.
+    Found 1-bit 256-to-1 multiplexer for signal <GND_4_o_comm_txBuffer[255]_Mux_316_o> created at line 158.
+    Found 32-bit comparator greater for signal <pointer[31]_GND_4_o_LessThan_2_o> created at line 124
+    Found 8-bit comparator greater for signal <GND_4_o_charCode[7]_LessThan_72_o> created at line 134
+    Found 8-bit comparator greater for signal <charCode[7]_GND_4_o_LessThan_73_o> created at line 134
+    Found 32-bit comparator greater for signal <GND_4_o_pointer[31]_LessThan_241_o> created at line 140
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred 288 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred 355 D-type flip-flop(s).
 	inferred   4 Comparator(s).
-	inferred  32 Multiplexer(s).
+	inferred  35 Multiplexer(s).
 Unit <ControllerTest_TOP> synthesized.
 
 Synthesizing Unit <lcd_controller>.
@@ -212,22 +236,22 @@ Synthesizing Unit <lcd_controller>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 32-bit adder for signal <clk_count[31]_GND_4_o_add_5_OUT> created at line 85.
-    Found 8-bit adder for signal <ptr[4]_GND_4_o_add_64_OUT> created at line 163.
-    Found 5-bit subtractor for signal <GND_4_o_GND_4_o_sub_100_OUT<4:0>> created at line 196.
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_1_o> created at line 72
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_7_o> created at line 86
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_8_o> created at line 93
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_9_o> created at line 97
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_10_o> created at line 108
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_11_o> created at line 112
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_12_o> created at line 116
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_13_o> created at line 120
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_14_o> created at line 127
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_90_o> created at line 171
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_91_o> created at line 172
-    Found 32-bit comparator greater for signal <GND_4_o_clk_count[31]_LessThan_92_o> created at line 174
-    Found 32-bit comparator lessequal for signal <GND_4_o_clk_count[31]_LessThan_93_o> created at line 176
+    Found 32-bit adder for signal <clk_count[31]_GND_5_o_add_5_OUT> created at line 85.
+    Found 8-bit adder for signal <ptr[4]_GND_5_o_add_64_OUT> created at line 163.
+    Found 5-bit subtractor for signal <GND_5_o_GND_5_o_sub_100_OUT<4:0>> created at line 196.
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_1_o> created at line 72
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_7_o> created at line 86
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_8_o> created at line 93
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_9_o> created at line 97
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_10_o> created at line 108
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_11_o> created at line 112
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_12_o> created at line 116
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_13_o> created at line 120
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_14_o> created at line 127
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_90_o> created at line 171
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_91_o> created at line 172
+    Found 32-bit comparator greater for signal <GND_5_o_clk_count[31]_LessThan_92_o> created at line 174
+    Found 32-bit comparator lessequal for signal <GND_5_o_clk_count[31]_LessThan_93_o> created at line 176
     Summary:
 	inferred   3 Adder/Subtractor(s).
 	inferred  48 D-type flip-flop(s).
@@ -278,7 +302,7 @@ Synthesizing Unit <ps2_keyboard>.
     Found 1-bit register for signal <ps2_code_new>.
     Found 8-bit register for signal <ps2_code>.
     Found 2-bit register for signal <sync_ffs>.
-    Found 11-bit adder for signal <count_idle[10]_GND_6_o_add_3_OUT> created at line 95.
+    Found 11-bit adder for signal <count_idle[10]_GND_7_o_add_3_OUT> created at line 95.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  33 D-type flip-flop(s).
@@ -290,7 +314,7 @@ Synthesizing Unit <debounce>.
     Found 8-bit register for signal <counter_out>.
     Found 1-bit register for signal <result>.
     Found 2-bit register for signal <flipflops>.
-    Found 8-bit adder for signal <counter_out[7]_GND_9_o_add_0_OUT> created at line 52.
+    Found 8-bit adder for signal <counter_out[7]_GND_10_o_add_0_OUT> created at line 52.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  11 D-type flip-flop(s).
@@ -300,26 +324,27 @@ Unit <debounce> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 10
  11-bit adder                                          : 1
- 32-bit adder                                          : 1
- 32-bit addsub                                         : 1
+ 32-bit adder                                          : 4
+ 33-bit subtractor                                     : 1
  5-bit subtractor                                      : 1
  8-bit adder                                           : 3
-# Registers                                            : 61
- 1-bit register                                        : 15
+# Registers                                            : 66
+ 1-bit register                                        : 18
  11-bit register                                       : 2
  2-bit register                                        : 3
- 32-bit register                                       : 2
+ 32-bit register                                       : 4
  5-bit register                                        : 1
  8-bit register                                        : 38
 # Comparators                                          : 17
  32-bit comparator greater                             : 14
  32-bit comparator lessequal                           : 1
  8-bit comparator greater                              : 2
-# Multiplexers                                         : 96
+# Multiplexers                                         : 99
  1-bit 2-to-1 multiplexer                              : 12
- 32-bit 2-to-1 multiplexer                             : 16
+ 1-bit 256-to-1 multiplexer                            : 2
+ 32-bit 2-to-1 multiplexer                             : 17
  5-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 67
 # FSMs                                                 : 2
@@ -354,24 +379,26 @@ Unit <ps2_keyboard> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 2
- 32-bit adder                                          : 1
+# Adders/Subtractors                                   : 5
+ 32-bit adder                                          : 3
+ 32-bit subtractor                                     : 1
  8-bit adder                                           : 1
 # Counters                                             : 5
  11-bit up counter                                     : 1
- 32-bit updown counter                                 : 1
+ 32-bit up counter                                     : 1
  5-bit down counter                                    : 1
  8-bit up counter                                      : 2
-# Registers                                            : 352
- Flip-Flops                                            : 352
+# Registers                                            : 419
+ Flip-Flops                                            : 419
 # Comparators                                          : 17
  32-bit comparator greater                             : 14
  32-bit comparator lessequal                           : 1
  8-bit comparator greater                              : 2
-# Multiplexers                                         : 312
- 1-bit 2-to-1 multiplexer                              : 260
+# Multiplexers                                         : 97
+ 1-bit 2-to-1 multiplexer                              : 12
+ 1-bit 256-to-1 multiplexer                            : 2
  32-bit 2-to-1 multiplexer                             : 16
- 8-bit 2-to-1 multiplexer                              : 36
+ 8-bit 2-to-1 multiplexer                              : 67
 # FSMs                                                 : 2
 # Xors                                                 : 3
  1-bit xor2                                            : 2
@@ -404,6 +431,80 @@ Optimizing FSM <LCD/FSM_0> on signal <state[1:3]> with gray encoding.
  line2      | 110
  send       | 010
 ------------------------
+WARNING:Xst:2677 - Node <pt_8> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_9> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_10> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_11> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_12> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_13> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_14> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_15> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_16> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_17> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_18> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_19> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_20> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_21> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_22> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_23> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_24> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_25> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_26> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_27> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_28> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_29> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_30> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <pt_31> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_8> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_9> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_10> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_11> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_12> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_13> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_14> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_15> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_16> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_17> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_18> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_19> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_20> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_21> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_22> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_23> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_24> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_25> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_26> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_27> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_28> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_29> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_30> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:2677 - Node <_i000321_31> of sequential type is unconnected in block <ControllerTest_TOP>.
+WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
+   incompatible with the Spartan6 architecture. The two primary causes of this is
+   either a register or latch described with both an asynchronous set and
+   asynchronous reset, or a register or latch described with an asynchronous
+   set or reset which however has an initialization value of the opposite 
+   polarity (i.e. asynchronous reset with an initialization value of 1).
+    While this circuit can be built, it creates a sub-optimal implementation
+   in terms of area, power and performance. For a more optimal implementation
+   Xilinx highly recommends one of the following:
+
+          1) Remove either the set or reset from all registers and latches
+             if not needed for required functionality
+          2) Modify the code in order to produce a synchronous set
+             and/or reset (both is preferred)
+          3) Ensure all registers have the same initialization value as the
+             described asynchronous set or reset polarity
+          4) Use the -async_to_sync option to transform the asynchronous
+             set/reset to synchronous operation
+             (timing simulation highly recommended when using this option)
+
+  Please refer to http://www.xilinx.com search string "Spartan6 asynchronous set/reset" for more details.
+
+  List of register instances with asynchronous set and reset:
+    comm_tx in unit <ControllerTest_TOP>
+    tcBuffer in unit <ControllerTest_TOP>
+
 
 Optimizing unit <ControllerTest_TOP> ...
 
@@ -414,55 +515,58 @@ Optimizing unit <ps2_keyboard> ...
 Optimizing unit <debounce> ...
 
 Optimizing unit <lcd_controller> ...
-WARNING:Xst:1710 - FF/Latch <ps2_keyboard_to_ascii/ascii_Buffer_7> (without init value) has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_31> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_30> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_29> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_28> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_27> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_26> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_25> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_24> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_23> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_22> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_21> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_20> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ram_0_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_31_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_30_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_29_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_28_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_27_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_26_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_25_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_27_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_24_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_23_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_22_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_21_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_20_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_22_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_19_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_18_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_20_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_17_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_16_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_15_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_14_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_13_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_2_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_1_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_3_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_4_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_7_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_5_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_6_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_8_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_9_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_12_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_10_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_9_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <ram_11_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_8_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_7_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_6_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_5_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_4_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_3_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_1_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <ram_2_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_13_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_14_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <ram_17_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_20> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_21> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_22> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_23> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_24> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_25> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_26> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_27> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_28> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_29> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_30> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <LCD/clk_count_31> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ps2_keyboard_to_ascii/ascii_Buffer_7> (without init value) has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <ram_0_7> has a constant value of 0 in block <ControllerTest_TOP>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block ControllerTest_TOP, actual ratio is 19.
+Found area constraint ratio of 100 (+ 5) on block ControllerTest_TOP, actual ratio is 26.
+FlipFlop LCD/ptr_1 has been replicated 1 time(s)
+FlipFlop LCD/ptr_2 has been replicated 2 time(s)
+FlipFlop LCD/ptr_3 has been replicated 1 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_0 has been replicated 3 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_1 has been replicated 3 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_2 has been replicated 2 time(s)
@@ -470,7 +574,10 @@ FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_3 has been replicated 3 t
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_4 has been replicated 3 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_5 has been replicated 3 time(s)
 FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_6 has been replicated 3 time(s)
-FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7 has been replicated 2 time(s)
+FlipFlop ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_code_7 has been replicated 1 time(s)
+FlipFlop pt_0 has been replicated 3 time(s)
+FlipFlop pt_1 has been replicated 3 time(s)
+FlipFlop pt_2 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -483,8 +590,8 @@ Unit <ControllerTest_TOP> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 394
- Flip-Flops                                            : 394
+# Registers                                            : 425
+ Flip-Flops                                            : 425
 # Shift Registers                                      : 2
  2-bit shift register                                  : 2
 
@@ -509,35 +616,42 @@ Top Level Output File Name         : ControllerTest_TOP.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1116
+# BELS                             : 1515
 #      GND                         : 1
-#      INV                         : 14
-#      LUT1                        : 43
-#      LUT2                        : 56
-#      LUT3                        : 277
-#      LUT4                        : 39
-#      LUT5                        : 193
-#      LUT6                        : 228
-#      MUXCY                       : 168
-#      MUXF7                       : 16
+#      INV                         : 47
+#      LUT1                        : 59
+#      LUT2                        : 25
+#      LUT3                        : 57
+#      LUT4                        : 105
+#      LUT5                        : 392
+#      LUT6                        : 367
+#      MUXCY                       : 219
+#      MUXF7                       : 80
+#      MUXF8                       : 34
 #      VCC                         : 1
-#      XORCY                       : 80
-# FlipFlops/Latches                : 396
+#      XORCY                       : 128
+# FlipFlops/Latches                : 429
 #      FD                          : 33
 #      FD_1                        : 11
-#      FDE                         : 98
-#      FDR                         : 3
+#      FDCE                        : 1
+#      FDCE_1                      : 2
+#      FDE                         : 101
+#      FDPE                        : 1
+#      FDPE_1                      : 1
+#      FDR                         : 11
+#      FDR_1                       : 15
 #      FDRE                        : 27
 #      FDRE_1                      : 192
 #      FDSE_1                      : 32
+#      LDC                         : 2
 # Shift Registers                  : 2
 #      SRLC16E                     : 2
-# Clock Buffers                    : 2
-#      BUFG                        : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 2
 #      BUFGP                       : 1
-# IO Buffers                       : 14
-#      IBUF                        : 3
-#      OBUF                        : 11
+# IO Buffers                       : 22
+#      IBUF                        : 6
+#      OBUF                        : 16
 
 Device utilization summary:
 ---------------------------
@@ -546,25 +660,25 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             396  out of  11440     3%  
- Number of Slice LUTs:                  852  out of   5720    14%  
-    Number used as Logic:               850  out of   5720    14%  
+ Number of Slice Registers:             429  out of  11440     3%  
+ Number of Slice LUTs:                 1054  out of   5720    18%  
+    Number used as Logic:              1052  out of   5720    18%  
     Number used as Memory:                2  out of   1440     0%  
        Number used as SRL:                2
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    902
-   Number with an unused Flip Flop:     506  out of    902    56%  
-   Number with an unused LUT:            50  out of    902     5%  
-   Number of fully used LUT-FF pairs:   346  out of    902    38%  
-   Number of unique control sets:        58
+ Number of LUT Flip Flop pairs used:   1113
+   Number with an unused Flip Flop:     684  out of   1113    61%  
+   Number with an unused LUT:            59  out of   1113     5%  
+   Number of fully used LUT-FF pairs:   370  out of   1113    33%  
+   Number of unique control sets:        66
 
 IO Utilization: 
- Number of IOs:                          15
- Number of bonded IOBs:                  15  out of    102    14%  
+ Number of IOs:                          23
+ Number of bonded IOBs:                  23  out of    102    22%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
 
 ---------------------------
 Partition Resource Summary:
@@ -587,10 +701,16 @@ Clock Information:
 ------------------------------------------------------------+-------------------------------------------------------+-------+
 Clock Signal                                                | Clock buffer(FF name)                                 | Load  |
 ------------------------------------------------------------+-------------------------------------------------------+-------+
-ps2_keyboard_to_ascii/ascii_new                             | BUFG                                                  | 256   |
-clk                                                         | BUFGP                                                 | 131   |
+ps2_keyboard_to_ascii/ascii_new                             | BUFG                                                  | 259   |
+comm_rc                                                     | IBUF+BUFG                                             | 25    |
+clk                                                         | BUFGP                                                 | 134   |
 ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result| NONE(ps2_keyboard_to_ascii/ps2_keyboard_0/ps2_word_10)| 11    |
+GND_4_o_tcBuffer_AND_685_o(GND_4_o_tcBuffer_AND_685_o1:O)   | NONE(*)(tcBuffer_LDC)                                 | 1     |
+comm_rm_GND_4_o_AND_687_o(comm_rm_GND_4_o_AND_687_o1:O)     | NONE(*)(comm_tx_LDC)                                  | 1     |
 ------------------------------------------------------------+-------------------------------------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -601,10 +721,10 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 7.262ns (Maximum Frequency: 137.704MHz)
-   Minimum input arrival time before clock: 3.087ns
-   Maximum output required time after clock: 3.668ns
-   Maximum combinational path delay: No path found
+   Minimum period: 7.168ns (Maximum Frequency: 139.516MHz)
+   Minimum input arrival time before clock: 3.262ns
+   Maximum output required time after clock: 4.802ns
+   Maximum combinational path delay: 5.439ns
 
 Timing Details:
 ---------------
@@ -612,72 +732,99 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ascii_new'
-  Clock period: 6.006ns (frequency: 166.513MHz)
-  Total number of paths / destination ports: 24950 / 729
+  Clock period: 6.787ns (frequency: 147.332MHz)
+  Total number of paths / destination ports: 32874 / 734
 -------------------------------------------------------------------------
-Delay:               6.006ns (Levels of Logic = 9)
-  Source:            pointer_1 (FF)
-  Destination:       pointer_0 (FF)
+Delay:               6.787ns (Levels of Logic = 9)
+  Source:            pointer_6 (FF)
+  Destination:       ram_1_0 (FF)
   Source Clock:      ps2_keyboard_to_ascii/ascii_new falling
   Destination Clock: ps2_keyboard_to_ascii/ascii_new falling
 
-  Data Path: pointer_1 to pointer_0
+  Data Path: pointer_6 to ram_1_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             65   0.447   1.751  pointer_1 (pointer_1)
-     LUT5:I3->O            1   0.203   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_lut<0> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<0> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<1> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<2> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<3> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<4> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<5> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<5>)
-     MUXCY:CI->O          33   0.213   1.306  Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<6> (Mcompar_pointer[31]_GND_3_o_LessThan_2_o_cy<6>)
-     LUT6:I5->O           32   0.205   1.291  _n0620_inv1 (_n0620_inv)
-     FDE:CE                    0.322          pointer_0
+     FDE:C->Q              5   0.447   1.059  pointer_6 (pointer_6)
+     LUT5:I0->O            1   0.203   0.000  Mcompar_GND_4_o_pointer[31]_LessThan_241_o_lut<0> (Mcompar_GND_4_o_pointer[31]_LessThan_241_o_lut<0>)
+     MUXCY:S->O            1   0.172   0.000  Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<0> (Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<0>)
+     MUXCY:CI->O           1   0.019   0.000  Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<1> (Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<1>)
+     MUXCY:CI->O           1   0.019   0.000  Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<2> (Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<3> (Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<3>)
+     MUXCY:CI->O           5   0.213   0.715  Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<4> (Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<4>)
+     LUT3:I2->O           26   0.205   1.207  Mcompar_GND_4_o_pointer[31]_LessThan_241_o_cy<5> (GND_4_o_pointer[31]_LessThan_241_o_inv)
+     LUT6:I5->O           16   0.205   1.005  _n0800_inv11 (_n0800_inv1)
+     LUT6:I5->O            7   0.205   0.773  _n0800_inv1 (_n0800_inv)
+     FDRE_1:CE                 0.322          ram_1_0
     ----------------------------------------
-    Total                      6.006ns (1.657ns logic, 4.349ns route)
-                                       (27.6% logic, 72.4% route)
+    Total                      6.787ns (2.029ns logic, 4.758ns route)
+                                       (29.9% logic, 70.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'comm_rc'
+  Clock period: 6.945ns (frequency: 143.982MHz)
+  Total number of paths / destination ports: 832 / 27
+-------------------------------------------------------------------------
+Delay:               3.473ns (Levels of Logic = 6)
+  Source:            pt_0_2 (FF)
+  Destination:       comm_tx_C (FF)
+  Source Clock:      comm_rc falling
+  Destination Clock: comm_rc rising
+
+  Data Path: pt_0_2 to comm_tx_C
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR_1:C->Q           17   0.447   1.132  pt_0_2 (pt_0_2)
+     LUT6:I4->O            1   0.203   0.000  Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_1315 (Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_1315)
+     MUXF7:I1->O           1   0.140   0.000  Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_12_f7_5 (Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_12_f76)
+     MUXF8:I1->O           1   0.152   0.808  Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_11_f8_0 (Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_11_f81)
+     LUT6:I3->O            1   0.205   0.000  Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_51 (Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_51)
+     MUXF7:I1->O           1   0.140   0.000  Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_4_f7 (Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_4_f7)
+     MUXF8:I0->O           2   0.144   0.000  Mmux_pt[7]_comm_txBuffer[255]_Mux_276_o_2_f8 (pt[7]_comm_txBuffer[255]_Mux_276_o)
+     FDCE:D                    0.102          comm_tx_C
+    ----------------------------------------
+    Total                      3.473ns (1.533ns logic, 1.940ns route)
+                                       (44.1% logic, 55.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 7.262ns (frequency: 137.704MHz)
-  Total number of paths / destination ports: 140821 / 218
+  Clock period: 7.168ns (frequency: 139.516MHz)
+  Total number of paths / destination ports: 145056 / 225
 -------------------------------------------------------------------------
-Delay:               7.262ns (Levels of Logic = 18)
+Delay:               7.168ns (Levels of Logic = 18)
   Source:            LCD/clk_count_7 (FF)
-  Destination:       LCD/lcd_data_1 (FF)
+  Destination:       LCD/lcd_data_3 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: LCD/clk_count_7 to LCD/lcd_data_1
+  Data Path: LCD/clk_count_7 to LCD/lcd_data_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FD:C->Q              11   0.447   0.883  LCD/clk_count_7 (LCD/clk_count_7)
-     LUT1:I0->O            1   0.205   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7>_rt (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7>_rt)
-     MUXCY:S->O            1   0.172   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<7>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<8> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<8>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<9> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<9>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<10> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<10>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<11> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<11>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<12> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<12>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<13> (LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_cy<13>)
-     XORCY:CI->O          17   0.180   1.372  LCD/Madd_clk_count[31]_GND_4_o_add_5_OUT_xor<14> (LCD/clk_count[31]_GND_4_o_add_5_OUT<14>)
-     LUT5:I0->O            1   0.203   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_lut<2> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_lut<2>)
-     MUXCY:S->O            1   0.172   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<2> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<3> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<4> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<4>)
-     MUXCY:CI->O           6   0.213   0.992  LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<5> (LCD/Mcompar_GND_4_o_clk_count[31]_LessThan_12_o_cy<5>)
-     LUT4:I0->O            2   0.203   0.845  LCD/GND_4_o_clk_count[31]_LessThan_10_o1 (LCD/GND_4_o_clk_count[31]_LessThan_10_o_mmx_out)
-     LUT5:I2->O            1   0.205   0.000  LCD/Mmux_state[2]_X_4_o_wide_mux_111_OUT416_F (N88)
-     MUXF7:I0->O           1   0.131   0.580  LCD/Mmux_state[2]_X_4_o_wide_mux_111_OUT416 (LCD/state[2]_X_4_o_wide_mux_111_OUT<1>)
-     LUT3:I2->O            1   0.205   0.000  LCD/lcd_data_1_rstpot (LCD/lcd_data_1_rstpot)
-     FD:D                      0.102          LCD/lcd_data_1
+     LUT1:I0->O            1   0.205   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<7>_rt (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<7>_rt)
+     MUXCY:S->O            1   0.172   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<7> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<7>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<8> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<8>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<9> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<9>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<10> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<10>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<11> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<11>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<12> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<12>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<13> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<13>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<14> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<14>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<15> (LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_cy<15>)
+     XORCY:CI->O          17   0.180   1.372  LCD/Madd_clk_count[31]_GND_5_o_add_5_OUT_xor<16> (LCD/clk_count[31]_GND_5_o_add_5_OUT<16>)
+     LUT5:I0->O            0   0.203   0.000  LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_lutdi2 (LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_lutdi2)
+     MUXCY:DI->O           1   0.145   0.000  LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<2> (LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<2>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<3> (LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<3>)
+     MUXCY:CI->O           1   0.019   0.000  LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<4> (LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<4>)
+     MUXCY:CI->O           7   0.213   1.002  LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<5> (LCD/Mcompar_GND_5_o_clk_count[31]_LessThan_13_o_cy<5>)
+     LUT5:I2->O            7   0.205   0.774  LCD/state_FSM_FFd2-In11_SW1 (N40)
+     LUT6:I5->O            3   0.205   0.650  LCD/_n0273_inv1 (LCD/_n0273_inv)
+     FDE:CE                    0.322          LCD/lcd_data_2
     ----------------------------------------
-    Total                      7.262ns (2.590ns logic, 4.672ns route)
-                                       (35.7% logic, 64.3% route)
+    Total                      7.168ns (2.487ns logic, 4.681ns route)
+                                       (34.7% logic, 65.3% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result'
@@ -701,6 +848,28 @@ Delay:               1.293ns (Levels of Logic = 0)
                                        (42.5% logic, 57.5% route)
 
 =========================================================================
+Timing constraint: Default period analysis for Clock 'GND_4_o_tcBuffer_AND_685_o'
+  Clock period: 2.661ns (frequency: 375.827MHz)
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               2.661ns (Levels of Logic = 1)
+  Source:            tcBuffer_LDC (LATCH)
+  Destination:       tcBuffer_LDC (LATCH)
+  Source Clock:      GND_4_o_tcBuffer_AND_685_o falling
+  Destination Clock: GND_4_o_tcBuffer_AND_685_o falling
+
+  Data Path: tcBuffer_LDC to tcBuffer_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDC:G->Q              4   0.498   0.912  tcBuffer_LDC (tcBuffer_LDC)
+     LUT6:I3->O            2   0.205   0.616  GND_4_o_tcBuffer_AND_686_o1 (GND_4_o_tcBuffer_AND_686_o)
+     LDC:CLR                   0.430          tcBuffer_LDC
+    ----------------------------------------
+    Total                      2.661ns (1.133ns logic, 1.528ns route)
+                                       (42.6% logic, 57.4% route)
+
+=========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
@@ -714,11 +883,51 @@ Offset:              3.087ns (Levels of Logic = 2)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             3   1.222   0.651  rst_IBUF (rst_IBUF)
-     LUT6:I5->O            1   0.205   0.579  LCD/GND_4_o_ptr[4]_equal_99_o1 (LCD/GND_4_o_ptr[4]_equal_99_o_0)
+     LUT6:I5->O            1   0.205   0.579  LCD/GND_5_o_ptr[4]_equal_99_o1 (LCD/GND_5_o_ptr[4]_equal_99_o_0)
      FDR:R                     0.430          LCD/state_FSM_FFd1
     ----------------------------------------
     Total                      3.087ns (1.857ns logic, 1.230ns route)
                                        (60.2% logic, 39.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'comm_rm_GND_4_o_AND_687_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              3.227ns (Levels of Logic = 2)
+  Source:            comm_rm (PAD)
+  Destination:       comm_tx_LDC (LATCH)
+  Destination Clock: comm_rm_GND_4_o_AND_687_o falling
+
+  Data Path: comm_rm to comm_tx_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.222   0.755  comm_rm_IBUF (comm_rm_IBUF)
+     LUT2:I0->O            2   0.203   0.616  comm_rm_GND_4_o_AND_688_o1 (comm_rm_GND_4_o_AND_688_o)
+     LDC:CLR                   0.430          comm_tx_LDC
+    ----------------------------------------
+    Total                      3.227ns (1.855ns logic, 1.372ns route)
+                                       (57.5% logic, 42.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'comm_rc'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              3.262ns (Levels of Logic = 2)
+  Source:            comm_rm (PAD)
+  Destination:       comm_tx_C (FF)
+  Destination Clock: comm_rc rising
+
+  Data Path: comm_rm to comm_tx_C
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.222   0.898  comm_rm_IBUF (comm_rm_IBUF)
+     LUT4:I0->O            2   0.203   0.616  _n0779_inv1 (_n0779_inv)
+     FDCE:CE                   0.322          comm_tx_C
+    ----------------------------------------
+    Total                      3.262ns (1.747ns logic, 1.515ns route)
+                                       (53.6% logic, 46.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -740,27 +949,154 @@ Offset:              3.668ns (Levels of Logic = 1)
                                        (82.3% logic, 17.7% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'comm_rm_GND_4_o_AND_687_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.661ns (Levels of Logic = 2)
+  Source:            comm_tx_LDC (LATCH)
+  Destination:       comm_tx (PAD)
+  Source Clock:      comm_rm_GND_4_o_AND_687_o falling
+
+  Data Path: comm_tx_LDC to comm_tx
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDC:G->Q              1   0.498   0.808  comm_tx_LDC (comm_tx_LDC)
+     LUT3:I0->O            1   0.205   0.579  comm_tx1 (comm_tx_OBUF)
+     OBUF:I->O                 2.571          comm_tx_OBUF (comm_tx)
+    ----------------------------------------
+    Total                      4.661ns (3.274ns logic, 1.387ns route)
+                                       (70.2% logic, 29.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'comm_rc'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              4.484ns (Levels of Logic = 2)
+  Source:            comm_tx_C (FF)
+  Destination:       comm_tx (PAD)
+  Source Clock:      comm_rc rising
+
+  Data Path: comm_tx_C to comm_tx
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             1   0.447   0.684  comm_tx_C (comm_tx_C)
+     LUT3:I1->O            1   0.203   0.579  comm_tx1 (comm_tx_OBUF)
+     OBUF:I->O                 2.571          comm_tx_OBUF (comm_tx)
+    ----------------------------------------
+    Total                      4.484ns (3.221ns logic, 1.263ns route)
+                                       (71.8% logic, 28.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'GND_4_o_tcBuffer_AND_685_o'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              4.802ns (Levels of Logic = 2)
+  Source:            tcBuffer_LDC (LATCH)
+  Destination:       comm_tc (PAD)
+  Source Clock:      GND_4_o_tcBuffer_AND_685_o falling
+
+  Data Path: tcBuffer_LDC to comm_tc
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDC:G->Q              4   0.498   0.912  tcBuffer_LDC (tcBuffer_LDC)
+     LUT4:I1->O            2   0.205   0.616  comm_tc1 (debugtx_OBUF)
+     OBUF:I->O                 2.571          comm_tc_OBUF (comm_tc)
+    ----------------------------------------
+    Total                      4.802ns (3.274ns logic, 1.528ns route)
+                                       (68.2% logic, 31.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'ps2_keyboard_to_ascii/ascii_new'
+  Total number of paths / destination ports: 5 / 3
+-------------------------------------------------------------------------
+Offset:              4.625ns (Levels of Logic = 2)
+  Source:            tcBuffer_P (FF)
+  Destination:       comm_tc (PAD)
+  Source Clock:      ps2_keyboard_to_ascii/ascii_new falling
+
+  Data Path: tcBuffer_P to comm_tc
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDPE_1:C->Q           4   0.447   0.788  tcBuffer_P (tcBuffer_P)
+     LUT4:I2->O            2   0.203   0.616  comm_tc1 (debugtx_OBUF)
+     OBUF:I->O                 2.571          comm_tc_OBUF (comm_tc)
+    ----------------------------------------
+    Total                      4.625ns (3.221ns logic, 1.404ns route)
+                                       (69.6% logic, 30.4% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Delay:               5.439ns (Levels of Logic = 3)
+  Source:            comm_rc (PAD)
+  Destination:       comm_tc (PAD)
+
+  Data Path: comm_rc to comm_tc
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.827  comm_rc_IBUF (comm_rc_IBUF)
+     LUT4:I0->O            2   0.203   0.616  comm_tc1 (debugtx_OBUF)
+     OBUF:I->O                 2.571          comm_tc_OBUF (comm_tc)
+    ----------------------------------------
+    Total                      5.439ns (3.996ns logic, 1.443ns route)
+                                       (73.5% logic, 26.5% route)
+
+=========================================================================
 
 Cross Clock Domains Report:
 --------------------------
+
+Clock to Setup on destination clock GND_4_o_tcBuffer_AND_685_o
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+GND_4_o_tcBuffer_AND_685_o     |         |         |    2.661|         |
+ps2_keyboard_to_ascii/ascii_new|         |         |    4.362|         |
+-------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk
 ------------------------------------------------------------+---------+---------+---------+---------+
                                                             | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                                |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------------------------------+---------+---------+---------+---------+
-clk                                                         |    7.262|         |         |         |
-ps2_keyboard_to_ascii/ascii_new                             |         |    5.591|         |         |
-ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |    5.240|         |         |
+clk                                                         |    7.168|         |         |         |
+ps2_keyboard_to_ascii/ascii_new                             |         |    6.091|         |         |
+ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |    5.194|         |         |
 ------------------------------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock comm_rc
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+comm_rc                        |    5.883|    3.473|    2.867|         |
+ps2_keyboard_to_ascii/ascii_new|         |    5.180|    4.707|         |
+-------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock comm_rm_GND_4_o_AND_687_o
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+comm_rc                        |         |         |    5.883|         |
+ps2_keyboard_to_ascii/ascii_new|         |         |    5.180|         |
+-------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ps2_keyboard_to_ascii/ascii_new
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-clk                            |         |         |    7.184|         |
-ps2_keyboard_to_ascii/ascii_new|         |         |    6.006|         |
+GND_4_o_tcBuffer_AND_685_o     |         |         |    2.661|         |
+clk                            |         |         |    7.769|         |
+ps2_keyboard_to_ascii/ascii_new|         |         |    6.787|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result
@@ -775,14 +1111,14 @@ ps2_keyboard_to_ascii/ps2_keyboard_0/debounce_ps2_clk/result|         |         
 =========================================================================
 
 
-Total REAL time to Xst completion: 12.00 secs
-Total CPU time to Xst completion: 12.55 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.66 secs
  
 --> 
 
-Total memory usage is 4503556 kilobytes
+Total memory usage is 4504696 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   46 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :   99 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
 

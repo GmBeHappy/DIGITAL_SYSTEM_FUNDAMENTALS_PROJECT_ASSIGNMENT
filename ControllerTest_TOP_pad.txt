@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Thu Dec 16 02:13:12 2021
+Thu Dec 16 17:16:44 2021
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -61,7 +61,7 @@ Pinout by Pin Number:
 |P39       |           |IOBM     |IO_L65P_INIT_B_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P40       |           |IOBS     |IO_L64N_D9_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P41       |           |IOBM     |IO_L64P_D8_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
-|P42       |           |         |VCCO_2                    |         |           |2             |          |         |           |         |any******|          |           |                |
+|P42       |           |         |VCCO_2                    |         |           |2             |          |         |           |         |2.50     |          |           |                |
 |P43       |           |IOBS     |IO_L62N_D6_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P44       |           |IOBM     |IO_L62P_D5_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P45       |           |IOBS     |IO_L49N_D4_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
@@ -82,18 +82,18 @@ Pinout by Pin Number:
 |P60       |           |IOBM     |IO_L13P_M1_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P61       |           |IOBS     |IO_L12N_D2_MISO3_2        |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P62       |           |IOBM     |IO_L12P_D1_MISO2_2        |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
-|P63       |           |         |VCCO_2                    |         |           |2             |          |         |           |         |any******|          |           |                |
+|P63       |           |         |VCCO_2                    |         |           |2             |          |         |           |         |2.50     |          |           |                |
 |P64       |           |IOBS     |IO_L3N_MOSI_CSI_B_MISO0_2 |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P65       |           |IOBM     |IO_L3P_D0_DIN_MISO_MISO1_2|UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P66       |           |IOBS     |IO_L2N_CMPMOSI_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
-|P67       |           |IOBM     |IO_L2P_CMPCLK_2           |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P67       |debugrx    |IOB      |IO_L2P_CMPCLK_2           |OUTPUT   |LVCMOS25*  |2             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |P68       |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
 |P69       |           |IOBS     |IO_L1N_M0_CMPMISO_2       |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P70       |           |IOBM     |IO_L1P_CCLK_2             |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P71       |           |         |DONE_2                    |         |           |              |          |         |           |         |         |          |           |                |
 |P72       |           |         |CMPCS_B_2                 |         |           |              |          |         |           |         |         |          |           |                |
 |P73       |           |         |SUSPEND                   |         |           |              |          |         |           |         |         |          |           |                |
-|P74       |           |IOBS     |IO_L74N_DOUT_BUSY_1       |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P74       |debugtx    |IOB      |IO_L74N_DOUT_BUSY_1       |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |P75       |           |IOBM     |IO_L74P_AWAKE_1           |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
 |P76       |           |         |VCCO_1                    |         |           |1             |          |         |           |         |2.50     |          |           |                |
 |P77       |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
@@ -143,23 +143,23 @@ Pinout by Pin Number:
 |P121      |           |IOBM     |IO_L62P_0                 |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |P122      |           |         |VCCO_0                    |         |           |0             |          |         |           |         |2.50     |          |           |                |
 |P123      |clk        |IOB      |IO_L37N_GCLK12_0          |INPUT    |LVCMOS25*  |0             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|P124      |           |IOBM     |IO_L37P_GCLK13_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P124      |comm_rm    |IOB      |IO_L37P_GCLK13_0          |INPUT    |LVCMOS25*  |0             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P125      |           |         |VCCO_0                    |         |           |0             |          |         |           |         |2.50     |          |           |                |
 |P126      |           |IOBS     |IO_L36N_GCLK14_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
-|P127      |           |IOBM     |IO_L36P_GCLK15_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P127      |comm_rc    |IOB      |IO_L36P_GCLK15_0          |INPUT    |LVCMOS25*  |0             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P128      |           |         |VCCINT                    |         |           |              |          |         |           |         |1.2      |          |           |                |
 |P129      |           |         |VCCAUX                    |         |           |              |          |         |           |         |2.5      |          |           |                |
 |P130      |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
 |P131      |           |IOBS     |IO_L35N_GCLK16_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
-|P132      |           |IOBM     |IO_L35P_GCLK17_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P132      |comm_tx    |IOB      |IO_L35P_GCLK17_0          |OUTPUT   |LVCMOS25*  |0             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |P133      |           |IOBS     |IO_L34N_GCLK18_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
-|P134      |           |IOBM     |IO_L34P_GCLK19_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P134      |comm_tm    |IOB      |IO_L34P_GCLK19_0          |OUTPUT   |LVCMOS25*  |0             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |P135      |           |         |VCCO_0                    |         |           |0             |          |         |           |         |2.50     |          |           |                |
 |P136      |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
 |P137      |           |IOBS     |IO_L4N_0                  |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
-|P138      |           |IOBM     |IO_L4P_0                  |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P138      |comm_tc    |IOB      |IO_L4P_0                  |OUTPUT   |LVCMOS25*  |0             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |P139      |           |IOBS     |IO_L3N_0                  |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
-|P140      |           |IOBM     |IO_L3P_0                  |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P140      |comm_rx    |IOB      |IO_L3P_0                  |INPUT    |LVCMOS25*  |0             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P141      |           |IOBS     |IO_L2N_0                  |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |P142      |           |IOBM     |IO_L2P_0                  |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
 |P143      |           |IOBS     |IO_L1N_VREF_0             |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
